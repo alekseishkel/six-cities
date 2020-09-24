@@ -1,6 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const App = () => {
+const WelcomeScreen = (props) => {
+  const {appartmentTypes} = props;
+
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -109,12 +112,12 @@ const App = () => {
                     </div>
                     <div className="place-card__rating rating">
                       <div className="place-card__stars rating__stars">
-                        <span style={{ width: "93%" }}></span>
+                        <span style={{width: `93%`}}></span>
                         <span className="visually-hidden">Rating</span>
                       </div>
                     </div>
                     <h2 className="place-card__name">
-                      <a href="#">Beautiful &amp; luxurious apartment at great location</a>
+                      <a href="#">{appartmentTypes[0]}</a>
                     </h2>
                     <p className="place-card__type">Apartment</p>
                   </div>
@@ -141,12 +144,12 @@ const App = () => {
                     </div>
                     <div className="place-card__rating rating">
                       <div className="place-card__stars rating__stars">
-                        <span style={{ width: "80%" }}></span>
+                        <span style={{width: `80%`}}></span>
                         <span className="visually-hidden">Rating</span>
                       </div>
                     </div>
                     <h2 className="place-card__name">
-                      <a href="#">Wood and stone place</a>
+                      <a href="#">{appartmentTypes[1]}</a>
                     </h2>
                     <p className="place-card__type">Private room</p>
                   </div>
@@ -173,12 +176,12 @@ const App = () => {
                     </div>
                     <div className="place-card__rating rating">
                       <div className="place-card__stars rating__stars">
-                        <span style={{ width: "80%" }}></span>
+                        <span style={{width: `80%`}}></span>
                         <span className="visually-hidden">Rating</span>
                       </div>
                     </div>
                     <h2 className="place-card__name">
-                      <a href="#">Canal View Prinsengracht</a>
+                      <a href="#">{appartmentTypes[2]}</a>
                     </h2>
                     <p className="place-card__type">Apartment</p>
                   </div>
@@ -208,12 +211,12 @@ const App = () => {
                     </div>
                     <div className="place-card__rating rating">
                       <div className="place-card__stars rating__stars">
-                        <span style={{ width: "100%" }}></span>
+                        <span style={{width: `100%`}}></span>
                         <span className="visually-hidden">Rating</span>
                       </div>
                     </div>
                     <h2 className="place-card__name">
-                      <a href="#">Nice, cozy, warm big bed apartment</a>
+                      <a href="#">{appartmentTypes[3]}</a>
                     </h2>
                     <p className="place-card__type">Apartment</p>
                   </div>
@@ -240,12 +243,12 @@ const App = () => {
                     </div>
                     <div className="place-card__rating rating">
                       <div className="place-card__stars rating__stars">
-                        <span style={{ width: "80%" }}></span>
+                        <span style={{width: `80%`}}></span>
                         <span className="visually-hidden">Rating</span>
                       </div>
                     </div>
                     <h2 className="place-card__name">
-                      <a href="#">Wood and stone place</a>
+                      <a href="#">{appartmentTypes[4]}</a>
                     </h2>
                     <p className="place-card__type">Private room</p>
                   </div>
@@ -259,7 +262,11 @@ const App = () => {
         </div>
       </main>
     </div>
-  )
+  );
 };
 
-export default App;
+WelcomeScreen.propTypes = {
+  appartmentTypes: PropTypes.arrayOf(PropTypes.string).isRequired
+};
+
+export default WelcomeScreen;
