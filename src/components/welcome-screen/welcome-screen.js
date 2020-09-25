@@ -129,7 +129,7 @@ const WelcomeScreen = (props) => {
                       <img className="place-card__image" src="img/room.jpg" width="260" height="200" alt="Place image" />
                     </a>
                   </div>
-                  <div className="place-card__info">
+                  <div className="place-card__info" onClick={func}>
                     <div className="place-card__price-wrapper">
                       <div className="place-card__price">
                         <b className="place-card__price-value">&euro;80</b>
@@ -161,7 +161,7 @@ const WelcomeScreen = (props) => {
                       <img className="place-card__image" src="img/apartment-02.jpg" width="260" height="200" alt="Place image" />
                     </a>
                   </div>
-                  <div className="place-card__info">
+                  <div className="place-card__info" onClick={func}>
                     <div className="place-card__price-wrapper">
                       <div className="place-card__price">
                         <b className="place-card__price-value">&euro;132</b>
@@ -196,7 +196,7 @@ const WelcomeScreen = (props) => {
                       <img className="place-card__image" src="img/apartment-03.jpg" width="260" height="200" alt="Place image" />
                     </a>
                   </div>
-                  <div className="place-card__info">
+                  <div className="place-card__info" onClick={func}>
                     <div className="place-card__price-wrapper">
                       <div className="place-card__price">
                         <b className="place-card__price-value">&euro;180</b>
@@ -228,7 +228,7 @@ const WelcomeScreen = (props) => {
                       <img className="place-card__image" src="img/room.jpg" width="260" height="200" alt="Place image" />
                     </a>
                   </div>
-                  <div className="place-card__info">
+                  <div className="place-card__info" onClick={func}>
                     <div className="place-card__price-wrapper">
                       <div className="place-card__price">
                         <b className="place-card__price-value">&euro;80</b>

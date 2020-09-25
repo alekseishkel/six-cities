@@ -250,6 +250,7 @@ exports[`App correctly renders after relaunch 1`] = `
               </div>
               <div
                 className="place-card__info"
+                onClick={[Function]}
               >
                 <div
                   className="place-card__price-wrapper"
@@ -344,6 +345,7 @@ exports[`App correctly renders after relaunch 1`] = `
               </div>
               <div
                 className="place-card__info"
+                onClick={[Function]}
               >
                 <div
                   className="place-card__price-wrapper"
@@ -438,6 +440,7 @@ exports[`App correctly renders after relaunch 1`] = `
               </div>
               <div
                 className="place-card__info"
+                onClick={[Function]}
               >
                 <div
                   className="place-card__price-wrapper"
@@ -539,6 +542,7 @@ exports[`App correctly renders after relaunch 1`] = `
               </div>
               <div
                 className="place-card__info"
+                onClick={[Function]}
               >
                 <div
                   className="place-card__price-wrapper"
@@ -633,6 +637,7 @@ exports[`App correctly renders after relaunch 1`] = `
               </div>
               <div
                 className="place-card__info"
+                onClick={[Function]}
               >
                 <div
                   className="place-card__price-wrapper"
