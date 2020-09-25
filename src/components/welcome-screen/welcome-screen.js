@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const WelcomeScreen = (props) => {
-  const {appartmentTypes} = props;
+  const {appartmentTypes, func} = props;
 
   return (
     <div className="page page--gray page--main">
@@ -97,7 +97,7 @@ const WelcomeScreen = (props) => {
                       <img className="place-card__image" src="img/apartment-01.jpg" width="260" height="200" alt="Place image" />
                     </a>
                   </div>
-                  <div className="place-card__info">
+                  <div className="place-card__info" onClick={func}>
                     <div className="place-card__price-wrapper">
                       <div className="place-card__price">
                         <b className="place-card__price-value">&euro;120</b>
@@ -266,7 +266,8 @@ const WelcomeScreen = (props) => {
 };
 
 WelcomeScreen.propTypes = {
-  appartmentTypes: PropTypes.arrayOf(PropTypes.string).isRequired
+  appartmentTypes: PropTypes.arrayOf(PropTypes.string).isRequired,
+  func: PropTypes.func.isRequired
 };
 
 export default WelcomeScreen;
