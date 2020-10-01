@@ -1,16 +1,17 @@
 import React from 'react';
 
-import WelcomeScreen from '../welcome-screen/welcome-screen';
+import MainPage from '../main-page/main-page.jsx';
 
 const appartmentTypes = [`Beautiful & luxurious apartment at great location`, `Wood and stone place`, `Canal View Prinsengracht`, `Nice, cozy, warm big bed apartment`, `Wood and stone place`];
 
 const fn = () => {
+  console.log(`fn`);
 };
 
 const App = () => {
   return (
     <div>
-      <WelcomeScreen appartmentTypes={appartmentTypes} func={fn} />
+      <MainPage appartmentTypes={appartmentTypes} func={fn} />
     </div>
   );
 };

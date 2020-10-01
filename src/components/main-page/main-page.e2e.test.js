@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, {shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import WelcomeScreen from './welcome-screen';
+import MainPage from './main-page.jsx';
 
 Enzyme.configure({adapter: new Adapter()});
 
@@ -11,7 +11,7 @@ it(`App correctly renders after relaunch`, () => {
 
   const clickHandler = jest.fn();
   const app = shallow(
-      <WelcomeScreen
+      <MainPage
         appartmentTypes={appartmentTypes} func={clickHandler}
       />
   );

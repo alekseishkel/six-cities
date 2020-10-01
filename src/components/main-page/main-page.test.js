@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import WelcomeScreen from './welcome-screen';
+import MainPage from './main-page.jsx';
 
 it(`App correctly renders after relaunch`, () => {
   const appartmentTypes = [`Beautiful & luxurious apartment at great location`, `Wood and stone place`, `Canal View Prinsengracht`, `Nice, cozy, warm big bed apartment`, `Wood and stone place`];
@@ -10,7 +10,7 @@ it(`App correctly renders after relaunch`, () => {
   };
 
   const tree = renderer.create(
-      <WelcomeScreen
+      <MainPage
         appartmentTypes={appartmentTypes}
         func={fn}
       />
