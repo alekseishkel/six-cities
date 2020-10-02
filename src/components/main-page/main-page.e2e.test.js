@@ -6,6 +6,8 @@ import MainPage from './main-page.jsx';
 
 Enzyme.configure({adapter: new Adapter()});
 
+// разобраться с тестом
+
 it(`MainPage correctly renders after relaunch`, () => {
   const clickHandler = jest.fn();
   const app = shallow(
@@ -15,7 +17,6 @@ it(`MainPage correctly renders after relaunch`, () => {
   );
 
   const headers = app.find(`.place-card__info`);
-  console.log(headers);
   headers.forEach((header) => {
     header.simulate(`click`);
   });
