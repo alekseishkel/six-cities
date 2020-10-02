@@ -7,6 +7,19 @@ import OfferCard from '../offer-card/offer-card.jsx';
 export default class SuggestionsList extends Component {
   constructor() {
     super();
+
+    this.state = {
+      activeCard: null
+    };
+
+    this.onActiveCardMouseOver = (cardId) => {
+      console.log(cardId);
+      this.setState(() => {
+        return {
+          activeCard: cardId
+        };
+      });
+    };
   }
 
   render() {
@@ -15,7 +28,12 @@ export default class SuggestionsList extends Component {
     return (
       <div className="cities__places-list places__list tabs__content">
         {offersCardsInfo.map((el, i) =>
-          <OfferCard key={el.description + i} func={func} cardsInfo={offersCardsInfo[i]}/>)}
+          <OfferCard
+            key={el.description + i}
+            id={el.description + i}
+            func={func} cardInfo={offersCardsInfo[i]}
+            currentActiveCard={this.onActiveCardMouseOver}
+          />)}
       </div>
     );
   }

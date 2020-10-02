@@ -2,15 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const OfferCard = (props) => {
-  const {func, cardsInfo} = props;
-  const {description, img, price, type} = cardsInfo;
+  const {func, cardInfo, id, currentActiveCard} = props;
+  const {description, img, price, type, isPremium} = cardInfo;
 
-  // сделать логику для премиума
-  return (
-    <article className="cities__place-card place-card">
+  const premiumLayout = () => {
+    return (
       <div className="place-card__mark">
         <span>Premium</span>
       </div>
+    );
+  };
+
+  return (
+    <article className="cities__place-card place-card" onMouseEnter={() => currentActiveCard(id)}>
+      {isPremium ? premiumLayout() : null}
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
           <img className="place-card__image" src={img} width="260" height="200" alt="Place image" />
@@ -46,7 +51,9 @@ const OfferCard = (props) => {
 
 OfferCard.propTypes = {
   func: PropTypes.func.isRequired,
-  cardsInfo: PropTypes.objectOf(PropTypes.string)
+  cardInfo: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.bool])).isRequired,
+  id: PropTypes.string.isRequired,
+  currentActiveCard: PropTypes.func.isRequired
 };
 
 export default OfferCard;
