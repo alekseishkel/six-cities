@@ -3,18 +3,13 @@ import renderer from 'react-test-renderer';
 
 import MainPage from './main-page.jsx';
 
-it(`App correctly renders after relaunch`, () => {
-  const appartmentTypes = [`Beautiful & luxurious apartment at great location`, `Wood and stone place`, `Canal View Prinsengracht`, `Nice, cozy, warm big bed apartment`, `Wood and stone place`];
-
-  const fn = () => {
-  };
+it(`MainPage correctly renders after relaunch`, () => {
 
   const tree = renderer.create(
       <MainPage
-        appartmentTypes={appartmentTypes}
-        func={fn}
+        func={jest.fn()}
       />
-  );
+  ).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

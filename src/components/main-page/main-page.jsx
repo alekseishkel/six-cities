@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import SuggestionsList from '../suggestions-list/suggestions-list.jsx';
 
-const WelcomeScreen = (props) => {
+const MainPage = (props) => {
   const {func} = props;
 
   return (
@@ -101,9 +101,8 @@ const WelcomeScreen = (props) => {
   );
 };
 
-WelcomeScreen.propTypes = {
-  appartmentTypes: PropTypes.arrayOf(PropTypes.string).isRequired,
+MainPage.propTypes = {
   func: PropTypes.func.isRequired
 };
 
-export default WelcomeScreen;
+export default MainPage;

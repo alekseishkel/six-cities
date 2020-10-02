@@ -13,7 +13,6 @@ export default class SuggestionsList extends Component {
     };
 
     this.onActiveCardMouseOver = (cardId) => {
-      console.log(cardId);
       this.setState(() => {
         return {
           activeCard: cardId
@@ -31,7 +30,8 @@ export default class SuggestionsList extends Component {
           <OfferCard
             key={el.description + i}
             id={el.description + i}
-            func={func} cardInfo={offersCardsInfo[i]}
+            func={func}
+            cardInfo={offersCardsInfo[i]}
             currentActiveCard={this.onActiveCardMouseOver}
           />)}
       </div>
