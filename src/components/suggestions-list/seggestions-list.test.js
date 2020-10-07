@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import SuggestionsList from './suggestions-list.jsx';
 
-it(`SuggestionsList correctly renders after relaunch`, () => {
+it(`SuggestionsList gets click`, () => {
   const tree = renderer.create(
       <SuggestionsList func={jest.fn()}/>
   );

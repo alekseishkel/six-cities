@@ -9,7 +9,6 @@ it(`OfferPage correctly renders after relaunch`, () => {
       <OfferCard
         func={jest.fn()}
         cardInfo={offersCardsInfo[0]}
-        id={offersCardsInfo[0].description + 1}
         currentActiveCard={jest.fn()}
       />
   );

@@ -12,7 +12,7 @@ export default class SuggestionsList extends Component {
       activeCard: null
     };
 
-    this.onActiveCardMouseOver = (cardId) => {
+    this.onActiveCardMouseEnter = (cardId) => {
       this.setState(() => {
         return {
           activeCard: cardId
@@ -29,10 +29,9 @@ export default class SuggestionsList extends Component {
         {offersCardsInfo.map((el, i) =>
           <OfferCard
             key={el.description + i}
-            id={el.description + i}
             func={func}
             cardInfo={offersCardsInfo[i]}
-            currentActiveCard={this.onActiveCardMouseOver}
+            currentActiveCard={this.onActiveCardMouseEnter}
           />)}
       </div>
     );

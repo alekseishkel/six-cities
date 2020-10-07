@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const OfferCard = (props) => {
-  const {func, cardInfo, id, currentActiveCard} = props;
+  const {func, cardInfo, currentActiveCard} = props;
   const {description, img, price, type, isPremium} = cardInfo;
 
   const premiumLayout = () => {
@@ -14,7 +14,7 @@ const OfferCard = (props) => {
   };
 
   return (
-    <article className="cities__place-card place-card" onMouseEnter={() => currentActiveCard(id)}>
+    <article className="cities__place-card place-card" onMouseEnter={() => currentActiveCard(cardInfo)}>
       {isPremium ? premiumLayout() : null}
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
@@ -52,7 +52,6 @@ const OfferCard = (props) => {
 OfferCard.propTypes = {
   func: PropTypes.func.isRequired,
   cardInfo: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.bool])).isRequired,
-  id: PropTypes.string.isRequired,
   currentActiveCard: PropTypes.func.isRequired
 };
 
