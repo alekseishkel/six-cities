@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import SuggestionsList from '../suggestions-list/suggestions-list.jsx';
+import Map from '../map/map.jsx';
 
 const MainPage = (props) => {
   const {func} = props;
@@ -92,7 +93,9 @@ const MainPage = (props) => {
               {<SuggestionsList func={func} />}
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <section className="cities__map map">
+                {<Map />}
+              </section>
             </div>
           </div>
         </div>
