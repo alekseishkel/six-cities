@@ -621,7 +621,11 @@ exports[`MainPage correctly renders after relaunch 1`] = `
         >
           <section
             className="cities__map map"
-          />
+          >
+            <div
+              id="map"
+            />
+          </section>
         </div>
       </div>
     </div>

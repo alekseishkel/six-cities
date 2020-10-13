@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-import offersCardsInfo from '../mocks/offers';
+import offersCardsInfo from '../../mocks/offers';
 import OfferCard from '../offer-card/offer-card.jsx';
 
 export default class SuggestionsList extends Component {

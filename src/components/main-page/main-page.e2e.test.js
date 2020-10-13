@@ -7,6 +7,9 @@ import MainPage from './main-page.jsx';
 Enzyme.configure({adapter: new Adapter()});
 
 it(`MainPage correctly renders after relaunch`, () => {
+  const mapContainer = global.document.createElement(`mapContainer`);
+  mapContainer.setAttribute(`id`, `map`);
+  global.document.body.appendChild(mapContainer);
   const clickHandler = jest.fn();
   const app = mount(
       <MainPage

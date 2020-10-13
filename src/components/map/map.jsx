@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import leaflet from 'leaflet';
 
-import citiesCoords from '../mocks/citiesCoords';
+import citiesCoords from '../../mocks/citiesCoords';
 
 import './map.css';
 
@@ -36,8 +36,6 @@ export default class Map extends Component {
     citiesCoords.forEach((coords) => {
       leaflet.marker(coords, {icon}).addTo(map);
     });
-
-
   }
 
   render() {

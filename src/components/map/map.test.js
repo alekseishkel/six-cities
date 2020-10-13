@@ -1,14 +1,15 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import App from './app';
+import Map from './map.jsx';
 
-it(`App correctly renders after relaunch`, () => {
+it(`Map correctly renders after relaunch`, () => {
   const mapContainer = document.createElement(`mapContainer`);
   mapContainer.setAttribute(`id`, `map`);
   document.body.appendChild(mapContainer);
 
-  const tree = renderer.create(<App />).toJSON();
-
-  expect(tree).toMatchSnapshot();
+  const map = renderer.create(
+      <Map />
+  ).toJSON();
+  expect(map).toMatchSnapshot();
 });

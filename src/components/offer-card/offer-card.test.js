@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import offersCardsInfo from '../mocks/offers';
+import offersCardsInfo from '../../mocks/offers';
 import OfferCard from './offer-card.jsx';
 
 it(`OfferPage correctly renders after relaunch`, () => {
@@ -11,7 +11,7 @@ it(`OfferPage correctly renders after relaunch`, () => {
         cardInfo={offersCardsInfo[0]}
         currentActiveCard={jest.fn()}
       />
-  );
+  ).toJSON();
 
   expect(tree).toMatchSnapshot();
 });
