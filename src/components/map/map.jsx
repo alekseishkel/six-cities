@@ -3,7 +3,7 @@ import leaflet from 'leaflet';
 
 import citiesCoords from '../../mocks/citiesCoords';
 
-import './map.css';
+// import './map.css';
 
 export default class Map extends Component {
   constructor() {
@@ -39,7 +39,7 @@ export default class Map extends Component {
   }
 
   render() {
-    return <div id="map"></div>;
+    return <div id="map" style={{width: `100%`, height: `100%`}}></div>;
   }
 }
 
