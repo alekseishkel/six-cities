@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-import offersCardsInfo from '../../mocks/offers';
 import OfferCard from '../offer-card/offer-card.jsx';
 
 export default class SuggestionsList extends Component {
@@ -22,15 +21,18 @@ export default class SuggestionsList extends Component {
   }
 
   render() {
-    const {func} = this.props;
+    const {func, isNeighbourhood, places} = this.props;
+
+    let divClassName = `cities__places-list places__list tabs__content`;
+    isNeighbourhood === true ? divClassName = `near-places__list places__list` : null;
 
     return (
-      <div className="cities__places-list places__list tabs__content">
-        {offersCardsInfo.map((el, i) =>
+      <div className={divClassName}>
+        {places.map((el, i) =>
           <OfferCard
             key={el.description + i}
             func={func}
-            cardInfo={offersCardsInfo[i]}
+            cardInfo={places[i]}
             currentActiveCard={this.onActiveCardMouseEnter}
           />)}
       </div>
@@ -39,5 +41,7 @@ export default class SuggestionsList extends Component {
 }
 
 SuggestionsList.propTypes = {
-  func: PropTypes.func.isRequired
+  func: PropTypes.func,
+  isNeighbourhood: PropTypes.bool.isRequired,
+  places: PropTypes.arrayOf(PropTypes.object)
 };

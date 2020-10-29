@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import SuggestionsList from '../suggestions-list/suggestions-list.jsx';
+// добавить Map
 import Map from '../map/map.jsx';
-
+import offersCardsInfo from '../../mocks/offers';
 const MainPage = (props) => {
   const {func} = props;
 
@@ -90,11 +91,11 @@ const MainPage = (props) => {
                   <li className="places__option" tabIndex="0">Top rated first</li>
                 </ul>
               </form>
-              {<SuggestionsList func={func} />}
+              {<SuggestionsList func={func} isNeighbourhood={false} places={offersCardsInfo}/>}
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">
-                {<Map />}
+
               </section>
             </div>
           </div>

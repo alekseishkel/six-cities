@@ -3,13 +3,30 @@ import PropTypes from 'prop-types';
 
 const OfferCard = (props) => {
   const {func, cardInfo, currentActiveCard} = props;
-  const {description, img, price, type, isPremium} = cardInfo;
+  const {description, img, price, type, isPremium, isBookmark} = cardInfo;
 
   const premiumLayout = () => {
     return (
       <div className="place-card__mark">
         <span>Premium</span>
       </div>
+    );
+  };
+
+  const bookmarkLayout = () => {
+    let buttonClassName;
+
+    isBookmark === true ?
+      buttonClassName = `place-card__bookmark-button place-card__bookmark-button--active button` :
+      buttonClassName = `place-card__bookmark-button button`;
+
+    return (
+      <button className={buttonClassName} type="button">
+        <svg className="place-card__bookmark-icon" width="18" height="19">
+          <use xlinkHref="#icon-bookmark"></use>
+        </svg>
+        <span className="visually-hidden">To bookmarks</span>
+      </button>
     );
   };
 
@@ -27,12 +44,7 @@ const OfferCard = (props) => {
             <b className="place-card__price-value">{price}</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
-          <button className="place-card__bookmark-button button" type="button">
-            <svg className="place-card__bookmark-icon" width="18" height="19">
-              <use xlinkHref="#icon-bookmark"></use>
-            </svg>
-            <span className="visually-hidden">To bookmarks</span>
-          </button>
+          {bookmarkLayout()}
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
@@ -50,7 +62,7 @@ const OfferCard = (props) => {
 };
 
 OfferCard.propTypes = {
-  func: PropTypes.func.isRequired,
+  func: PropTypes.func,
   cardInfo: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.bool])).isRequired,
   currentActiveCard: PropTypes.func.isRequired
 };
