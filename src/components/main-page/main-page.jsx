@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import SuggestionsList from '../suggestions-list/suggestions-list.jsx';
 // добавить Map
-import Map from '../map/map.jsx';
+// import Map from '../map/map.jsx';
 import offersCardsInfo from '../../mocks/offers';
 const MainPage = (props) => {
   const {func} = props;

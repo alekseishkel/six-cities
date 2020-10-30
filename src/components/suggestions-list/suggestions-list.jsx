@@ -24,7 +24,10 @@ export default class SuggestionsList extends Component {
     const {func, isNeighbourhood, places} = this.props;
 
     let divClassName = `cities__places-list places__list tabs__content`;
-    isNeighbourhood === true ? divClassName = `near-places__list places__list` : null;
+
+    if (isNeighbourhood === true) {
+      divClassName = `near-places__list places__list`;
+    }
 
     return (
       <div className={divClassName}>

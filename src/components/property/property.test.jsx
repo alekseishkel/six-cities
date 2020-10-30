@@ -1,16 +1,15 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import SuggestionsList from './suggestions-list.jsx';
-
-import nearbyPlaces from '../../mocks/nearbyPlaces';
+import Property from './property.jsx';
 
 it(`SuggestionsList correctly renders after relaunch`, () => {
+  const mapContainer = document.createElement(`mapContainer`);
+  mapContainer.setAttribute(`id`, `map`);
+  document.body.appendChild(mapContainer);
+
   const tree = renderer.create(
-      <SuggestionsList
-        isNeighbourhood={true}
-        func={jest.fn()}
-        places={nearbyPlaces}/>
+      <Property />
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

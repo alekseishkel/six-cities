@@ -16,9 +16,11 @@ const OfferCard = (props) => {
   const bookmarkLayout = () => {
     let buttonClassName;
 
-    isBookmark === true ?
-      buttonClassName = `place-card__bookmark-button place-card__bookmark-button--active button` :
+    if (isBookmark === true) {
+      buttonClassName = `place-card__bookmark-button place-card__bookmark-button--active button`;
+    } else {
       buttonClassName = `place-card__bookmark-button button`;
+    }
 
     return (
       <button className={buttonClassName} type="button">
