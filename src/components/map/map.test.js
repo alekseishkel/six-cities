@@ -11,5 +11,6 @@ it(`Map correctly renders after relaunch`, () => {
   const map = renderer.create(
       <Map />
   ).toJSON();
+
   expect(map).toMatchSnapshot();
 });
