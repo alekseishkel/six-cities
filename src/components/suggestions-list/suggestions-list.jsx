@@ -29,6 +29,7 @@ export default class SuggestionsList extends Component {
       divClassName = `near-places__list places__list`;
     }
 
+    console.log(places[0].Paris);
     return (
       <div className={divClassName}>
         {places.map((el, i) =>
