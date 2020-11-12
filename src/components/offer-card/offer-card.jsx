@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+
 const OfferCard = (props) => {
   const {func, cardInfo, currentActiveCard} = props;
   const {description, img, price, type, isPremium, isBookmark} = cardInfo;
