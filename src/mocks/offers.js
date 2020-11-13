@@ -1,5 +1,5 @@
 const offersCardsInfo = {
-  paris: [{
+  Paris: [{
     description: `Beautiful & luxurious apartment at great location`,
     img: `img/apartment-01.jpg`,
     price: `€120`,
@@ -15,7 +15,7 @@ const offersCardsInfo = {
     isPremium: false,
     isBookmark: false
   }],
-  cologne: [{
+  Cologne: [{
     description: `Canal View Prinsengracht`,
     img: `img/apartment-02.jpg`,
     price: `€132`,
@@ -23,7 +23,7 @@ const offersCardsInfo = {
     isPremium: false,
     isBookmark: false
   }],
-  bruselles: [{
+  Bruselles: [{
     description: `Beautiful & luxurious apartment at great location`,
     img: `img/apartment-01.jpg`,
     price: `€120`,
@@ -39,7 +39,7 @@ const offersCardsInfo = {
     isPremium: false,
     isBookmark: false
   }],
-  amsterdam: [{
+  Amsterdam: [{
     description: `Beautiful & luxurious apartment at great location`,
     img: `img/apartment-01.jpg`,
     price: `€120`,
@@ -71,7 +71,7 @@ const offersCardsInfo = {
     isPremium: false,
     isBookmark: false
   }],
-  hamburg: [{
+  Hamburg: [{
     description: `Beautiful & luxurious apartment at great location`,
     img: `img/apartment-01.jpg`,
     price: `€120`,
@@ -95,7 +95,7 @@ const offersCardsInfo = {
     isPremium: false,
     isBookmark: false
   }],
-  dusseldorf: [{
+  Dusseldorf: [{
     description: `Beautiful & luxurious apartment at great location`,
     img: `img/apartment-01.jpg`,
     price: `€120`,
