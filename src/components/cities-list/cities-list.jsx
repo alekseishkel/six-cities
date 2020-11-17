@@ -3,10 +3,11 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import offers from '../../mocks/offers';
+import {ActionCreator} from '../../reducer';
 
 class CitiesList extends Component {
   render() {
-    const {city} = this.props;
+    const {city, onCityClick} = this.props;
 
     return (
       <section className="locations container">
@@ -20,7 +21,7 @@ class CitiesList extends Component {
 
             return (
               <li className="locations__item" key={el + i}>
-                <a className={`locations__item-link tabs__item ` + isActiveClassName} href="#">
+                <a onClick={() => onCityClick(el)} className={`locations__item-link tabs__item ` + isActiveClassName} href="#">
                   <span>{el}</span>
                 </a>
               </li>
@@ -33,14 +34,21 @@ class CitiesList extends Component {
 }
 
 CitiesList.propTypes = {
-  city: PropTypes.string
+  city: PropTypes.string,
+  onCityClick: PropTypes.func
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   city: state.city
 });
 
+const mapDispatchToProps = (dispatch) => ({
+  onCityClick: (city) => {
+    dispatch(ActionCreator.changeCity(city));
+  }
+});
+
 
 export {CitiesList};
 
-export default connect(mapStateToProps)(CitiesList);
+export default connect(mapStateToProps, mapDispatchToProps)(CitiesList);

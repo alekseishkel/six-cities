@@ -1,7 +1,7 @@
 const ActionCreator = {
-  changeCity: () => ({
+  changeCity: (city) => ({
     type: `CHANGE_CITY`,
-    payload: ``
+    payload: city
   }),
 
   getOffersCoords: () => ({
@@ -53,6 +53,13 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case `CHANGE_CITY`:
+      return Object.assign({}, state, {
+        city: action.payload
+      });
+  }
+
   return state;
 };
 
