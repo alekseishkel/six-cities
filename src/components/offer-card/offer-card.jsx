@@ -66,7 +66,7 @@ const OfferCard = (props) => {
 
 OfferCard.propTypes = {
   func: PropTypes.func,
-  cardInfo: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.bool])).isRequired,
+  cardInfo: PropTypes.object.isRequired,
   currentActiveCard: PropTypes.func.isRequired
 };
 

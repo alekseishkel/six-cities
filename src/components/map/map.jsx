@@ -1,40 +1,57 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import leaflet from 'leaflet';
 
+import PropTypes from 'prop-types';
 import citiesCoords from '../../mocks/citiesCoords';
+
+// import citiesCoords from '../../mocks/citiesCoords';
 
 // import './map.css';
 
-export default class Map extends Component {
+class Map extends Component {
   constructor() {
     super();
+
+    this.map = null;
   }
 
   componentDidMount() {
-    const city = [52.38333, 4.9];
-    const zoom = 12;
+    this.renderMap();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.cityCoords !== prevProps.cityCoords) {
+      this.map.remove();
+      this.renderMap();
+    }
+  }
+
+  renderMap() {
+    const {city, cityCoords, places, zoom} = this.props;
+
     const icon = leaflet.icon({
       iconUrl: `img/pin.svg`,
       iconSize: [30, 30]
     });
 
-    const map = leaflet.map(`map`, {
-      center: city,
+    this.map = leaflet.map(`map`, {
+      center: cityCoords,
       zoom,
       zoomControl: false,
       marker: true
     });
 
-    map.setView(city, zoom);
+    this.map.setView(cityCoords, zoom);
 
     leaflet
       .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
         attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
       })
-      .addTo(map);
+      .addTo(this.map);
 
-    citiesCoords.forEach((coords) => {
-      leaflet.marker(coords, {icon}).addTo(map);
+    places[city].offers.forEach((offer) => {
+      leaflet.marker(offer.coords, {icon}).addTo(this.map);
     });
   }
 
@@ -42,5 +59,21 @@ export default class Map extends Component {
     return <div id="map" style={{width: `100%`, height: `100%`}}></div>;
   }
 }
+
+Map.propTypes = {
+  zoom: PropTypes.number.isRequired,
+  cityCoords: PropTypes.arrayOf(PropTypes.number).isRequired,
+  city: PropTypes.string.isRequired,
+  places: PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  cityCoords: state.cityCoords,
+  zoom: state.mapZoom
+});
+
+export {Map};
+
+export default connect(mapStateToProps)(Map);
 
 

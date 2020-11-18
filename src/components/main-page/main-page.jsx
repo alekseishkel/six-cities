@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import SuggestionsList from '../suggestions-list/suggestions-list.jsx';
@@ -7,7 +8,8 @@ import offersCardsInfo from '../../mocks/offers';
 import CitiesList from '../cities-list/cities-list.jsx';
 
 const MainPage = (props) => {
-  const {func} = props;
+  const {func, city} = props;
+  const offersNumber = offersCardsInfo[city].offers.length;
 
   return (
     <div className="page page--gray page--main">
@@ -43,7 +45,7 @@ const MainPage = (props) => {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">312 places to stay in Amsterdam</b>
+              <b className="places__found">{offersNumber} places to stay in {city}</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex="0">
@@ -59,11 +61,11 @@ const MainPage = (props) => {
                   <li className="places__option" tabIndex="0">Top rated first</li>
                 </ul>
               </form>
-              {<SuggestionsList func={func} isNeighbourhood={false} places={offersCardsInfo}/>}
+              {<SuggestionsList func={func} isNeighbourhood={false} places={offersCardsInfo} city={city}/>}
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">
-                {<Map />}
+                {<Map places={offersCardsInfo} city={city}/>}
               </section>
             </div>
           </div>
@@ -74,7 +76,14 @@ const MainPage = (props) => {
 };
 
 MainPage.propTypes = {
-  func: PropTypes.func.isRequired
+  func: PropTypes.func.isRequired,
+  city: PropTypes.string.isRequired
 };
 
-export default MainPage;
+const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  city: state.city
+});
+
+export {MainPage};
+
+export default connect(mapStateToProps)(MainPage);

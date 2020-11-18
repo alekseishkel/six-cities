@@ -45,7 +45,9 @@ const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
 const mapDispatchToProps = (dispatch) => ({
   onCityClick: (city) => {
     dispatch(ActionCreator.changeCity(city));
-  }
+    dispatch(ActionCreator.changeCityCoords(offers[city].cityCoords));
+    dispatch(ActionCreator.changeZoom(offers[city].mapZoom));
+  },
 });
 
 
