@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import offers from '../../mocks/offers';
 import {ActionCreator} from '../../reducer';
 
-class CitiesList extends Component {
+class CitiesTabs extends Component {
   render() {
     const {city, onCityClick} = this.props;
 
@@ -33,7 +33,7 @@ class CitiesList extends Component {
   }
 }
 
-CitiesList.propTypes = {
+CitiesTabs.propTypes = {
   city: PropTypes.string,
   onCityClick: PropTypes.func
 };
@@ -51,6 +51,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 
-export {CitiesList};
+export {CitiesTabs};
 
-export default connect(mapStateToProps, mapDispatchToProps)(CitiesList);
+export default connect(mapStateToProps, mapDispatchToProps)(CitiesTabs);

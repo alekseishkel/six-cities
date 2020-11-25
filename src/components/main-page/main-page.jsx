@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import SuggestionsList from '../suggestions-list/suggestions-list.jsx';
 import Map from '../map/map.jsx';
-import CitiesList from '../cities-list/cities-list.jsx';
+import CitiesTabs from '../cities-list/cities-tabs.jsx';
 import offersCardsInfo from '../../mocks/offers';
 
 const MainPage = (props) => {
@@ -39,7 +39,7 @@ const MainPage = (props) => {
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
-          {<CitiesList />}
+          {<CitiesTabs />}
         </div>
         <div className="cities">
           <div className="cities__places-container container">
