@@ -2,8 +2,8 @@ import React from 'react';
 
 import ReviewsList from '../reviews-list/reviews-list.jsx';
 import SuggestionsList from '../suggestions-list/suggestions-list.jsx';
-import Map from '../map/map.jsx';
-import nearbyPlaces from '../../mocks/nearbyPlaces.js';
+// import Map from '../map/map.jsx';
+import offersCardsInfo from '../../mocks/offers';
 
 const Property = () => {
   return (
@@ -203,13 +203,13 @@ const Property = () => {
             </div>
           </div>
           <section className="property__map map">
-            {<Map />}
+            {/* {<Map />} */}
           </section>
         </section>
         <div className="container">
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
-            {<SuggestionsList isNeighbourhood={true} places={nearbyPlaces}/>}
+            {<SuggestionsList isNeighbourhood={true} places={offersCardsInfo} city={`Paris`}/>}
           </section >
         </div >
       </main >

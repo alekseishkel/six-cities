@@ -12,14 +12,14 @@ it(`OfferCard gets correct data when omMouseEnter on card`, () => {
   const offerCard = mount(
       <OfferCard
         func={jest.fn()}
-        cardInfo={offersCardsInfo[0]}
+        cardInfo={offersCardsInfo.Paris.offers[0]}
         currentActiveCard={mouseEnterHandler}
       />
   );
 
   const card = offerCard.find(`.place-card`);
   card.simulate(`mouseenter`);
-  expect(mouseEnterHandler.mock.results[0].value).toEqual(offersCardsInfo[0]);
+  expect(mouseEnterHandler.mock.results[0].value).toEqual(offersCardsInfo.Paris.offers[0]);
 });
 
 

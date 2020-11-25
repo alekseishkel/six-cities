@@ -10,7 +10,7 @@ const App = () => {
   return (
     <div>
       <MainPage func={fn} />
-      {/* <Property /> */}
+      <Property />
     </div>
   );
 };

@@ -28,7 +28,7 @@ class SuggestionsList extends Component {
     if (isNeighbourhood === true) {
       divClassName = `near-places__list places__list`;
     }
-    console.log(places[city].offers);
+
     return (
       <div className={divClassName}>
         {places[city].offers.map((el, i) =>

@@ -1,7 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Map from './map.jsx';
+import {Map} from './map.jsx';
+import offersCardsInfo from '../../mocks/offers';
 
 it(`Map correctly renders after relaunch`, () => {
   const mapContainer = document.createElement(`mapContainer`);
@@ -9,7 +10,12 @@ it(`Map correctly renders after relaunch`, () => {
   document.body.appendChild(mapContainer);
 
   const map = renderer.create(
-      <Map />
+      <Map
+        zoom={12}
+        cityCoords={[48.8680266086781, 2.351173200195321]}
+        city={`Paris`}
+        places={offersCardsInfo}
+      />
   ).toJSON();
 
   expect(map).toMatchSnapshot();

@@ -8,7 +8,7 @@ it(`OfferPage correctly renders after relaunch`, () => {
   const tree = renderer.create(
       <OfferCard
         func={jest.fn()}
-        cardInfo={offersCardsInfo[0]}
+        cardInfo={offersCardsInfo.Paris.offers[0]}
         currentActiveCard={jest.fn()}
       />
   ).toJSON();

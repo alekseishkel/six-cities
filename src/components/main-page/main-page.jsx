@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 import SuggestionsList from '../suggestions-list/suggestions-list.jsx';
 import Map from '../map/map.jsx';
-import offersCardsInfo from '../../mocks/offers';
 import CitiesList from '../cities-list/cities-list.jsx';
+import offersCardsInfo from '../../mocks/offers';
 
 const MainPage = (props) => {
   const {func, city} = props;
@@ -61,11 +61,11 @@ const MainPage = (props) => {
                   <li className="places__option" tabIndex="0">Top rated first</li>
                 </ul>
               </form>
-              {<SuggestionsList func={func} isNeighbourhood={false} places={offersCardsInfo} city={city}/>}
+              {<SuggestionsList func={func} isNeighbourhood={false} places={offersCardsInfo} city={city} />}
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">
-                {<Map places={offersCardsInfo} city={city}/>}
+                {<Map places={offersCardsInfo} city={city} />}
               </section>
             </div>
           </div>
@@ -80,6 +80,7 @@ MainPage.propTypes = {
   city: PropTypes.string.isRequired
 };
 
+// получать сити в каждом отдельном компоненте
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   city: state.city
 });

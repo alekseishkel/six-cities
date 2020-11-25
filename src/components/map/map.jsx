@@ -3,9 +3,6 @@ import {connect} from 'react-redux';
 import leaflet from 'leaflet';
 
 import PropTypes from 'prop-types';
-import citiesCoords from '../../mocks/citiesCoords';
-
-// import citiesCoords from '../../mocks/citiesCoords';
 
 // import './map.css';
 
@@ -34,6 +31,7 @@ class Map extends Component {
       iconUrl: `img/pin.svg`,
       iconSize: [30, 30]
     });
+
 
     this.map = leaflet.map(`map`, {
       center: cityCoords,
@@ -69,7 +67,7 @@ Map.propTypes = {
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   cityCoords: state.cityCoords,
-  zoom: state.mapZoom
+  zoom: state.mapZoom,
 });
 
 export {Map};
