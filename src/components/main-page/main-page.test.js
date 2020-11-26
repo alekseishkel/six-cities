@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-import {reducer} from '../../reducer';
+import {reducer} from '../../reducer/reducer';
 
 import {MainPage} from './main-page.jsx';
 

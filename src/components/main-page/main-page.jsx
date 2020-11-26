@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import SuggestionsList from '../suggestions-list/suggestions-list.jsx';
 import Map from '../map/map.jsx';
-import CitiesTabs from '../cities-list/cities-tabs.jsx';
+import CitiesTabs from '../cities-tabs/cities-tabs.jsx';
 import offersCardsInfo from '../../mocks/offers';
 
 const MainPage = (props) => {
@@ -80,7 +80,6 @@ MainPage.propTypes = {
   city: PropTypes.string.isRequired
 };
 
-// получать сити в каждом отдельном компоненте
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   city: state.city
 });

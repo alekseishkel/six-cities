@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import offers from '../../mocks/offers';
-import {ActionCreator} from '../../reducer';
+import {ActionCreator} from '../../reducer/reducer';
 
 class CitiesTabs extends Component {
   render() {
