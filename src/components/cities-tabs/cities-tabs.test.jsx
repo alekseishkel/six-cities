@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import {CitiesTabs} from './cities-tabs.jsx';
 
-it(`App correctly renders after relaunch`, () => {
+it(`Cities tabs correctly renders after relaunch`, () => {
   const tree = renderer.create(
       <CitiesTabs />
   ).toJSON();

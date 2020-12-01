@@ -12,6 +12,16 @@ const ActionCreator = {
   changeZoom: (zoom) => ({
     type: `CHANGE_ZOOM`,
     payload: zoom
+  }),
+
+  toggleSorting: (sortingOpened) => ({
+    type: `TOGGLE_SORTING`,
+    payload: !sortingOpened
+  }),
+
+  changeSorting: (sorting) => ({
+    type: `CHANGE_SORTING`,
+    payload: sorting
   })
 };
 
@@ -19,6 +29,8 @@ const initialState = {
   city: `Paris`,
   cityCoords: [48.8680266086781, 2.351173200195321],
   mapZoom: 11,
+  sortingOpened: false,
+  sorting: `Popular`
 };
 
 const reducer = (state = initialState, action) => {
@@ -34,6 +46,14 @@ const reducer = (state = initialState, action) => {
     case `CHANGE_ZOOM`:
       return Object.assign({}, state, {
         mapZoom: action.payload
+      });
+    case `TOGGLE_SORTING`:
+      return Object.assign({}, state, {
+        sortingOpened: action.payload
+      });
+    case `CHANGE_SORTING`:
+      return Object.assign({}, state, {
+        sorting: action.payload
       });
     default:
       return state;

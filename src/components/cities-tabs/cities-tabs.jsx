@@ -38,10 +38,6 @@ CitiesTabs.propTypes = {
   onCityClick: PropTypes.func
 };
 
-const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  city: state.city
-});
-
 const mapDispatchToProps = (dispatch) => ({
   onCityClick: (city) => {
     dispatch(ActionCreator.changeCity(city));
@@ -53,4 +49,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 export {CitiesTabs};
 
-export default connect(mapStateToProps, mapDispatchToProps)(CitiesTabs);
+export default connect(null, mapDispatchToProps)(CitiesTabs);

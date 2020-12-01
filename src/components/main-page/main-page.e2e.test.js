@@ -16,7 +16,7 @@ it(`A click event is correctly simulated on the main page`, () => {
   mapContainer.setAttribute(`id`, `map`);
   global.document.body.appendChild(mapContainer);
   const clickHandler = jest.fn();
-  const app = mount(
+  const mainPage = mount(
       <Provider store={store}>
         <MainPage
           city={`Paris`}
@@ -25,7 +25,7 @@ it(`A click event is correctly simulated on the main page`, () => {
       </Provider>
   );
 
-  const headers = app.find(`.place-card__info`);
+  const headers = mainPage.find(`.place-card__info`);
   headers.forEach((header) => {
     header.simulate(`click`, {preventDefault() { }});
   });

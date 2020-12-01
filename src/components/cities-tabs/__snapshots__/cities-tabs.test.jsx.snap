@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App correctly renders after relaunch 1`] = `
+exports[`Cities tabs correctly renders after relaunch 1`] = `
 <section
   className="locations container"
 >

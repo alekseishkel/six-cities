@@ -9,7 +9,7 @@ const offersCardsInfo = {
       type: `Private room`,
       isPremium: false,
       isBookmark: false,
-      coords: [48.912891, 2.273364]
+      coords: [48.91291, 2.273364]
     },
     {
       description: `Beautiful & luxurious apartment at great location`,
