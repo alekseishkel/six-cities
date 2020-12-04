@@ -82,6 +82,91 @@ describe(`Reducer works correctly`, () => {
       activeCard: null
     });
   });
+
+  it(`Reducer should correctly change toggle sorting`, () => {
+    expect(reducer({
+      city: `Paris`,
+      offers: offers.Paris.offers,
+      cityCoords: [48.8680266086781, 2.351173200195321],
+      mapZoom: 11,
+      sortingOpened: false,
+      sorting: `Popular`,
+      activeCard: null
+    }, {
+      type: `TOGGLE_SORTING`,
+      payload: true
+    })).toEqual({
+      city: `Paris`,
+      offers: offers.Paris.offers,
+      cityCoords: [48.8680266086781, 2.351173200195321],
+      mapZoom: 11,
+      sortingOpened: true,
+      sorting: `Popular`,
+      activeCard: null
+    });
+  });
+
+  it(`Reducer should correctly change sorting`, () => {
+    expect(reducer({
+      city: `Paris`,
+      offers: offers.Paris.offers,
+      cityCoords: [48.8680266086781, 2.351173200195321],
+      mapZoom: 11,
+      sortingOpened: false,
+      sorting: `Popular`,
+      activeCard: null
+    }, {
+      type: `CHANGE_SORTING`,
+      payload: `Price: low to high`
+    })).toEqual({
+      city: `Paris`,
+      offers: offers.Paris.offers,
+      cityCoords: [48.8680266086781, 2.351173200195321],
+      mapZoom: 11,
+      sortingOpened: false,
+      sorting: `Price: low to high`,
+      activeCard: null
+    });
+  });
+
+  it(`Reducer should correctly change active card`, () => {
+    expect(reducer({
+      city: `Paris`,
+      offers: offers.Paris.offers,
+      cityCoords: [48.8680266086781, 2.351173200195321],
+      mapZoom: 11,
+      sortingOpened: false,
+      sorting: `Popular`,
+      activeCard: null
+    }, {
+      type: `CHANGE_ACTIVE_CARD`,
+      payload: {
+        description: `Wood and stone place`,
+        img: `img/room.jpg`,
+        price: `80`,
+        type: `Private room`,
+        isPremium: false,
+        isBookmark: false,
+        coords: [48.91291, 2.273364]
+      }
+    })).toEqual({
+      city: `Paris`,
+      offers: offers.Paris.offers,
+      cityCoords: [48.8680266086781, 2.351173200195321],
+      mapZoom: 11,
+      sortingOpened: false,
+      sorting: `Popular`,
+      activeCard: {
+        description: `Wood and stone place`,
+        img: `img/room.jpg`,
+        price: `80`,
+        type: `Private room`,
+        isPremium: false,
+        isBookmark: false,
+        coords: [48.91291, 2.273364]
+      }
+    });
+  });
 });
 
 describe(`Action creators works correctly`, () => {
@@ -108,6 +193,49 @@ describe(`Action creators works correctly`, () => {
         {
           type: `CHANGE_CITY`,
           payload: 12
+        }
+    );
+  });
+
+  it(`Action creator for toggling sorting returns correct action`, () => {
+    expect(ActionCreator.toggleSorting(true)).toEqual(
+        {
+          type: `TOGGLE_SORTING`,
+          payload: false
+        }
+    );
+  });
+
+  it(`Action creator for changing sorting returns correct action`, () => {
+    expect(ActionCreator.changeSorting(`Price: low to high`)).toEqual(
+        {
+          type: `CHANGE_SORTING`,
+          payload: `Price: low to high`
+        }
+    );
+  });
+
+  it(`Action creator for changing active  returns correct action`, () => {
+    expect(ActionCreator.changeActiveCard({
+      description: `Wood and stone place`,
+      img: `img/room.jpg`,
+      price: `80`,
+      type: `Private room`,
+      isPremium: false,
+      isBookmark: false,
+      coords: [48.91291, 2.273364]
+    })).toEqual(
+        {
+          type: `CHANGE_ACTIVE_CARD`,
+          payload: {
+            description: `Wood and stone place`,
+            img: `img/room.jpg`,
+            price: `80`,
+            type: `Private room`,
+            isPremium: false,
+            isBookmark: false,
+            coords: [48.91291, 2.273364]
+          }
         }
     );
   });
