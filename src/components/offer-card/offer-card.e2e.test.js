@@ -22,4 +22,19 @@ it(`OfferCard gets correct data when omMouseEnter on card`, () => {
   expect(mouseEnterHandler.mock.results[0].value).toEqual(offersCardsInfo.Paris.offers[0]);
 });
 
+it(`OfferCard gets active card equals null when omMouseLeace on card`, () => {
+  const mouseEnterHandler = jest.fn((id) => id);
+  const offerCard = mount(
+      <OfferCard
+        func={jest.fn()}
+        cardInfo={offersCardsInfo.Paris.offers[0]}
+        currentActiveCard={mouseEnterHandler}
+      />
+  );
+
+  const card = offerCard.find(`.place-card`);
+  card.simulate(`mouseleave`);
+  expect(mouseEnterHandler.mock.results[0].value).toEqual(null);
+});
+
 
