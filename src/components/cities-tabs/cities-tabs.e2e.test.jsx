@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme, {mount} from 'enzyme';
+import Enzyme, {shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import {createStore} from 'redux';
@@ -14,7 +14,7 @@ it(`Cities correctly change on click event`, () => {
   const store = createStore(reducer);
   const clickHandler = jest.fn((city) => (city));
 
-  const citiesTabs = mount(
+  const citiesTabs = shallow(
       <Provider store={store}>
         <CitiesTabs
           city={`Paris`}
@@ -26,7 +26,7 @@ it(`Cities correctly change on click event`, () => {
   const tabs = citiesTabs.find(`.tabs__item`);
   tabs.forEach((tab) => {
     tab.simulate(`click`);
-    console.log(clickHandler.mock);
+    console.log(tab);
     expect(clickHandler.mock.results[0].value).toEqual(`Paris`);
   });
 });

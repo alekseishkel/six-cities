@@ -1,18 +1,23 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import {reducer} from '../../reducer/reducer';
+
 import SuggestionsList from './suggestions-list.jsx';
-
-import offersCardsInfo from '../../mocks/offers';
-
+import offers from '../../mocks/offers';
 
 it(`SuggestionsList correctly renders after relaunch`, () => {
+  const store = createStore(reducer);
+
   const tree = renderer.create(
-      <SuggestionsList
-        isNeighbourhood={true}
-        func={jest.fn()}
-        places={offersCardsInfo}
-        city={`Paris`}/>
+      <Provider store={store}>
+        <SuggestionsList
+          isNeighbourhood={true}
+          func={jest.fn()}
+          offers={offers.Paris.offers}/>
+      </Provider>
   ).toJSON();
 
   expect(tree).toMatchSnapshot();

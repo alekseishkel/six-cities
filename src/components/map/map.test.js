@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 
 import {Map} from './map.jsx';
-import offersCardsInfo from '../../mocks/offers';
+import offers from '../../mocks/offers';
 
 it(`Map correctly renders after relaunch`, () => {
   const mapContainer = document.createElement(`mapContainer`);
@@ -13,8 +13,8 @@ it(`Map correctly renders after relaunch`, () => {
       <Map
         zoom={12}
         cityCoords={[48.8680266086781, 2.351173200195321]}
-        city={`Paris`}
-        places={offersCardsInfo}
+        offers={offers.Paris.offers}
+        activeCard={null}
       />
   ).toJSON();
 

@@ -8,6 +8,8 @@ import {reducer} from '../../reducer/reducer';
 
 import {MainPage} from './main-page.jsx';
 
+import offers from '../../mocks/offers';
+
 Enzyme.configure({adapter: new Adapter()});
 
 it(`A click event is correctly simulated on the main page`, () => {
@@ -21,6 +23,7 @@ it(`A click event is correctly simulated on the main page`, () => {
         <MainPage
           city={`Paris`}
           func={clickHandler}
+          offers={offers.Paris.offers}
         />
       </Provider>
   );

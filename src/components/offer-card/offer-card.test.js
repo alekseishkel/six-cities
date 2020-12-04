@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 
 import offersCardsInfo from '../../mocks/offers';
-import OfferCard from './offer-card.jsx';
+import {OfferCard} from './offer-card.jsx';
 
 it(`OfferPage correctly renders after relaunch`, () => {
   const tree = renderer.create(

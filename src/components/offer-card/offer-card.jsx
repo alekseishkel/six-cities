@@ -72,7 +72,7 @@ const OfferCard = (props) => {
 OfferCard.propTypes = {
   func: PropTypes.func,
   cardInfo: PropTypes.object.isRequired,
-  currentActiveCard: PropTypes.func.isRequired
+  currentActiveCard: PropTypes.func
 };
 
 const mapDispatchToProps = (dispatch) => ({

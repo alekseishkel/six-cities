@@ -34,8 +34,8 @@ class CitiesTabs extends Component {
 }
 
 CitiesTabs.propTypes = {
-  city: PropTypes.string,
-  onCityClick: PropTypes.func
+  city: PropTypes.string.isRequired,
+  onCityClick: PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = (dispatch) => ({

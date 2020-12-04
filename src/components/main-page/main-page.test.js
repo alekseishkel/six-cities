@@ -7,6 +7,8 @@ import {reducer} from '../../reducer/reducer';
 
 import {MainPage} from './main-page.jsx';
 
+import offers from '../../mocks/offers';
+
 it(`MainPage correctly renders after relaunch`, () => {
   const store = createStore(reducer);
   const mapContainer = document.createElement(`mapContainer`);
@@ -18,6 +20,7 @@ it(`MainPage correctly renders after relaunch`, () => {
         <MainPage
           city={`Paris`}
           func={jest.fn()}
+          offers={offers.Paris.offers}
         />
       </Provider>
   ).toJSON();
