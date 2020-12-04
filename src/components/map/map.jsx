@@ -22,16 +22,33 @@ class Map extends Component {
       this.map.remove();
       this.renderMap();
     }
+
+    if (this.props.activeCard !== prevProps.activeCard) {
+      this.map.eachLayer((layer) => {
+        if (this.props.activeCard !== null &&
+          layer._latlng &&
+          layer._latlng.lat === this.props.activeCard.coords[0] &&
+          layer._latlng.lng === this.props.activeCard.coords[1]) {
+          layer._icon.src = `img/pin-active.svg`;
+        }
+
+        if (this.props.activeCard === null &&
+              layer._latlng &&
+              layer._latlng.lat === prevProps.activeCard.coords[0] &&
+              layer._latlng.lng === prevProps.activeCard.coords[1]) {
+          layer._icon.src = `img/pin.svg`;
+        }
+      });
+    }
   }
 
   renderMap() {
-    const {city, cityCoords, places, zoom} = this.props;
+    const {cityCoords, offers, zoom} = this.props;
 
     const icon = leaflet.icon({
       iconUrl: `img/pin.svg`,
       iconSize: [30, 30]
     });
-
 
     this.map = leaflet.map(`map`, {
       center: cityCoords,
@@ -48,9 +65,12 @@ class Map extends Component {
       })
       .addTo(this.map);
 
-    places[city].offers.forEach((offer) => {
-      leaflet.marker(offer.coords, {icon}).addTo(this.map);
+    offers.forEach((offer) => {
+      leaflet
+        .marker(offer.coords, {icon, alt: `Marker with coodrs ${offer.coords[0]}, ${offer.coords[1]}`})
+        .addTo(this.map);
     });
+
   }
 
   render() {
@@ -61,13 +81,14 @@ class Map extends Component {
 Map.propTypes = {
   zoom: PropTypes.number.isRequired,
   cityCoords: PropTypes.arrayOf(PropTypes.number).isRequired,
-  city: PropTypes.string.isRequired,
-  places: PropTypes.object.isRequired
+  offers: PropTypes.arrayOf(PropTypes.object).isRequired,
+  activeCard: PropTypes.object
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   cityCoords: state.cityCoords,
   zoom: state.mapZoom,
+  activeCard: state.activeCard
 });
 
 export {Map};

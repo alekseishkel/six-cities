@@ -1,55 +1,33 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import OfferCard from '../offer-card/offer-card.jsx';
 
-class SuggestionsList extends Component {
-  constructor() {
-    super();
+const SuggestionsList = ({func, isNeighbourhood, offers}) => {
+  let divClassName = `cities__places-list places__list tabs__content`;
 
-    this.state = {
-      activeCard: null
-    };
-
-    this.onActiveCardMouseEnter = (cardId) => {
-      this.setState(() => {
-        return {
-          activeCard: cardId
-        };
-      });
-    };
+  if (isNeighbourhood === true) {
+    divClassName = `near-places__list places__list`;
   }
 
-  render() {
-    const {func, isNeighbourhood, places, city} = this.props;
-
-    let divClassName = `cities__places-list places__list tabs__content`;
-
-    if (isNeighbourhood === true) {
-      divClassName = `near-places__list places__list`;
-    }
-
-    return (
-      <div className={divClassName}>
-        {places[city].offers.map((el, i) =>
-          <OfferCard
-            key={el.description + i}
-            func={func}
-            cardInfo={el}
-            currentActiveCard={this.onActiveCardMouseEnter}
-          />
-        )
-        }
-      </div>
-    );
-  }
-}
+  return (
+    <div className={divClassName}>
+      {offers.map((el, i) =>
+        <OfferCard
+          key={el.description + i}
+          func={func}
+          cardInfo={el}
+        />
+      )
+      }
+    </div>
+  );
+};
 
 SuggestionsList.propTypes = {
   func: PropTypes.func,
   isNeighbourhood: PropTypes.bool.isRequired,
-  places: PropTypes.object.isRequired,
-  city: PropTypes.string.isRequired,
+  offers: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default SuggestionsList;

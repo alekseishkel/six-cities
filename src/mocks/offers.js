@@ -5,7 +5,7 @@ const offersCardsInfo = {
     offers: [{
       description: `Wood and stone place`,
       img: `img/room.jpg`,
-      price: `€80`,
+      price: `80`,
       type: `Private room`,
       isPremium: false,
       isBookmark: false,
@@ -14,7 +14,7 @@ const offersCardsInfo = {
     {
       description: `Beautiful & luxurious apartment at great location`,
       img: `img/apartment-01.jpg`,
-      price: `€120`,
+      price: `120`,
       type: `Apartment`,
       isPremium: true,
       isBookmark: false,
@@ -27,7 +27,7 @@ const offersCardsInfo = {
     offers: [{
       description: `Canal View Prinsengracht`,
       img: `img/apartment-02.jpg`,
-      price: `€132`,
+      price: `132`,
       type: `Apartment`,
       isPremium: false,
       isBookmark: false,
@@ -40,7 +40,7 @@ const offersCardsInfo = {
     offers: [{
       description: `Beautiful & luxurious apartment at great location`,
       img: `img/apartment-01.jpg`,
-      price: `€120`,
+      price: `120`,
       type: `Apartment`,
       isPremium: true,
       isBookmark: false,
@@ -49,7 +49,7 @@ const offersCardsInfo = {
     {
       description: `Nice, cozy, warm big bed apartment`,
       img: `img/apartment-03.jpg`,
-      price: `€180`,
+      price: `180`,
       type: `Apartment`,
       isPremium: false,
       isBookmark: false,
@@ -62,7 +62,7 @@ const offersCardsInfo = {
     offers: [{
       description: `Canal View Prinsengracht`,
       img: `img/apartment-02.jpg`,
-      price: `€132`,
+      price: `132`,
       type: `Apartment`,
       isPremium: false,
       isBookmark: false,
@@ -71,7 +71,7 @@ const offersCardsInfo = {
     {
       description: `Beautiful & luxurious apartment at great location`,
       img: `img/apartment-01.jpg`,
-      price: `€120`,
+      price: `120`,
       type: `Apartment`,
       isPremium: true,
       isBookmark: false,
@@ -80,7 +80,7 @@ const offersCardsInfo = {
     {
       description: `Wood and stone place`,
       img: `img/room.jpg`,
-      price: `€80`,
+      price: `80`,
       type: `Private room`,
       isPremium: false,
       isBookmark: false,
@@ -89,7 +89,7 @@ const offersCardsInfo = {
     {
       description: `Nice, cozy, warm big bed apartment`,
       img: `img/apartment-03.jpg`,
-      price: `€180`,
+      price: `180`,
       type: `Apartment`,
       isPremium: false,
       isBookmark: false,
@@ -102,7 +102,7 @@ const offersCardsInfo = {
     offers: [{
       description: `Beautiful & luxurious apartment at great location`,
       img: `img/apartment-01.jpg`,
-      price: `€120`,
+      price: `120`,
       type: `Apartment`,
       isPremium: true,
       isBookmark: false,
@@ -111,7 +111,7 @@ const offersCardsInfo = {
     {
       description: `Canal View Prinsengracht`,
       img: `img/apartment-02.jpg`,
-      price: `€132`,
+      price: `132`,
       type: `Apartment`,
       isPremium: false,
       isBookmark: false,
@@ -120,7 +120,7 @@ const offersCardsInfo = {
     {
       description: `Wood and stone place`,
       img: `img/room.jpg`,
-      price: `€80`,
+      price: `80`,
       type: `Private room`,
       isPremium: false,
       isBookmark: false,
@@ -133,7 +133,7 @@ const offersCardsInfo = {
     offers: [{
       description: `Nice, cozy, warm big bed apartment`,
       img: `img/apartment-03.jpg`,
-      price: `€180`,
+      price: `180`,
       type: `Apartment`,
       isPremium: false,
       isBookmark: false,
@@ -142,7 +142,7 @@ const offersCardsInfo = {
     {
       description: `Beautiful & luxurious apartment at great location`,
       img: `img/apartment-01.jpg`,
-      price: `€120`,
+      price: `120`,
       type: `Apartment`,
       isPremium: true,
       isBookmark: false,

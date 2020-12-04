@@ -1,5 +1,8 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+
+import {ActionCreator} from '../../reducer/reducer';
 
 const OfferCard = (props) => {
   const {func, cardInfo, currentActiveCard} = props;
@@ -33,7 +36,10 @@ const OfferCard = (props) => {
   };
 
   return (
-    <article className="cities__place-card place-card" onMouseEnter={() => currentActiveCard(cardInfo)}>
+    <article
+      className="cities__place-card place-card"
+      onMouseEnter={() => currentActiveCard(cardInfo)}
+      onMouseLeave={() => currentActiveCard(null)}>
       {isPremium ? premiumLayout() : null}
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
@@ -43,7 +49,7 @@ const OfferCard = (props) => {
       <div className="place-card__info" onClick={func}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
-            <b className="place-card__price-value">{price}</b>
+            <b className="place-card__price-value">€{price}</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
           {bookmarkLayout()}
@@ -69,4 +75,12 @@ OfferCard.propTypes = {
   currentActiveCard: PropTypes.func.isRequired
 };
 
-export default OfferCard;
+const mapDispatchToProps = (dispatch) => ({
+  currentActiveCard: (cardInfo) => {
+    dispatch(ActionCreator.changeActiveCard(cardInfo));
+  },
+});
+
+export {OfferCard};
+
+export default connect(null, mapDispatchToProps)(OfferCard);

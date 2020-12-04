@@ -9,7 +9,7 @@ import SortOptions from '../sort-options/sort-options.jsx';
 import offersCardsInfo from '../../mocks/offers';
 
 const MainPage = (props) => {
-  const {func, city} = props;
+  const {func, city, offers} = props;
   const offersNumber = offersCardsInfo[city].offers.length;
 
   return (
@@ -48,11 +48,11 @@ const MainPage = (props) => {
               <h2 className="visually-hidden">Places</h2>
               <b className="places__found">{offersNumber} places to stay in {city}</b>
               {<SortOptions />}
-              {<SuggestionsList func={func} isNeighbourhood={false} places={offersCardsInfo} city={city} />}
+              {<SuggestionsList func={func} isNeighbourhood={false} offers={offers} />}
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">
-                {<Map places={offersCardsInfo} city={city} />}
+                {<Map offers={offers} />}
               </section>
             </div>
           </div>
@@ -64,11 +64,13 @@ const MainPage = (props) => {
 
 MainPage.propTypes = {
   func: PropTypes.func.isRequired,
-  city: PropTypes.string.isRequired
+  city: PropTypes.string.isRequired,
+  offers: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  city: state.city
+  city: state.city,
+  offers: state.offers
 });
 
 export {MainPage};

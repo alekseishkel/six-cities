@@ -43,6 +43,8 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.changeCity(city));
     dispatch(ActionCreator.changeCityCoords(offers[city].cityCoords));
     dispatch(ActionCreator.changeZoom(offers[city].mapZoom));
+    dispatch(ActionCreator.changeOffers(offers[city].offers));
+    dispatch(ActionCreator.changeSorting(`Popular`));
   },
 });
 

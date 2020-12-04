@@ -1,9 +1,9 @@
 import React from 'react';
 
 import ReviewsList from '../reviews-list/reviews-list.jsx';
-import SuggestionsList from '../suggestions-list/suggestions-list.jsx';
+// import SuggestionsList from '../suggestions-list/suggestions-list.jsx';
 // import Map from '../map/map.jsx';
-import offersCardsInfo from '../../mocks/offers';
+// import offersCardsInfo from '../../mocks/offers';
 
 const Property = () => {
   return (
@@ -209,7 +209,7 @@ const Property = () => {
         <div className="container">
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
-            {<SuggestionsList isNeighbourhood={true} places={offersCardsInfo} city={`Paris`}/>}
+            {/* {<SuggestionsList isNeighbourhood={true} places={offersCardsInfo} city={`Paris`}/>} */}
           </section >
         </div >
       </main >
