@@ -11,16 +11,36 @@ class Map extends Component {
     super();
 
     this.map = null;
+
+    this.state = {
+      zoom: null,
+      cityCoords: null
+    };
   }
 
   componentDidMount() {
-    this.renderMap();
+    this.setState(
+        {
+          zoom: this.props.zoom,
+          cityCoords: this.props.cityCoords
+        }, () => {
+          this.renderMap();
+        }
+    );
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.cityCoords !== prevProps.cityCoords) {
+    if (this.props.city !== prevProps.city) {
       this.map.remove();
-      this.renderMap();
+
+      this.setState(
+          {
+            zoom: this.props.zoom,
+            cityCoords: this.props.cityCoords
+          }, () => {
+            this.renderMap();
+          }
+      );
     }
 
     if (this.props.activeCard !== prevProps.activeCard) {
@@ -43,7 +63,7 @@ class Map extends Component {
   }
 
   renderMap() {
-    const {cityCoords, offers, zoom} = this.props;
+    const {offers} = this.props;
 
     const icon = leaflet.icon({
       iconUrl: `img/pin.svg`,
@@ -51,13 +71,13 @@ class Map extends Component {
     });
 
     this.map = leaflet.map(`map`, {
-      center: cityCoords,
-      zoom,
+      center: this.state.cityCoords,
+      zoom: this.state.zoom,
       zoomControl: false,
       marker: true
     });
 
-    this.map.setView(cityCoords, zoom);
+    this.map.setView(this.state.cityCoords, this.state.zoom);
 
     leaflet
       .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
@@ -79,6 +99,7 @@ class Map extends Component {
 }
 
 Map.propTypes = {
+  city: PropTypes.string.isRequired,
   zoom: PropTypes.number.isRequired,
   cityCoords: PropTypes.arrayOf(PropTypes.number).isRequired,
   offers: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -86,8 +107,7 @@ Map.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  cityCoords: state.cityCoords,
-  zoom: state.mapZoom,
+  city: state.city,
   activeCard: state.activeCard
 });
 

@@ -3,7 +3,20 @@ import PropTypes from 'prop-types';
 
 import OfferCard from '../offer-card/offer-card.jsx';
 
-const SuggestionsList = ({func, isNeighbourhood, offers}) => {
+const SuggestionsList = ({func, isNeighbourhood, offers, sorting}) => {
+  let places = offers.slice();
+
+  if (sorting === `Popular`) {
+    places = offers;
+  }
+
+  if (sorting === `Price: low to high`) {
+    places.sort((a, b) => a.price - b.price);
+  }
+
+  if (sorting === `Price: high to low`) {
+    places.sort((a, b) => b.price - a.price);
+  }
   let divClassName = `cities__places-list places__list tabs__content`;
 
   if (isNeighbourhood === true) {
@@ -12,7 +25,7 @@ const SuggestionsList = ({func, isNeighbourhood, offers}) => {
 
   return (
     <div className={divClassName}>
-      {offers.map((el, i) =>
+      {places.map((el, i) =>
         <OfferCard
           key={el.description + i}
           func={func}
@@ -26,6 +39,8 @@ const SuggestionsList = ({func, isNeighbourhood, offers}) => {
 
 SuggestionsList.propTypes = {
   func: PropTypes.func,
+  city: PropTypes.string.isRequired,
+  sorting: PropTypes.string.isRequired,
   isNeighbourhood: PropTypes.bool.isRequired,
   offers: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

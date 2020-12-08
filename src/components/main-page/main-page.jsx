@@ -6,11 +6,10 @@ import SuggestionsList from '../suggestions-list/suggestions-list.jsx';
 import Map from '../map/map.jsx';
 import CitiesTabs from '../cities-tabs/cities-tabs.jsx';
 import SortOptions from '../sort-options/sort-options.jsx';
-import offersCardsInfo from '../../mocks/offers';
 
 const MainPage = (props) => {
-  const {func, city, offers} = props;
-  const offersNumber = offersCardsInfo[city].offers.length;
+  const {func, city, offers, sorting} = props;
+  const offersNumber = offers[city].offers.length;
 
   return (
     <div className="page page--gray page--main">
@@ -48,11 +47,11 @@ const MainPage = (props) => {
               <h2 className="visually-hidden">Places</h2>
               <b className="places__found">{offersNumber} places to stay in {city}</b>
               {<SortOptions />}
-              {<SuggestionsList func={func} isNeighbourhood={false} offers={offers} />}
+              {<SuggestionsList func={func} isNeighbourhood={false} city={city} offers={offers[city].offers} sorting={sorting}/>}
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">
-                {<Map offers={offers} />}
+                {<Map offers={offers[city].offers} zoom={offers[city].mapZoom} cityCoords={offers[city].cityCoords}/>}
               </section>
             </div>
           </div>
@@ -65,12 +64,14 @@ const MainPage = (props) => {
 MainPage.propTypes = {
   func: PropTypes.func.isRequired,
   city: PropTypes.string.isRequired,
-  offers: PropTypes.arrayOf(PropTypes.object).isRequired
+  offers: PropTypes.object.isRequired,
+  sorting: PropTypes.string.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   city: state.city,
-  offers: state.offers
+  offers: state.offers,
+  sorting: state.sorting
 });
 
 export {MainPage};

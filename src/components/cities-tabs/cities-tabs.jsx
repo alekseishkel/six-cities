@@ -41,9 +41,6 @@ CitiesTabs.propTypes = {
 const mapDispatchToProps = (dispatch) => ({
   onCityClick: (city) => {
     dispatch(ActionCreator.changeCity(city));
-    dispatch(ActionCreator.changeCityCoords(offers[city].cityCoords));
-    dispatch(ActionCreator.changeZoom(offers[city].mapZoom));
-    dispatch(ActionCreator.changeOffers(offers[city].offers));
     dispatch(ActionCreator.changeSorting(`Popular`));
   },
 });
