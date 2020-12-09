@@ -4,7 +4,7 @@ import leaflet from 'leaflet';
 
 import PropTypes from 'prop-types';
 
-// import './map.css';
+import './map.css';
 
 class Map extends Component {
   constructor() {
@@ -94,7 +94,7 @@ class Map extends Component {
   }
 
   render() {
-    return <div id="map" style={{width: `100%`, height: `100%`}}></div>;
+    return <div id="map"></div>;
   }
 }
 

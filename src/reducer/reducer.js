@@ -6,11 +6,6 @@ const ActionCreator = {
     payload: city
   }),
 
-  toggleSorting: (sortingOpened) => ({
-    type: `TOGGLE_SORTING`,
-    payload: !sortingOpened
-  }),
-
   changeSorting: (sorting) => ({
     type: `CHANGE_SORTING`,
     payload: sorting
@@ -25,7 +20,6 @@ const ActionCreator = {
 const initialState = {
   city: `Paris`,
   offers,
-  sortingOpened: false,
   sorting: `Popular`,
   activeCard: null
 };
@@ -35,10 +29,6 @@ const reducer = (state = initialState, action) => {
     case `CHANGE_CITY`:
       return Object.assign({}, state, {
         city: action.payload
-      });
-    case `TOGGLE_SORTING`:
-      return Object.assign({}, state, {
-        sortingOpened: action.payload
       });
     case `CHANGE_SORTING`:
       return Object.assign({}, state, {
