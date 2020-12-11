@@ -39,7 +39,6 @@ const SuggestionsList = ({func, isNeighbourhood, offers, sorting}) => {
 
 SuggestionsList.propTypes = {
   func: PropTypes.func,
-  city: PropTypes.string.isRequired,
   sorting: PropTypes.string.isRequired,
   isNeighbourhood: PropTypes.bool.isRequired,
   offers: PropTypes.arrayOf(PropTypes.object).isRequired,

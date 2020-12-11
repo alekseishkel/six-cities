@@ -450,12 +450,6 @@ exports[`MainPage correctly renders after relaunch 1`] = `
           >
             <div
               id="map"
-              style={
-                Object {
-                  "height": "100%",
-                  "width": "100%",
-                }
-              }
             />
           </section>
         </div>

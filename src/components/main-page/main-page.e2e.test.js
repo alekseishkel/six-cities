@@ -23,7 +23,8 @@ it(`A click event is correctly simulated on the main page`, () => {
         <MainPage
           city={`Paris`}
           func={clickHandler}
-          offers={offers.Paris.offers}
+          offers={offers}
+          sorting={`Popular`}
         />
       </Provider>
   );
