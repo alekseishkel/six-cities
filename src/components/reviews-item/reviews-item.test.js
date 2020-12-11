@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 
 import ReviewsItem from './reviews-item.jsx';
 
-it(`OfferPage correctly renders after relaunch`, () => {
+it(`ReviewsItem correctly renders after relaunch`, () => {
   const tree = renderer.create(
       <ReviewsItem />
   ).toJSON();
