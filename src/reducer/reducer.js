@@ -1,5 +1,3 @@
-import offers from '../mocks/offers';
-
 const ActionCreator = {
   changeCity: (city) => ({
     type: `CHANGE_CITY`,
@@ -16,30 +14,33 @@ const ActionCreator = {
     payload: card
   }),
 
-  loadOffers: (data) => ({
+  loadOffers: (offers) => ({
     type: `LOAD_DATA`,
-    payload: data
+    payload: offers
   })
 };
 
 const Operations = {
   loadOffers: () => (dispatch, _, api) => {
     return api.get(`/hotels`)
-      .then((response) => dispatch(ActionCreator.loadOffers(response.data)));
+      .then((response) => {
+        dispatch(ActionCreator.loadOffers(response.data));
+        dispatch(ActionCreator.changeCity(response.data[0].city.name));
+      });
   }
 };
 
 const initialState = {
-  city: `Paris`,
-  offers,
+  city: null,
+  offers: null,
   sorting: `Popular`,
   activeCard: null,
-  data: null
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case `CHANGE_CITY`:
+      console.log(state);
       return Object.assign({}, state, {
         city: action.payload
       });
@@ -52,9 +53,9 @@ const reducer = (state = initialState, action) => {
         activeCard: action.payload
       });
     case `LOAD_DATA`:
-      console.log(state);
+      console.log(action.payload);
       return Object.assign({}, state, {
-        data: action.payload
+        offers: action.payload
       });
     default:
       return state;

@@ -2,20 +2,19 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import offers from '../../mocks/offers';
 import {ActionCreator} from '../../reducer/reducer';
 
 class CitiesTabs extends Component {
   render() {
-    const {city, onCityClick} = this.props;
+    const {cities, currentCity, onCityClick} = this.props;
 
     return (
       <section className="locations container">
         <ul className="locations__list tabs__list">
-          {Object.keys(offers).map((el, i) => {
+          {cities.map((el, i) => {
             let isActiveClassName;
 
-            if (el === city) {
+            if (el === currentCity) {
               isActiveClassName = `tabs__item--active`;
             }
 
@@ -34,7 +33,8 @@ class CitiesTabs extends Component {
 }
 
 CitiesTabs.propTypes = {
-  city: PropTypes.string.isRequired,
+  cities: PropTypes.array.isRequired,
+  currentCity: PropTypes.string.isRequired,
   onCityClick: PropTypes.func.isRequired
 };
 

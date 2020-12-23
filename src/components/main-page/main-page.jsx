@@ -6,10 +6,26 @@ import SuggestionsList from '../suggestions-list/suggestions-list.jsx';
 import Map from '../map/map.jsx';
 import CitiesTabs from '../cities-tabs/cities-tabs.jsx';
 import SortOptions from '../sort-options/sort-options.jsx';
+import Loader from '../loader/loader.jsx';
+import offersCardsInfo from '../../mocks/offers.js';
 
 const MainPage = (props) => {
-  const {func, city, offers, sorting} = props;
-  const offersNumber = offers[city].offers.length;
+  const {func, currentCity, offers, sorting} = props;
+  console.log(offers);
+  // const offersNumber = offers[city].offers.length;
+
+  const getSixCitiesNames = () => {
+    let cities = new Set();
+    offers.forEach((el) => cities.add(el.city.name));
+
+    return Array.from(cities);
+  };
+
+  if (offers === null) {
+    return (
+      <Loader />
+    );
+  }
 
   return (
     <div className="page page--gray page--main">
@@ -39,19 +55,19 @@ const MainPage = (props) => {
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
-          {<CitiesTabs city={city}/>}
+          {<CitiesTabs cities={getSixCitiesNames()} currentCity={currentCity} />}
         </div>
         <div className="cities">
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{offersNumber} places to stay in {city}</b>
-              {<SortOptions />}
-              {<SuggestionsList func={func} isNeighbourhood={false} city={city} offers={offers[city].offers} sorting={sorting}/>}
+              {/* <b className="places__found">{offersNumber} places to stay in {city}</b> */}
+              {/* {<SortOptions />} */}
+              {/* {<SuggestionsList func={func} isNeighbourhood={false} city={city} offers={offers[city].offers} sorting={sorting}/>} */}
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">
-                {<Map offers={offers[city].offers} zoom={offers[city].mapZoom} cityCoords={offers[city].cityCoords}/>}
+                {/* {<Map offers={offers[city].offers} zoom={offers[city].mapZoom} cityCoords={offers[city].cityCoords}/>} */}
               </section>
             </div>
           </div>
@@ -63,13 +79,13 @@ const MainPage = (props) => {
 
 MainPage.propTypes = {
   func: PropTypes.func.isRequired,
-  city: PropTypes.string.isRequired,
-  offers: PropTypes.object.isRequired,
+  city: PropTypes.string,
+  offers: PropTypes.array,
   sorting: PropTypes.string.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  city: state.city,
+  currentCity: state.city,
   offers: state.offers,
   sorting: state.sorting
 });
