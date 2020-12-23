@@ -14,14 +14,27 @@ const ActionCreator = {
   changeActiveCard: (card) => ({
     type: `CHANGE_ACTIVE_CARD`,
     payload: card
+  }),
+
+  loadOffers: (data) => ({
+    type: `LOAD_DATA`,
+    payload: data
   })
+};
+
+const Operations = {
+  loadOffers: () => (dispatch, _, api) => {
+    return api.get(`/hotels`)
+      .then((response) => dispatch(ActionCreator.loadOffers(response.data)));
+  }
 };
 
 const initialState = {
   city: `Paris`,
   offers,
   sorting: `Popular`,
-  activeCard: null
+  activeCard: null,
+  data: null
 };
 
 const reducer = (state = initialState, action) => {
@@ -38,6 +51,11 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         activeCard: action.payload
       });
+    case `LOAD_DATA`:
+      console.log(state);
+      return Object.assign({}, state, {
+        data: action.payload
+      });
     default:
       return state;
   }
@@ -45,5 +63,6 @@ const reducer = (state = initialState, action) => {
 
 export {
   ActionCreator,
-  reducer
+  reducer,
+  Operations
 };
