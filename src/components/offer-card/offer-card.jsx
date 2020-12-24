@@ -6,7 +6,8 @@ import {ActionCreator} from '../../reducer/reducer';
 
 const OfferCard = (props) => {
   const {func, cardInfo, currentActiveCard} = props;
-  const {description, img, price, type, isPremium, isBookmark} = cardInfo;
+  const {title, preview_image: img, price, type,
+    is_premium: isPremium, is_favourite: isFavourite} = cardInfo;
 
   const premiumLayout = () => {
     return (
@@ -19,7 +20,7 @@ const OfferCard = (props) => {
   const bookmarkLayout = () => {
     let buttonClassName;
 
-    if (isBookmark === true) {
+    if (isFavourite === true) {
       buttonClassName = `place-card__bookmark-button place-card__bookmark-button--active button`;
     } else {
       buttonClassName = `place-card__bookmark-button button`;
@@ -61,7 +62,7 @@ const OfferCard = (props) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{description}</a>
+          <a href="#">{title}</a>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>

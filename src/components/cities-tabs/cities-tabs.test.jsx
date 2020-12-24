@@ -6,7 +6,8 @@ import {CitiesTabs} from './cities-tabs.jsx';
 it(`Cities tabs correctly renders after relaunch`, () => {
   const tree = renderer.create(
       <CitiesTabs
-        city={`Paris`}
+        cities={[`Hamburg`, `Paris`, `Cologne`, `Dusseldorf`, `Brussels`, `Amsterdam`]}
+        currentCity={`Hamburg`}
         onCityClick={jest.fn()}/>
   ).toJSON();
 

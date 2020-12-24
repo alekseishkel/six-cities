@@ -15,9 +15,7 @@ it(`A click event is correctly changing state in Sortoptions`, () => {
   const wrapper = mount(
       <Map
         city={`Paris`}
-        zoom={12}
-        cityCoords={[48.8680266086781, 2.351173200195321]}
-        offers={offers.Paris.offers}
+        offers={offers}
         activeCard={null}
       />);
 

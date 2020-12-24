@@ -25,7 +25,6 @@ const Operations = {
     return api.get(`/hotels`)
       .then((response) => {
         dispatch(ActionCreator.loadOffers(response.data));
-        dispatch(ActionCreator.changeCity(response.data[0].city.name));
       });
   }
 };
@@ -40,7 +39,6 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case `CHANGE_CITY`:
-      console.log(state);
       return Object.assign({}, state, {
         city: action.payload
       });
@@ -53,9 +51,9 @@ const reducer = (state = initialState, action) => {
         activeCard: action.payload
       });
     case `LOAD_DATA`:
-      console.log(action.payload);
       return Object.assign({}, state, {
-        offers: action.payload
+        offers: action.payload,
+        city: action.payload[0].city.name
       });
     default:
       return state;

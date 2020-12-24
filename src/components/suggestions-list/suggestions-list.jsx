@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 
 import OfferCard from '../offer-card/offer-card.jsx';
 
-const SuggestionsList = ({func, isNeighbourhood, offers, sorting}) => {
+const SuggestionsList = ({func, offers, sorting}) => {
   let places = offers.slice();
+  let divClassName = `cities__places-list places__list tabs__content`;
 
   if (sorting === `Popular`) {
     places = offers;
@@ -17,22 +18,16 @@ const SuggestionsList = ({func, isNeighbourhood, offers, sorting}) => {
   if (sorting === `Price: high to low`) {
     places.sort((a, b) => b.price - a.price);
   }
-  let divClassName = `cities__places-list places__list tabs__content`;
-
-  if (isNeighbourhood === true) {
-    divClassName = `near-places__list places__list`;
-  }
 
   return (
     <div className={divClassName}>
       {places.map((el, i) =>
         <OfferCard
-          key={el.description + i}
+          key={el.title + el.id + i}
           func={func}
           cardInfo={el}
         />
-      )
-      }
+      )}
     </div>
   );
 };
@@ -40,7 +35,6 @@ const SuggestionsList = ({func, isNeighbourhood, offers, sorting}) => {
 SuggestionsList.propTypes = {
   func: PropTypes.func,
   sorting: PropTypes.string.isRequired,
-  isNeighbourhood: PropTypes.bool.isRequired,
   offers: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 

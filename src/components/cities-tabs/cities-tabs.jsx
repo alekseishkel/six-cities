@@ -33,8 +33,8 @@ class CitiesTabs extends Component {
 }
 
 CitiesTabs.propTypes = {
-  cities: PropTypes.array.isRequired,
-  currentCity: PropTypes.string.isRequired,
+  cities: PropTypes.array,
+  currentCity: PropTypes.string,
   onCityClick: PropTypes.func.isRequired
 };
 

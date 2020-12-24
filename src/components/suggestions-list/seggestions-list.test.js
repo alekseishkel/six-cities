@@ -14,9 +14,8 @@ it(`SuggestionsList correctly renders after relaunch`, () => {
   const tree = renderer.create(
       <Provider store={store}>
         <SuggestionsList
-          isNeighbourhood={true}
           func={jest.fn()}
-          offers={offers.Paris.offers}
+          offers={offers}
           sorting={`Popular`}/>
       </Provider>
   ).toJSON();

@@ -9,53 +9,38 @@ import './map.css';
 class Map extends Component {
   constructor() {
     super();
-
-    this.map = null;
+    // this.map = null;
 
     this.state = {
       zoom: null,
-      cityCoords: null
+      cityCoords: null,
+      offers: null
     };
   }
 
   componentDidMount() {
-    this.setState(
-        {
-          zoom: this.props.zoom,
-          cityCoords: this.props.cityCoords
-        }, () => {
-          this.renderMap();
-        }
-    );
+    this.renderMap();
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.city !== prevProps.city) {
+    if (this.props.currentCity !== prevProps.currentCity) {
       this.map.remove();
-
-      this.setState(
-          {
-            zoom: this.props.zoom,
-            cityCoords: this.props.cityCoords
-          }, () => {
-            this.renderMap();
-          }
-      );
+      this.renderMap();
     }
 
     if (this.props.activeCard !== prevProps.activeCard) {
       this.map.eachLayer((layer) => {
         if (this.props.activeCard !== null &&
           layer._latlng &&
-          layer._latlng.lat === this.props.activeCard.coords[0] &&
-          layer._latlng.lng === this.props.activeCard.coords[1]) {
+          layer._latlng.lat === this.props.activeCard.location.latitude &&
+          layer._latlng.lng === this.props.activeCard.location.longitude) {
           layer._icon.src = `img/pin-active.svg`;
         }
 
         if (this.props.activeCard === null &&
               layer._latlng &&
-              layer._latlng.lat === prevProps.activeCard.coords[0] &&
-              layer._latlng.lng === prevProps.activeCard.coords[1]) {
+              layer._latlng.lat === prevProps.activeCard.location.latitude &&
+              layer._latlng.lng === prevProps.activeCard.location.longitude) {
           layer._icon.src = `img/pin.svg`;
         }
       });
@@ -71,13 +56,11 @@ class Map extends Component {
     });
 
     this.map = leaflet.map(`map`, {
-      center: this.state.cityCoords,
-      zoom: this.state.zoom,
+      center: [offers[0].city.location.latitude, offers[0].city.location.longitude],
+      zoom: offers[0].city.location.zoom,
       zoomControl: false,
       marker: true
     });
-
-    this.map.setView(this.state.cityCoords, this.state.zoom);
 
     leaflet
       .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
@@ -87,7 +70,7 @@ class Map extends Component {
 
     offers.forEach((offer) => {
       leaflet
-        .marker(offer.coords, {icon, alt: `Marker with coodrs ${offer.coords[0]}, ${offer.coords[1]}`})
+        .marker([offer.location.latitude, offer.location.longitude], {icon, alt: `Marker with coodrs ${offer.location.latitude}, ${offer.location.longitude}`})
         .addTo(this.map);
     });
 
@@ -99,9 +82,7 @@ class Map extends Component {
 }
 
 Map.propTypes = {
-  city: PropTypes.string.isRequired,
-  zoom: PropTypes.number.isRequired,
-  cityCoords: PropTypes.arrayOf(PropTypes.number).isRequired,
+  currentCity: PropTypes.string.isRequired,
   offers: PropTypes.arrayOf(PropTypes.object).isRequired,
   activeCard: PropTypes.object
 };

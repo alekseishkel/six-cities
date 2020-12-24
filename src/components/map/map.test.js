@@ -12,9 +12,7 @@ it(`Map correctly renders after relaunch`, () => {
   const map = renderer.create(
       <Map
         city={`Paris`}
-        zoom={12}
-        cityCoords={[48.8680266086781, 2.351173200195321]}
-        offers={offers.Paris.offers}
+        offers={offers}
         activeCard={null}
       />
   ).toJSON();

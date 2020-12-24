@@ -12,9 +12,11 @@ import offersCardsInfo from '../../mocks/offers.js';
 const MainPage = (props) => {
   const {func, currentCity, offers, sorting} = props;
   console.log(offers);
-  // const offersNumber = offers[city].offers.length;
+  const getCurrentCityOffers = () => {
+    return offers.filter((el) => el.city.name === currentCity);
+  };
 
-  const getSixCitiesNames = () => {
+  const getNamesOfSixCities = () => {
     let cities = new Set();
     offers.forEach((el) => cities.add(el.city.name));
 
@@ -22,9 +24,7 @@ const MainPage = (props) => {
   };
 
   if (offers === null) {
-    return (
-      <Loader />
-    );
+    return <Loader />;
   }
 
   return (
@@ -55,19 +55,19 @@ const MainPage = (props) => {
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
-          {<CitiesTabs cities={getSixCitiesNames()} currentCity={currentCity} />}
+          {<CitiesTabs cities={getNamesOfSixCities()} currentCity={currentCity} />}
         </div>
         <div className="cities">
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              {/* <b className="places__found">{offersNumber} places to stay in {city}</b> */}
-              {/* {<SortOptions />} */}
-              {/* {<SuggestionsList func={func} isNeighbourhood={false} city={city} offers={offers[city].offers} sorting={sorting}/>} */}
+              <b className="places__found">{getCurrentCityOffers().length} places to stay in {currentCity}</b>
+              {<SortOptions />}
+              {<SuggestionsList func={func} currentCity={currentCity} offers={getCurrentCityOffers()} sorting={sorting}/>}
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">
-                {/* {<Map offers={offers[city].offers} zoom={offers[city].mapZoom} cityCoords={offers[city].cityCoords}/>} */}
+                {<Map offers={getCurrentCityOffers()} currentCity={currentCity} />}
               </section>
             </div>
           </div>
@@ -79,7 +79,7 @@ const MainPage = (props) => {
 
 MainPage.propTypes = {
   func: PropTypes.func.isRequired,
-  city: PropTypes.string,
+  currentCity: PropTypes.string,
   offers: PropTypes.array,
   sorting: PropTypes.string.isRequired
 };
