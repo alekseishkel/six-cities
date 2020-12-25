@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import leaflet from 'leaflet';
 
 import PropTypes from 'prop-types';
@@ -9,7 +9,7 @@ import './map.css';
 class Map extends Component {
   constructor() {
     super();
-    // this.map = null;
+    this.map = null;
 
     this.state = {
       zoom: null,
@@ -30,17 +30,18 @@ class Map extends Component {
 
     if (this.props.activeCard !== prevProps.activeCard) {
       this.map.eachLayer((layer) => {
+        const coodrs = Object.assign({}, layer._latlng)
         if (this.props.activeCard !== null &&
-          layer._latlng &&
-          layer._latlng.lat === this.props.activeCard.location.latitude &&
-          layer._latlng.lng === this.props.activeCard.location.longitude) {
+            layer._latlng &&
+            layer._latlng.lat === this.props.activeCard.location.latitude &&
+            layer._latlng.lng === this.props.activeCard.location.longitude) {
           layer._icon.src = `img/pin-active.svg`;
         }
 
-        if (this.props.activeCard === null &&
-              layer._latlng &&
-              layer._latlng.lat === prevProps.activeCard.location.latitude &&
-              layer._latlng.lng === prevProps.activeCard.location.longitude) {
+        if (prevProps.activeCard !== null &&
+            layer._latlng &&
+            layer._latlng.lat === prevProps.activeCard.location.latitude &&
+            layer._latlng.lng === prevProps.activeCard.location.longitude) {
           layer._icon.src = `img/pin.svg`;
         }
       });
@@ -48,7 +49,7 @@ class Map extends Component {
   }
 
   renderMap() {
-    const {offers} = this.props;
+    const { offers } = this.props;
 
     const icon = leaflet.icon({
       iconUrl: `img/pin.svg`,
@@ -70,7 +71,7 @@ class Map extends Component {
 
     offers.forEach((offer) => {
       leaflet
-        .marker([offer.location.latitude, offer.location.longitude], {icon, alt: `Marker with coodrs ${offer.location.latitude}, ${offer.location.longitude}`})
+        .marker([offer.location.latitude, offer.location.longitude], { icon, alt: `Marker with coodrs ${offer.location.latitude}, ${offer.location.longitude}` })
         .addTo(this.map);
     });
 
@@ -92,7 +93,7 @@ const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   activeCard: state.activeCard
 });
 
-export {Map};
+export { Map };
 
 export default connect(mapStateToProps)(Map);
 
