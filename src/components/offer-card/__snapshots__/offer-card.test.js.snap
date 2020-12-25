@@ -16,7 +16,7 @@ exports[`OfferPage correctly renders after relaunch 1`] = `
         alt="Place image"
         className="place-card__image"
         height="200"
-        src="img/room.jpg"
+        src="https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/7.jpg"
         width="260"
       />
     </a>
@@ -35,7 +35,7 @@ exports[`OfferPage correctly renders after relaunch 1`] = `
           className="place-card__price-value"
         >
           €
-          80
+          482
         </b>
         <span
           className="place-card__price-text"
@@ -72,7 +72,7 @@ exports[`OfferPage correctly renders after relaunch 1`] = `
         <span
           style={
             Object {
-              "width": "93%",
+              "width": "55.99999999999999%",
             }
           }
         />
@@ -89,13 +89,13 @@ exports[`OfferPage correctly renders after relaunch 1`] = `
       <a
         href="#"
       >
-        Wood and stone place
+        The Pondhouse - A Magical Place
       </a>
     </h2>
     <p
       className="place-card__type"
     >
-      Private room
+      hotel
     </p>
   </div>
 </article>

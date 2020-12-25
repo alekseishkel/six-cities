@@ -12,16 +12,19 @@ import offers from '../../mocks/offers';
 
 Enzyme.configure({adapter: new Adapter()});
 
-it(`A click event is correctly simulated on the main page`, () => {
+it(`A click event is correctly simulated on cards info on the main page`, () => {
   const store = createStore(reducer);
   const mapContainer = global.document.createElement(`mapContainer`);
+
   mapContainer.setAttribute(`id`, `map`);
   global.document.body.appendChild(mapContainer);
+
   const clickHandler = jest.fn();
+
   const mainPage = mount(
       <Provider store={store}>
         <MainPage
-          city={`Paris`}
+          currentCity={`Paris`}
           func={clickHandler}
           offers={offers}
           sorting={`Popular`}
@@ -30,9 +33,10 @@ it(`A click event is correctly simulated on the main page`, () => {
   );
 
   const headers = mainPage.find(`.place-card__info`);
+  console.log(headers);
   headers.forEach((header) => {
     header.simulate(`click`, {preventDefault() { }});
   });
 
-  expect(clickHandler).toHaveBeenCalledTimes(2);
+  expect(clickHandler).toHaveBeenCalledTimes(3);
 });

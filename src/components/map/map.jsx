@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import leaflet from 'leaflet';
 
 import PropTypes from 'prop-types';
@@ -10,12 +10,6 @@ class Map extends Component {
   constructor() {
     super();
     this.map = null;
-
-    this.state = {
-      zoom: null,
-      cityCoords: null,
-      offers: null
-    };
   }
 
   componentDidMount() {
@@ -30,7 +24,6 @@ class Map extends Component {
 
     if (this.props.activeCard !== prevProps.activeCard) {
       this.map.eachLayer((layer) => {
-        const coodrs = Object.assign({}, layer._latlng)
         if (this.props.activeCard !== null &&
             layer._latlng &&
             layer._latlng.lat === this.props.activeCard.location.latitude &&
@@ -49,7 +42,7 @@ class Map extends Component {
   }
 
   renderMap() {
-    const { offers } = this.props;
+    const {offers} = this.props;
 
     const icon = leaflet.icon({
       iconUrl: `img/pin.svg`,
@@ -71,7 +64,7 @@ class Map extends Component {
 
     offers.forEach((offer) => {
       leaflet
-        .marker([offer.location.latitude, offer.location.longitude], { icon, alt: `Marker with coodrs ${offer.location.latitude}, ${offer.location.longitude}` })
+        .marker([offer.location.latitude, offer.location.longitude], {icon, alt: `Marker with coodrs ${offer.location.latitude}, ${offer.location.longitude}`})
         .addTo(this.map);
     });
 
@@ -89,11 +82,10 @@ Map.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  city: state.city,
   activeCard: state.activeCard
 });
 
-export { Map };
+export {Map};
 
 export default connect(mapStateToProps)(Map);
 

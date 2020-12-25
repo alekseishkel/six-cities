@@ -18,7 +18,7 @@ it(`MainPage correctly renders after relaunch`, () => {
   const tree = renderer.create(
       <Provider store={store}>
         <MainPage
-          city={`Paris`}
+          currentCity={`Paris`}
           func={jest.fn()}
           offers={offers}
           sorting={`Popular`}

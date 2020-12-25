@@ -7,11 +7,10 @@ import Map from '../map/map.jsx';
 import CitiesTabs from '../cities-tabs/cities-tabs.jsx';
 import SortOptions from '../sort-options/sort-options.jsx';
 import Loader from '../loader/loader.jsx';
-import offersCardsInfo from '../../mocks/offers.js';
 
 const MainPage = (props) => {
   const {func, currentCity, offers, sorting} = props;
-  console.log(offers);
+
   const getCurrentCityOffers = () => {
     return offers.filter((el) => el.city.name === currentCity);
   };

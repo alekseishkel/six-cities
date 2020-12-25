@@ -77,6 +77,19 @@ exports[`MainPage correctly renders after relaunch 1`] = `
             className="locations__item"
           >
             <a
+              className="locations__item-link tabs__item undefined"
+              href="#"
+              onClick={[Function]}
+            >
+              <span>
+                Hamburg
+              </span>
+            </a>
+          </li>
+          <li
+            className="locations__item"
+          >
+            <a
               className="locations__item-link tabs__item tabs__item--active"
               href="#"
               onClick={[Function]}
@@ -108,19 +121,6 @@ exports[`MainPage correctly renders after relaunch 1`] = `
               onClick={[Function]}
             >
               <span>
-                Bruselles
-              </span>
-            </a>
-          </li>
-          <li
-            className="locations__item"
-          >
-            <a
-              className="locations__item-link tabs__item undefined"
-              href="#"
-              onClick={[Function]}
-            >
-              <span>
                 Amsterdam
               </span>
             </a>
@@ -134,7 +134,7 @@ exports[`MainPage correctly renders after relaunch 1`] = `
               onClick={[Function]}
             >
               <span>
-                Hamburg
+                Dusseldorf
               </span>
             </a>
           </li>
@@ -147,7 +147,7 @@ exports[`MainPage correctly renders after relaunch 1`] = `
               onClick={[Function]}
             >
               <span>
-                Dusseldorf
+                Brussels
               </span>
             </a>
           </li>
@@ -171,7 +171,7 @@ exports[`MainPage correctly renders after relaunch 1`] = `
           <b
             className="places__found"
           >
-            2
+            3
              places to stay in 
             Paris
           </b>
@@ -252,7 +252,7 @@ exports[`MainPage correctly renders after relaunch 1`] = `
                     alt="Place image"
                     className="place-card__image"
                     height="200"
-                    src="img/room.jpg"
+                    src="https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/16.jpg"
                     width="260"
                   />
                 </a>
@@ -271,7 +271,7 @@ exports[`MainPage correctly renders after relaunch 1`] = `
                       className="place-card__price-value"
                     >
                       €
-                      80
+                      203
                     </b>
                     <span
                       className="place-card__price-text"
@@ -308,7 +308,7 @@ exports[`MainPage correctly renders after relaunch 1`] = `
                     <span
                       style={
                         Object {
-                          "width": "93%",
+                          "width": "84.00000000000001%",
                         }
                       }
                     />
@@ -325,13 +325,111 @@ exports[`MainPage correctly renders after relaunch 1`] = `
                   <a
                     href="#"
                   >
-                    Wood and stone place
+                    Penthouse, 4-5 rooms + 5 balconies
                   </a>
                 </h2>
                 <p
                   className="place-card__type"
                 >
-                  Private room
+                  room
+                </p>
+              </div>
+            </article>
+            <article
+              className="cities__place-card place-card"
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            >
+              <div
+                className="cities__image-wrapper place-card__image-wrapper"
+              >
+                <a
+                  href="#"
+                >
+                  <img
+                    alt="Place image"
+                    className="place-card__image"
+                    height="200"
+                    src="https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/7.jpg"
+                    width="260"
+                  />
+                </a>
+              </div>
+              <div
+                className="place-card__info"
+                onClick={[MockFunction]}
+              >
+                <div
+                  className="place-card__price-wrapper"
+                >
+                  <div
+                    className="place-card__price"
+                  >
+                    <b
+                      className="place-card__price-value"
+                    >
+                      €
+                      117
+                    </b>
+                    <span
+                      className="place-card__price-text"
+                    >
+                      / night
+                    </span>
+                  </div>
+                  <button
+                    className="place-card__bookmark-button button"
+                    type="button"
+                  >
+                    <svg
+                      className="place-card__bookmark-icon"
+                      height="19"
+                      width="18"
+                    >
+                      <use
+                        xlinkHref="#icon-bookmark"
+                      />
+                    </svg>
+                    <span
+                      className="visually-hidden"
+                    >
+                      To bookmarks
+                    </span>
+                  </button>
+                </div>
+                <div
+                  className="place-card__rating rating"
+                >
+                  <div
+                    className="place-card__stars rating__stars"
+                  >
+                    <span
+                      style={
+                        Object {
+                          "width": "92%",
+                        }
+                      }
+                    />
+                    <span
+                      className="visually-hidden"
+                    >
+                      Rating
+                    </span>
+                  </div>
+                </div>
+                <h2
+                  className="place-card__name"
+                >
+                  <a
+                    href="#"
+                  >
+                    Loft Studio in the Central Area
+                  </a>
+                </h2>
+                <p
+                  className="place-card__type"
+                >
+                  room
                 </p>
               </div>
             </article>
@@ -357,7 +455,7 @@ exports[`MainPage correctly renders after relaunch 1`] = `
                     alt="Place image"
                     className="place-card__image"
                     height="200"
-                    src="img/apartment-01.jpg"
+                    src="https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/12.jpg"
                     width="260"
                   />
                 </a>
@@ -376,7 +474,7 @@ exports[`MainPage correctly renders after relaunch 1`] = `
                       className="place-card__price-value"
                     >
                       €
-                      120
+                      386
                     </b>
                     <span
                       className="place-card__price-text"
@@ -413,7 +511,7 @@ exports[`MainPage correctly renders after relaunch 1`] = `
                     <span
                       style={
                         Object {
-                          "width": "93%",
+                          "width": "42.00000000000001%",
                         }
                       }
                     />
@@ -430,13 +528,13 @@ exports[`MainPage correctly renders after relaunch 1`] = `
                   <a
                     href="#"
                   >
-                    Beautiful & luxurious apartment at great location
+                    Perfectly located Castro
                   </a>
                 </h2>
                 <p
                   className="place-card__type"
                 >
-                  Apartment
+                  apartment
                 </p>
               </div>
             </article>

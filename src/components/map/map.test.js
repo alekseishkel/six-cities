@@ -11,7 +11,7 @@ it(`Map correctly renders after relaunch`, () => {
 
   const map = renderer.create(
       <Map
-        city={`Paris`}
+        currentCity={`Paris`}
         offers={offers}
         activeCard={null}
       />

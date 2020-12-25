@@ -16,6 +16,19 @@ exports[`Cities tabs correctly renders after relaunch 1`] = `
         onClick={[Function]}
       >
         <span>
+          Hamburg
+        </span>
+      </a>
+    </li>
+    <li
+      className="locations__item"
+    >
+      <a
+        className="locations__item-link tabs__item undefined"
+        href="#"
+        onClick={[Function]}
+      >
+        <span>
           Paris
         </span>
       </a>
@@ -42,7 +55,20 @@ exports[`Cities tabs correctly renders after relaunch 1`] = `
         onClick={[Function]}
       >
         <span>
-          Bruselles
+          Dusseldorf
+        </span>
+      </a>
+    </li>
+    <li
+      className="locations__item"
+    >
+      <a
+        className="locations__item-link tabs__item undefined"
+        href="#"
+        onClick={[Function]}
+      >
+        <span>
+          Brussels
         </span>
       </a>
     </li>
@@ -56,32 +82,6 @@ exports[`Cities tabs correctly renders after relaunch 1`] = `
       >
         <span>
           Amsterdam
-        </span>
-      </a>
-    </li>
-    <li
-      className="locations__item"
-    >
-      <a
-        className="locations__item-link tabs__item undefined"
-        href="#"
-        onClick={[Function]}
-      >
-        <span>
-          Hamburg
-        </span>
-      </a>
-    </li>
-    <li
-      className="locations__item"
-    >
-      <a
-        className="locations__item-link tabs__item undefined"
-        href="#"
-        onClick={[Function]}
-      >
-        <span>
-          Dusseldorf
         </span>
       </a>
     </li>

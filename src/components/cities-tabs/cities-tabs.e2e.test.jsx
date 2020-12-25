@@ -26,7 +26,6 @@ it(`Cities correctly change on click event`, () => {
   const tabs = citiesTabs.find(`.tabs__item`);
   tabs.forEach((tab) => {
     tab.simulate(`click`);
-    console.log(tab);
     expect(clickHandler.mock.results[0].value).toEqual(`Paris`);
   });
 });

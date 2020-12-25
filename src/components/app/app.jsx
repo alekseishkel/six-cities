@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import MainPage from '../main-page/main-page.jsx';
-import Property from '../property/property.jsx';
+// import Property from '../property/property.jsx';
 import MainEmpty from '../main-empty/main-empty.jsx';
 
 const fn = () => {
