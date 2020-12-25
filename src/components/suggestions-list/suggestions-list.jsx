@@ -19,6 +19,10 @@ const SuggestionsList = ({func, offers, sorting}) => {
     places.sort((a, b) => b.price - a.price);
   }
 
+  if (sorting === `Top rated first`) {
+    places.sort((a, b) => b.rating - a.rating);
+  }
+
   return (
     <div className={divClassName}>
       {places.map((el, i) =>

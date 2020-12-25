@@ -7,7 +7,9 @@ import {ActionCreator} from '../../reducer/reducer';
 const OfferCard = (props) => {
   const {func, cardInfo, currentActiveCard} = props;
   const {title, preview_image: img, price, type,
-    is_premium: isPremium, is_favourite: isFavourite} = cardInfo;
+    is_premium: isPremium, is_favourite: isFavourite, rating} = cardInfo;
+
+  const MAX_RATING = 5;
 
   const premiumLayout = () => {
     return (
@@ -57,7 +59,7 @@ const OfferCard = (props) => {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: `93%`}}></span>
+            <span style={{width: ((rating / MAX_RATING) * 100) + `%`}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
