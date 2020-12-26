@@ -11,8 +11,6 @@ import Loader from '../loader/loader.jsx';
 const MainPage = (props) => {
   const {func, currentCity, offers, sorting} = props;
 
-  console.log(offers);
-
   const getCurrentCityOffers = () => {
     return offers.filter((el) => el.city.name === currentCity);
   };

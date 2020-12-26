@@ -20,7 +20,7 @@ it(`OfferCard gets correct data when omMouseEnter on card`, () => {
   const card = offerCard.find(`.place-card`);
 
   card.simulate(`mouseenter`);
-  // console.log(mouseEnterHandler.mock.results[0].value);
+
   expect(mouseEnterHandler.mock.results[0].value).toEqual(offers[0]);
 });
 

@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-import {reducer} from '../../reducer/reducer';
+import reducer from '../../reducer/reducer';
 
 import {MainPage} from './main-page.jsx';
 
@@ -33,7 +33,7 @@ it(`A click event is correctly simulated on cards info on the main page`, () => 
   );
 
   const headers = mainPage.find(`.place-card__info`);
-  console.log(headers);
+
   headers.forEach((header) => {
     header.simulate(`click`, {preventDefault() { }});
   });
