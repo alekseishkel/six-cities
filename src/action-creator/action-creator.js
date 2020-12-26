@@ -17,6 +17,11 @@ const ActionCreator = {
   loadOffers: (offers) => ({
     type: `LOAD_DATA`,
     payload: offers
+  }),
+
+  requireAuthorization: (status) => ({
+    type: `REQUIRE_AUTHORIZATION`,
+    payload: status
   })
 };
 

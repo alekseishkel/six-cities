@@ -7,9 +7,10 @@ import Map from '../map/map.jsx';
 import CitiesTabs from '../cities-tabs/cities-tabs.jsx';
 import SortOptions from '../sort-options/sort-options.jsx';
 import Loader from '../loader/loader.jsx';
+import SignIn from '../sign-in/sign-in.jsx';
 
 const MainPage = (props) => {
-  const {func, currentCity, offers, sorting} = props;
+  const {func, currentCity, offers, sorting, isAuthorizationRequired} = props;
 
   const getCurrentCityOffers = () => {
     return offers.filter((el) => el.city.name === currentCity);
@@ -24,6 +25,10 @@ const MainPage = (props) => {
 
   if (offers === null) {
     return <Loader />;
+  }
+
+  if (isAuthorizationRequired === true) {
+    return <SignIn />;
   }
 
   return (
@@ -80,13 +85,15 @@ MainPage.propTypes = {
   func: PropTypes.func.isRequired,
   currentCity: PropTypes.string,
   offers: PropTypes.array,
-  sorting: PropTypes.string.isRequired
+  sorting: PropTypes.string.isRequired,
+  isAuthorizationRequired: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   currentCity: state.userState.city,
   offers: state.data.offers,
-  sorting: state.userState.sorting
+  sorting: state.userState.sorting,
+  isAuthorizationRequired: state.userState.isAuthorizationRequired
 });
 
 export {MainPage};

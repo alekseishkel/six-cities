@@ -2,26 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import OfferCard from '../offer-card/offer-card.jsx';
+import changeSorting from '../../utils/change-sorting';
 
 const SuggestionsList = ({func, offers, sorting}) => {
-  let places = offers.slice();
   let divClassName = `cities__places-list places__list tabs__content`;
 
-  if (sorting === `Popular`) {
-    places = offers;
-  }
-
-  if (sorting === `Price: low to high`) {
-    places.sort((a, b) => a.price - b.price);
-  }
-
-  if (sorting === `Price: high to low`) {
-    places.sort((a, b) => b.price - a.price);
-  }
-
-  if (sorting === `Top rated first`) {
-    places.sort((a, b) => b.rating - a.rating);
-  }
+  const places = changeSorting(offers, sorting);
 
   return (
     <div className={divClassName}>
