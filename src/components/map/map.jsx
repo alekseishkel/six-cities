@@ -82,7 +82,7 @@ Map.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  activeCard: state.activeCard
+  activeCard: state.userState.activeCard
 });
 
 export {Map};

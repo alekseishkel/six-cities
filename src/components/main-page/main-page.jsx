@@ -11,6 +11,8 @@ import Loader from '../loader/loader.jsx';
 const MainPage = (props) => {
   const {func, currentCity, offers, sorting} = props;
 
+  console.log(offers);
+
   const getCurrentCityOffers = () => {
     return offers.filter((el) => el.city.name === currentCity);
   };
@@ -84,9 +86,9 @@ MainPage.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  currentCity: state.city,
-  offers: state.offers,
-  sorting: state.sorting
+  currentCity: state.userState.city,
+  offers: state.data.offers,
+  sorting: state.userState.sorting
 });
 
 export {MainPage};

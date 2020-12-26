@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {ActionCreator} from '../../reducer/reducer';
+import ActionCreator from '../../action-creator/action-creator';
 import PropTypes from 'prop-types';
 
 class SortOptions extends Component {
@@ -78,7 +78,7 @@ SortOptions.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  sorting: state.sorting
+  sorting: state.userState.sorting
 });
 
 const mapDispatchToProps = (dispatch) => ({

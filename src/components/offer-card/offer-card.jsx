@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import {ActionCreator} from '../../reducer/reducer';
+import ActionCreator from '../../action-creator/action-creator';
 
 const OfferCard = (props) => {
   const {func, cardInfo, currentActiveCard} = props;

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import {ActionCreator} from '../../reducer/reducer';
+import ActionCreator from '../../action-creator/action-creator';
 
 class CitiesTabs extends Component {
   render() {
