@@ -7,6 +7,15 @@ const Operations = {
         dispatch(ActionCreator.changeCity(response.data[0].city.name));
         dispatch(ActionCreator.loadOffers(response.data));
       });
+  },
+
+  signIn: (email, password) => (dispatch, _, api) => {
+    return api.post(`/login`, {
+      email,
+      password
+    }).then((response) => {
+      dispatch(ActionCreator.signIn(response.data));
+    });
   }
 };
 

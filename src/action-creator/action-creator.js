@@ -22,6 +22,11 @@ const ActionCreator = {
   requireAuthorization: (status) => ({
     type: `REQUIRE_AUTHORIZATION`,
     payload: status
+  }),
+
+  signIn: (user) => ({
+    type: `SIGN_IN`,
+    payload: user
   })
 };
 

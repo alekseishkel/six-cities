@@ -1,6 +1,7 @@
 const initialState = {
   data: {
     offers: null,
+    user: null
   }
 };
 
@@ -9,6 +10,11 @@ const reducer = (state = initialState, action) => {
     case `LOAD_DATA`:
       return Object.assign({}, state.data, {
         offers: action.payload
+      });
+    case `SIGN_IN`:
+      console.log(state);
+      return Object.assign({}, state.data, {
+        user: action.payload
       });
     default:
       return state.data;
