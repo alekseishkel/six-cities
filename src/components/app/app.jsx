@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
+import Header from '../header/header.jsx';
 import MainPage from '../main-page/main-page.jsx';
 // import Property from '../property/property.jsx';
 import MainEmpty from '../main-empty/main-empty.jsx';
@@ -25,6 +28,7 @@ class App extends Component {
 
     return (
       <div>
+        {<Header isAuthorizationRequired={this.props.isAuthorizationRequired}/>}
         <MainPage func={fn} />
         {/* <Property /> */}
       </div>
@@ -32,4 +36,14 @@ class App extends Component {
   }
 }
 
-export default App;
+App.propTypes = {
+  isAuthorizationRequired: PropTypes.bool.isRequired
+};
+
+const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  isAuthorizationRequired: state.userState.isAuthorizationRequired
+});
+
+export {App};
+
+export default connect(mapStateToProps)(App);

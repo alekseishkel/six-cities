@@ -9,12 +9,13 @@ const Operations = {
       });
   },
 
-  signIn: (email, password) => (dispatch, _, api) => {
+  signIn: (email, password, isAuthorizationRequired) => (dispatch, _, api) => {
     return api.post(`/login`, {
       email,
       password
     }).then((response) => {
       dispatch(ActionCreator.signIn(response.data));
+      dispatch(ActionCreator.requireAuthorization(!isAuthorizationRequired));
     });
   }
 };

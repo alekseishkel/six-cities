@@ -3,7 +3,7 @@ const initialState = {
     city: null,
     sorting: `Popular`,
     activeCard: null,
-    isAuthorizationRequired: true
+    isAuthorizationRequired: false
   }
 };
 
@@ -22,6 +22,7 @@ const reducer = (state = initialState, action) => {
         activeCard: action.payload
       });
     case `REQUIRE_AUTHORIZATION`:
+      console.log(state);
       return Object.assign({}, state.userState, {
         isAuthorizationRequired: action.payload
       });
