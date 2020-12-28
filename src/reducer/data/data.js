@@ -12,7 +12,6 @@ const reducer = (state = initialState, action) => {
         offers: action.payload
       });
     case `SIGN_IN`:
-      console.log(action.payload);
       return Object.assign({}, state.data, {
         user: action.payload
       });

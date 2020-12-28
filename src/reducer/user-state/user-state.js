@@ -22,7 +22,6 @@ const reducer = (state = initialState, action) => {
         activeCard: action.payload
       });
     case `REQUIRE_AUTHORIZATION`:
-      console.log(state);
       return Object.assign({}, state.userState, {
         isAuthorizationRequired: action.payload
       });

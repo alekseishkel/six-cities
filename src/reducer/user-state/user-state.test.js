@@ -5,7 +5,8 @@ describe(`Reducer works correctly`, () => {
     expect(reducer(undefined, {})).toEqual({
       city: null,
       sorting: `Popular`,
-      activeCard: null
+      activeCard: null,
+      isAuthorizationRequired: false
     });
   });
 
@@ -15,14 +16,16 @@ describe(`Reducer works correctly`, () => {
         {
           city: null,
           sorting: `Popular`,
-          activeCard: null
+          activeCard: null,
+          isAuthorizationRequired: false
         }}, {
       type: `CHANGE_CITY`,
       payload: `Amsterdam`
     })).toEqual({
       city: `Amsterdam`,
       sorting: `Popular`,
-      activeCard: null
+      activeCard: null,
+      isAuthorizationRequired: false
     });
   });
 
@@ -32,14 +35,16 @@ describe(`Reducer works correctly`, () => {
         {
           city: null,
           sorting: `Popular`,
-          activeCard: null
+          activeCard: null,
+          isAuthorizationRequired: false
         }}, {
       type: `CHANGE_SORTING`,
       payload: `Price: low to high`
     })).toEqual({
       city: null,
       sorting: `Price: low to high`,
-      activeCard: null
+      activeCard: null,
+      isAuthorizationRequired: false
     });
   });
 
@@ -49,7 +54,8 @@ describe(`Reducer works correctly`, () => {
         {
           city: null,
           sorting: `Popular`,
-          activeCard: null
+          activeCard: null,
+          isAuthorizationRequired: false
         }}, {
       type: `CHANGE_ACTIVE_CARD`,
       payload: {
@@ -160,7 +166,8 @@ describe(`Reducer works correctly`, () => {
           "zoom": 16
         },
         "id": 1
-      }
+      },
+      isAuthorizationRequired: false
     });
   });
 });

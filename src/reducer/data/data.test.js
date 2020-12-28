@@ -4,12 +4,16 @@ describe(`Reducer works correctly`, () => {
   it(`Reducer without additional paramerters should return initial state`, () => {
     expect(reducer(undefined, {})).toEqual({
       offers: null,
+      user: null
     });
   });
 
   it(`Reducer should correctly change offers after loading`, () => {
     expect(reducer({
-      offers: null,
+      data: {
+        offers: null,
+        user: null
+      }
     }, {
       type: `LOAD_DATA`,
       payload: [
@@ -2000,7 +2004,8 @@ describe(`Reducer works correctly`, () => {
           },
           "id": 19
         }
-      ]
+      ],
+      user: null
     });
   });
 });
