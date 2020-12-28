@@ -1,13 +1,14 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import OfferCard from '../offer-card/offer-card.jsx';
-import changeSorting from '../../utils/change-sorting';
+import {changeSortingSelector} from "../../selectors/sorting-selector";
 
-const SuggestionsList = ({func, offers, sorting}) => {
+const SuggestionsList = ({func, state}) => {
   let divClassName = `cities__places-list places__list tabs__content`;
 
-  const places = changeSorting(offers, sorting);
+  const places = changeSortingSelector(state);
 
   return (
     <div className={divClassName}>
@@ -24,8 +25,14 @@ const SuggestionsList = ({func, offers, sorting}) => {
 
 SuggestionsList.propTypes = {
   func: PropTypes.func,
-  sorting: PropTypes.string.isRequired,
-  offers: PropTypes.arrayOf(PropTypes.object).isRequired,
+  state: PropTypes.object
 };
 
-export default SuggestionsList;
+const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  state
+});
+
+export {SuggestionsList};
+
+export default connect(mapStateToProps)(SuggestionsList);
+
