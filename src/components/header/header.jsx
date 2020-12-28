@@ -5,10 +5,8 @@ import PropTypes from 'prop-types';
 import ActionCreator from '../../action-creator/action-creator';
 
 const Header = ({isAuthorizationRequired, user, signIn}) => {
-  // const {avatar_url: avatar, email} = user;
   let userName = `Sing In`;
   let avatarSrc = `/img/avatar.svg`;
-
 
   if (user && isAuthorizationRequired === false) {
     userName = user.email;
