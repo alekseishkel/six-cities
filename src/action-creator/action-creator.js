@@ -24,10 +24,13 @@ const ActionCreator = {
     payload: status
   }),
 
-  signIn: (user) => ({
-    type: `SIGN_IN`,
-    payload: user
-  })
+  signIn: (user) => {
+    console.log(user);
+    return ({
+      type: `SIGN_IN`,
+      payload: user
+    });
+  }
 };
 
 export default ActionCreator;

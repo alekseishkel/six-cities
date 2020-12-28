@@ -2008,4 +2008,31 @@ describe(`Reducer works correctly`, () => {
       user: null
     });
   });
+
+  it(`Reducer should correctly change offers after loading`, () => {
+    expect(reducer({
+      data: {
+        offers: null,
+        user: null
+      }
+    }, {
+      type: `SIGN_IN`,
+      payload: {
+        avatarUrl: `/static/avatar/7.jpg`,
+        email: `fdsf@gmail.com`,
+        id: 1,
+        isPro: false,
+        name: `fdsf`,
+      }
+    })).toEqual({
+      offers: null,
+      user: {
+        avatarUrl: `/static/avatar/7.jpg`,
+        email: `fdsf@gmail.com`,
+        id: 1,
+        isPro: false,
+        name: `fdsf`,
+      }
+    });
+  });
 });

@@ -15,7 +15,7 @@ class SignIn extends Component {
   }
 
   render() {
-    const {isAuthorizationRequired, onLogin} = this.props;
+    const {isAuthorizationRequired: status, onLogin} = this.props;
 
     const changeUserEmail = (evt) => {
       this.setState({
@@ -34,7 +34,7 @@ class SignIn extends Component {
 
       const {email, password} = this.state;
 
-      onLogin(email, password, isAuthorizationRequired);
+      onLogin(email, password, status);
     };
 
     return (
@@ -89,8 +89,8 @@ SignIn.propTypes = {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  onLogin: (email, password, isAuthorizationRequired) => {
-    dispatch(Operations.signIn(email, password, isAuthorizationRequired));
+  onLogin: (email, password, status) => {
+    dispatch(Operations.signIn(email, password, status));
   }
 });
 

@@ -170,4 +170,23 @@ describe(`Reducer works correctly`, () => {
       isAuthorizationRequired: false
     });
   });
+
+  it(`Reducer should correctly change required authorization`, () => {
+    expect(reducer({
+      userState:
+        {
+          city: null,
+          sorting: `Popular`,
+          activeCard: null,
+          isAuthorizationRequired: false
+        }}, {
+      type: `REQUIRE_AUTHORIZATION`,
+      payload: true
+    })).toEqual({
+      city: null,
+      sorting: `Popular`,
+      activeCard: null,
+      isAuthorizationRequired: true
+    });
+  });
 });
