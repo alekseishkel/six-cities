@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 import OfferCard from '../offer-card/offer-card.jsx';
 import {changeSortingSelector} from "../../selectors/sorting-selector";
 
-const SuggestionsList = ({func, state}) => {
+const SuggestionsList = ({func, offers, state}) => {
   let divClassName = `cities__places-list places__list tabs__content`;
 
-  const places = changeSortingSelector(state);
+  const places = changeSortingSelector(state, offers);
 
   return (
     <div className={divClassName}>
@@ -25,7 +25,8 @@ const SuggestionsList = ({func, state}) => {
 
 SuggestionsList.propTypes = {
   func: PropTypes.func,
-  state: PropTypes.object
+  state: PropTypes.object,
+  offers: PropTypes.arrayOf(PropTypes.object)
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {

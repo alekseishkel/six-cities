@@ -45,7 +45,7 @@ const MainPage = (props) => {
               <h2 className="visually-hidden">Places</h2>
               <b className="places__found">{getCurrentCityOffers().length} places to stay in {currentCity}</b>
               {<SortOptions />}
-              {<SuggestionsList func={func} currentCity={currentCity} offers={getCurrentCityOffers()} sorting={sorting}/>}
+              {<SuggestionsList func={func} offers={getCurrentCityOffers()} sorting={sorting}/>}
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">

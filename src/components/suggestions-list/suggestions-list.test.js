@@ -16,7 +16,14 @@ it(`SuggestionsList correctly renders after relaunch`, () => {
         <SuggestionsList
           func={jest.fn()}
           offers={offers}
-          sorting={`Popular`}/>
+          state={{
+            city: null,
+            sorting: `Popular`,
+            activeCard: null,
+            isAuthorizationRequired: false,
+            offers,
+            user: null
+          }} />
       </Provider>
   ).toJSON();
 

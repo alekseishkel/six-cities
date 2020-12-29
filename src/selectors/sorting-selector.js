@@ -1,13 +1,12 @@
 import {createSelector} from 'reselect';
 
 const sortingTypeSelector = (state) => state.userState.sorting;
-const offersItemsSelector = (state) => state.data.offers;
+const offersItemsSelector = (_, offers) => offers;
 
 export const changeSortingSelector = createSelector(
     sortingTypeSelector,
     offersItemsSelector,
     (sorting, offers) => {
-      console.log(offers);
       let places = offers.slice();
 
       if (sorting === `Popular`) {
