@@ -4,8 +4,10 @@ import PropTypes from 'prop-types';
 
 import Header from '../header/header.jsx';
 import MainPage from '../main-page/main-page.jsx';
-// import Property from '../property/property.jsx';
+import Property from '../property/property.jsx';
 import MainEmpty from '../main-empty/main-empty.jsx';
+
+import Loader from '../loader/loader.jsx';
 
 const fn = () => {
 };
@@ -22,6 +24,10 @@ class App extends Component {
   render() {
     const {hasError} = this.state;
 
+    if (this.props.reviews === null) {
+      return <Loader />;
+    }
+
     if (hasError) {
       return <MainEmpty />;
     }
@@ -30,7 +36,7 @@ class App extends Component {
       <div>
         {<Header isAuthorizationRequired={this.props.isAuthorizationRequired}/>}
         <MainPage func={fn} />
-        {/* <Property /> */}
+        <Property />
       </div>
     );
   }
@@ -41,6 +47,7 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  reviews: state.data.reviews,
   isAuthorizationRequired: state.userState.isAuthorizationRequired
 });
 

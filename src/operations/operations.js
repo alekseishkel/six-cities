@@ -17,6 +17,21 @@ const Operations = {
       dispatch(ActionCreator.signIn(response.data));
       dispatch(ActionCreator.requireAuthorization(!status));
     });
+  },
+
+  loadReviews: (id) => (dispatch, _, api) => {
+    return api.get(`/comments/1`)
+      .then((response) => {
+        dispatch(ActionCreator.loadReviews(response.data));
+      });
+  },
+
+  sendReview: (review, id) => (dispatch, _, api) => {
+    console.log(review);
+    return api.post(`/comments/1`, review)
+      .then(() => {
+        dispatch(ActionCreator.updateReviews(review));
+      });
   }
 };
 

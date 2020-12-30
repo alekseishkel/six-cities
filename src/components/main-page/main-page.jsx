@@ -71,7 +71,7 @@ const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   currentCity: state.userState.city,
   offers: state.data.offers,
   sorting: state.userState.sorting,
-  isAuthorizationRequired: state.userState.isAuthorizationRequired
+  isAuthorizationRequired: state.userState.isAuthorizationRequired,
 });
 
 export {MainPage};

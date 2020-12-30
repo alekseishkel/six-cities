@@ -1,13 +1,31 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
+import PropTypes from 'prop-types';
 
 import ReviewsItem from '../reviews-item/reviews-item.jsx';
 
-const ReviewsList = () => {
+const ReviewsList = ({reviews}) => {
+  console.log(reviews);
   return (
     <ul className="reviews__list">
-      <ReviewsItem />
+      {reviews.map((review) =>
+        <ReviewsItem
+          key={review.id}
+          review={review}
+        />)}
     </ul>
   );
 };
 
-export default ReviewsList;
+ReviewsList.propTypes = {
+  reviews: PropTypes.arrayOf(PropTypes.object).isRequired
+};
+
+const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  reviews: state.data.reviews
+});
+
+export {ReviewsList};
+
+export default connect(mapStateToProps)(ReviewsList);

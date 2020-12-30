@@ -27,6 +27,21 @@ const ActionCreator = {
   signIn: (user) => ({
     type: `SIGN_IN`,
     payload: user
+  }),
+
+  loadReviews: (reviews) => ({
+    type: `LOAD_REVIEWS`,
+    payload: reviews
+  }),
+
+  sendReview: (review) => ({
+    type: `SEND_REVIEW`,
+    payload: review
+  }),
+
+  updateReviews: (review) => ({
+    type: `UPDATE_REVIEWS`,
+    payload: review
   })
 };
 
