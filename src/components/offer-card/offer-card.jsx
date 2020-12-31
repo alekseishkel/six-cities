@@ -1,11 +1,12 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import ActionCreator from '../../action-creator/action-creator';
 
 const OfferCard = (props) => {
-  const {func, cardInfo, currentActiveCard} = props;
+  const {func, cardInfo, currentActiveCard, history, match} = props;
   const {title, preview_image: img, price, type,
     is_premium: isPremium, is_favourite: isFavourite, rating} = cardInfo;
 
@@ -37,7 +38,6 @@ const OfferCard = (props) => {
       </button>
     );
   };
-
   return (
     <article
       className="cities__place-card place-card"

@@ -6,7 +6,7 @@ import ActionCreator from '../../action-creator/action-creator';
 
 class CitiesTabs extends Component {
   render() {
-    const {cities, currentCity, onCityClick} = this.props;
+    const {cities, currentCity, onCityClick, updateHistory} = this.props;
 
     return (
       <section className="locations container">
@@ -20,7 +20,14 @@ class CitiesTabs extends Component {
 
             return (
               <li className="locations__item" key={el + i}>
-                <a onClick={() => onCityClick(el)} className={`locations__item-link tabs__item ` + isActiveClassName} href="#">
+                <a
+                  className={`locations__item-link tabs__item ` + isActiveClassName}
+                  href="#"
+                  onClick={() => {
+                    updateHistory(el);
+                    onCityClick(el);
+                  }
+                  }>
                   <span>{el}</span>
                 </a>
               </li>
@@ -35,7 +42,8 @@ class CitiesTabs extends Component {
 CitiesTabs.propTypes = {
   cities: PropTypes.array,
   currentCity: PropTypes.string,
-  onCityClick: PropTypes.func.isRequired
+  onCityClick: PropTypes.func.isRequired,
+  updateHistory: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
@@ -44,7 +52,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.changeSorting(`Popular`));
   },
 });
-
 
 export {CitiesTabs};
 

@@ -1,12 +1,18 @@
 import ActionCreator from '../action-creator/action-creator';
 
 const Operations = {
-  loadOffers: () => (dispatch, _, api) => {
+  loadOffers: (history) => (dispatch, _, api) => {
+    let city = history.location.pathname.slice(1);
+
     return api.get(`/hotels`)
-      .then((response) => {
-        dispatch(ActionCreator.changeCity(response.data[0].city.name));
-        dispatch(ActionCreator.loadOffers(response.data));
-      });
+    .then((response) => {
+      if (city === ``) {
+        city = response.data[0].city.name;
+      }
+
+      dispatch(ActionCreator.changeCity(city));
+      dispatch(ActionCreator.loadOffers(response.data));
+    });
   },
 
   signIn: (email, password, status) => (dispatch, _, api) => {

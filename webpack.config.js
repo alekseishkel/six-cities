@@ -11,6 +11,7 @@ module.exports = {
     compress: false,
     open: true,
     port: 1337,
+    historyApiFallback: true
   },
   module: {
     rules: [
@@ -28,5 +29,5 @@ module.exports = {
     ],
 
   },
-  devtool: `source-map`
+  devtool: `source-map`,
 };

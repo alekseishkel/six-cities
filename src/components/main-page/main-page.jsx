@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -33,27 +34,34 @@ const MainPage = (props) => {
 
   return (
     <div className="page page--gray page--main">
-
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
-        <div className="tabs">
-          {<CitiesTabs cities={getNamesOfSixCities()} currentCity={currentCity} />}
-        </div>
-        <div className="cities">
-          <div className="cities__places-container container">
-            <section className="cities__places places">
-              <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{getCurrentCityOffers().length} places to stay in {currentCity}</b>
-              {<SortOptions />}
-              {<SuggestionsList func={func} offers={getCurrentCityOffers()} sorting={sorting}/>}
-            </section>
-            <div className="cities__right-section">
-              <section className="cities__map map">
-                {<Map offers={getCurrentCityOffers()} currentCity={currentCity} />}
+        <Route path="/" render={({history}) =>
+
+          <div className="tabs">
+            <CitiesTabs
+              cities={getNamesOfSixCities()}
+              currentCity={currentCity}
+              updateHistory={(city) => history.push(city)}
+              // match={match}
+            />
+          </div>}/>
+        <Route path="/" render={() =>
+          <div className="cities">
+            <div className="cities__places-container container">
+              <section className="cities__places places">
+                <h2 className="visually-hidden">Places</h2>
+                <b className="places__found">{getCurrentCityOffers().length} places to stay in {currentCity}</b>
+                {<SortOptions />}
+                {<SuggestionsList func={func} offers={getCurrentCityOffers()} sorting={sorting}/>}
               </section>
+              <div className="cities__right-section">
+                <section className="cities__map map">
+                  {<Map offers={getCurrentCityOffers()} currentCity={currentCity} />}
+                </section>
+              </div>
             </div>
-          </div>
-        </div>
+          </div>} />
       </main>
     </div>
   );
