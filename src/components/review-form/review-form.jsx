@@ -15,6 +15,7 @@ class ReviewForm extends Component {
     };
 
     this.submitButton = React.createRef();
+    this.form = React.createRef();
   }
 
   render() {
@@ -40,6 +41,7 @@ class ReviewForm extends Component {
     };
 
     const submitReview = (evt) => {
+
       evt.preventDefault();
 
       const id = reviews.length + 1;
@@ -54,6 +56,9 @@ class ReviewForm extends Component {
       };
 
       onSubmit(review, id);
+
+      this.setState({comment: ``, rating: null});
+      this.form.current.reset();
     };
 
     if (user === null) {
@@ -64,7 +69,7 @@ class ReviewForm extends Component {
       <React.Fragment>
 
         <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">1</span></h2>
-        <form className="reviews__form form" action="#" method="post">
+        <form className="reviews__form form" action="#" method="post" ref={this.form}>
           <label className="reviews__label form__label" htmlFor="review">Your review</label>
           <div className="reviews__rating-form form__rating">
             <input className="form__rating-input visually-hidden" name="rating" value="5" id="5-stars" type="radio" onChange={getRating}/>
@@ -108,7 +113,6 @@ class ReviewForm extends Component {
             name="review"
             placeholder="Tell how was your stay, what you like and what can be improved"
             value={comment}
-            ref={this.commentTextarea}
             onChange={(evt) => {
               changeComment(evt);
             }}>
@@ -134,7 +138,7 @@ class ReviewForm extends Component {
 }
 
 ReviewForm.propTypes = {
-  reviews: PropTypes.arrayOf(PropTypes.object).isRequired,
+  reviews: PropTypes.arrayOf(PropTypes.object),
   user: PropTypes.object,
   onSubmit: PropTypes.func.isRequired,
 };

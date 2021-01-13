@@ -2,14 +2,14 @@ import ActionCreator from '../action-creator/action-creator';
 
 const Operations = {
   loadOffers: (history) => (dispatch, _, api) => {
-    let city = history.location.pathname.slice(1);
+    let city = history.location.pathname.split(`/`)[1];
 
     return api.get(`/hotels`)
     .then((response) => {
       if (city === ``) {
         city = response.data[0].city.name;
+        history.push(city);
       }
-
       dispatch(ActionCreator.changeCity(city));
       dispatch(ActionCreator.loadOffers(response.data));
     });
@@ -21,7 +21,7 @@ const Operations = {
       password
     }).then((response) => {
       dispatch(ActionCreator.signIn(response.data));
-      dispatch(ActionCreator.requireAuthorization(!status));
+      dispatch(ActionCreator.requireAuthorization(status));
     });
   },
 
@@ -33,8 +33,8 @@ const Operations = {
   },
 
   sendReview: (review, id) => (dispatch, _, api) => {
-    console.log(review);
-    return api.post(`/comments/1`, review)
+    console.log(id);
+    return api.post(`/comments/${id}`, review)
       .then(() => {
         dispatch(ActionCreator.updateReviews(review));
       });

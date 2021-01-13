@@ -14,6 +14,16 @@ class Map extends Component {
 
   componentDidMount() {
     this.renderMap();
+
+    if (this.props.activeCard !== null) {
+      this.map.eachLayer((layer) => {
+        if (layer._latlng &&
+        layer._latlng.lat === this.props.activeCard.location.latitude &&
+        layer._latlng.lng === this.props.activeCard.location.longitude) {
+          layer._icon.src = `img/pin-active.svg`;
+        }
+      });
+    }
   }
 
   componentDidUpdate(prevProps) {

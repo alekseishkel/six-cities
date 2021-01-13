@@ -6,7 +6,6 @@ const ReviewsItem = ({review}) => {
     return null;
   }
 
-  console.log(review);
   let avatarUrl = review.user.avatar_url;
   const MAX_RATING = 5;
   const reviewDate = new Date(review.date).toLocaleDateString(`ru-RU`, {

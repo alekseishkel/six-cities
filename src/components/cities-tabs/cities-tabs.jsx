@@ -1,12 +1,24 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import ActionCreator from '../../action-creator/action-creator';
 
 class CitiesTabs extends Component {
+  componentDidMount() {
+    window.onpopstate = () => {
+      this.props.onCityClick(this.props.match.params.city);
+    };
+  }
+
   render() {
-    const {cities, currentCity, onCityClick, updateHistory} = this.props;
+    const {cities, currentCity, onCityClick, history} = this.props;
+
+    const updateHistory = (evt, city) => {
+      evt.preventDefault();
+      history.push(city);
+    };
 
     return (
       <section className="locations container">
@@ -23,8 +35,8 @@ class CitiesTabs extends Component {
                 <a
                   className={`locations__item-link tabs__item ` + isActiveClassName}
                   href="#"
-                  onClick={() => {
-                    updateHistory(el);
+                  onClick={(evt) => {
+                    updateHistory(evt, el);
                     onCityClick(el);
                   }
                   }>
@@ -43,7 +55,8 @@ CitiesTabs.propTypes = {
   cities: PropTypes.array,
   currentCity: PropTypes.string,
   onCityClick: PropTypes.func.isRequired,
-  updateHistory: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
@@ -55,4 +68,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 export {CitiesTabs};
 
-export default connect(null, mapDispatchToProps)(CitiesTabs);
+export default withRouter(connect(null, mapDispatchToProps)(CitiesTabs));

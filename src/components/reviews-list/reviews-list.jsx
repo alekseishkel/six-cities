@@ -6,7 +6,10 @@ import PropTypes from 'prop-types';
 import ReviewsItem from '../reviews-item/reviews-item.jsx';
 
 const ReviewsList = ({reviews}) => {
-  console.log(reviews);
+  if (reviews === null) {
+    return null;
+  }
+
   return (
     <ul className="reviews__list">
       {reviews.map((review) =>
@@ -19,7 +22,7 @@ const ReviewsList = ({reviews}) => {
 };
 
 ReviewsList.propTypes = {
-  reviews: PropTypes.arrayOf(PropTypes.object).isRequired
+  reviews: PropTypes.arrayOf(PropTypes.object)
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {

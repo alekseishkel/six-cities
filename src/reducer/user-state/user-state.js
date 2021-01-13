@@ -3,7 +3,7 @@ const initialState = {
     city: null,
     sorting: `Popular`,
     activeCard: null,
-    isAuthorizationRequired: false
+    isAuthorizationRequired: true
   }
 };
 

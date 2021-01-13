@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Link, Redirect} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Operations from '../../operations/operations';
@@ -29,13 +30,15 @@ class SignIn extends Component {
       });
     };
 
-    const submitUserData = (evt) => {
-      evt.preventDefault();
-
+    const submitUserData = () => {
       const {email, password} = this.state;
 
-      onLogin(email, password, status);
+      onLogin(email, password, false);
     };
+
+    if (status === false) {
+      return <Redirect to="/favorites" />;
+    }
 
     return (
       <div className="page page--gray page--login">
@@ -66,7 +69,7 @@ class SignIn extends Component {
                     required=""
                     onChange={changeUserPassword}/>
                 </div>
-                <button className="login__submit form__submit button" type="submit" onClick={submitUserData}>Sign in</button>
+                <Link to="/" className="login__submit form__submit button" type="submit" onClick={submitUserData}>Sign in</Link>
               </form>
             </section>
             <section className="locations locations--login locations--current">
@@ -90,7 +93,7 @@ SignIn.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   onLogin: (email, password, status) => {
-    dispatch(Operations.signIn(email, password, status));
+    dispatch(Operations.signIn(email, password, false));
   }
 });
 

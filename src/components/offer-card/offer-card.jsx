@@ -1,14 +1,14 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import {Link, withRouter} from 'react-router-dom';
 
 import ActionCreator from '../../action-creator/action-creator';
 
 const OfferCard = (props) => {
-  const {func, cardInfo, currentActiveCard, history, match} = props;
-  const {title, preview_image: img, price, type,
-    is_premium: isPremium, is_favourite: isFavourite, rating} = cardInfo;
+  const {func, cardInfo, currentActiveCard} = props;
+  const {title, preview_image: img, price, type, id,
+    is_premium: isPremium, is_favourite: isFavourite, rating, city} = cardInfo;
 
   const MAX_RATING = 5;
 
@@ -38,6 +38,7 @@ const OfferCard = (props) => {
       </button>
     );
   };
+
   return (
     <article
       className="cities__place-card place-card"
@@ -64,7 +65,9 @@ const OfferCard = (props) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{title}</a>
+          <Link to={`/${city.name}/${id}`}>
+            {title}
+          </Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
@@ -75,7 +78,8 @@ const OfferCard = (props) => {
 OfferCard.propTypes = {
   func: PropTypes.func,
   cardInfo: PropTypes.object.isRequired,
-  currentActiveCard: PropTypes.func
+  currentActiveCard: PropTypes.func,
+  history: PropTypes.object.isRequired
 };
 
 const mapDispatchToProps = (dispatch) => ({
@@ -86,4 +90,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 export {OfferCard};
 
-export default connect(null, mapDispatchToProps)(OfferCard);
+export default withRouter(connect(null, mapDispatchToProps)(OfferCard));
