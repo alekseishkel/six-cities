@@ -12,17 +12,32 @@ class Map extends Component {
     this.map = null;
   }
 
+  changeMarkerToActive() {
+    this.map.eachLayer((layer) => {
+      if (layer._latlng &&
+        layer._latlng.lat === this.props.activeCard.location.latitude &&
+        layer._latlng.lng === this.props.activeCard.location.longitude) {
+        layer._icon.src = `img/pin-active.svg`;
+      }
+    });
+  }
+
+  changeMarkerToPassive(prevProps) {
+    this.map.eachLayer((layer) => {
+      if (
+        layer._latlng &&
+          layer._latlng.lat === prevProps.activeCard.location.latitude &&
+          layer._latlng.lng === prevProps.activeCard.location.longitude) {
+        layer._icon.src = `img/pin.svg`;
+      }
+    });
+  }
+
   componentDidMount() {
     this.renderMap();
 
     if (this.props.activeCard !== null) {
-      this.map.eachLayer((layer) => {
-        if (layer._latlng &&
-        layer._latlng.lat === this.props.activeCard.location.latitude &&
-        layer._latlng.lng === this.props.activeCard.location.longitude) {
-          layer._icon.src = `img/pin-active.svg`;
-        }
-      });
+      this.changeMarkerToActive();
     }
   }
 
@@ -32,22 +47,18 @@ class Map extends Component {
       this.renderMap();
     }
 
-    if (this.props.activeCard !== prevProps.activeCard) {
-      this.map.eachLayer((layer) => {
-        if (this.props.activeCard !== null &&
-            layer._latlng &&
-            layer._latlng.lat === this.props.activeCard.location.latitude &&
-            layer._latlng.lng === this.props.activeCard.location.longitude) {
-          layer._icon.src = `img/pin-active.svg`;
-        }
+    if (this.props.pageId !== prevProps.pageId) {
+      this.map.remove();
+      this.renderMap();
+    }
 
-        if (prevProps.activeCard !== null &&
-            layer._latlng &&
-            layer._latlng.lat === prevProps.activeCard.location.latitude &&
-            layer._latlng.lng === prevProps.activeCard.location.longitude) {
-          layer._icon.src = `img/pin.svg`;
-        }
-      });
+    if (this.props.activeCard !== null) {
+      this.changeMarkerToActive();
+    }
+
+    if (prevProps.activeCard !== null &&
+        this.props.activeCard !== prevProps.activeCard) {
+      this.changeMarkerToPassive(prevProps);
     }
   }
 
@@ -88,7 +99,8 @@ class Map extends Component {
 Map.propTypes = {
   currentCity: PropTypes.string.isRequired,
   offers: PropTypes.arrayOf(PropTypes.object).isRequired,
-  activeCard: PropTypes.object
+  activeCard: PropTypes.object,
+  pageId: PropTypes.number
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {

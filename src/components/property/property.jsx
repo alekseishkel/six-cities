@@ -4,14 +4,12 @@ import PropTypes from 'prop-types';
 
 import ReviewsList from '../reviews-list/reviews-list.jsx';
 import ReviewForm from '../review-form/review-form.jsx';
-// import SuggestionsList from '../suggestions-list/suggestions-list.jsx';
+import SuggestionsList from '../suggestions-list/suggestions-list.jsx';
 import Map from '../map/map.jsx';
 
 import ActionCreator from '../../action-creator/action-creator';
 
 import {getCurrentCityOffers} from '../../utils/utils';
-
-// import offersCardsInfo from '../../mocks/offers';
 
 class Property extends Component {
   constructor() {
@@ -20,28 +18,34 @@ class Property extends Component {
 
   componentDidMount() {
     if (this.props.activeCard === null) {
-      this.props.dispatchActiveCard(this.props.offer);
+      this.props.changeActiveCard(this.props.offer);
     }
   }
 
-  render() {
-    const {offer, idd, currentCity, offers, activeCard, dispatchActiveCard} = this.props;
-    const {id, images, is_premium: isPremium, description, title, rating,
-      bedrooms, max_adults: maxAdults, type, price, goods, host} = offer;
+  getNeighbourhoodOffers() {
+    const currentCityOffers = JSON.parse(JSON.stringify(getCurrentCityOffers(this.props.offers, this.props.currentCity)));
 
-    const MAX_RATING = 5;
-
-    const currentCityOffers = JSON.parse(JSON.stringify(getCurrentCityOffers(offers, currentCity)));
-
-    let neighbourhoodPlaces = [];
     currentCityOffers.forEach((el) => {
-      const coordsDiff = Math.sqrt(Math.pow((el.location.latitude - offer.location.latitude), 2) + Math.pow((el.location.longitude - offer.location.longitude), 2));
+      const coordsDiff = Math.sqrt(Math.pow((el.location.latitude - this.props.offer.location.latitude), 2) +
+        Math.pow((el.location.longitude - this.props.offer.location.longitude), 2));
       el.coordsDiff = coordsDiff;
     });
 
     currentCityOffers.sort((a, b) => a.coordsDiff - b.coordsDiff).splice(4);
 
-    console.log(offers);
+    return currentCityOffers;
+  }
+
+
+  render() {
+    const {offer, currentCity, pageId} = this.props;
+    const {id, images, is_premium: isPremium, description, title, rating,
+      bedrooms, max_adults: maxAdults, type, price, goods, host} = offer;
+
+    const MAX_RATING = 5;
+
+    const neighbourhoodOffers = this.getNeighbourhoodOffers();
+
     return (
       <div className="page">
         <main className="page__main page__main--property">
@@ -135,13 +139,13 @@ class Property extends Component {
               </div>
             </div>
             <section className="property__map map">
-              {<Map offers={currentCityOffers} currentCity={currentCity} />}
+              {<Map offers={neighbourhoodOffers} currentCity={currentCity} pageId={pageId}/>}
             </section>
           </section>
           <div className="container">
             <section className="near-places places">
               <h2 className="near-places__title">Other places in the neighbourhood</h2>
-              {/* {<SuggestionsList isNeighbourhood={true} places={offersCardsInfo} city={`Paris`}/>} */}
+              {<SuggestionsList offers={neighbourhoodOffers.slice(1)} sorting={`Popular`} />}
             </section >
           </div >
         </main >
@@ -152,16 +156,21 @@ class Property extends Component {
 
 Property.propTypes = {
   offer: PropTypes.object.isRequired,
+  offers: PropTypes.arrayOf(PropTypes.object).isRequired,
+  activeCard: PropTypes.object,
+  changeActiveCard: PropTypes.func.isRequired,
+  currentCity: PropTypes.string.isRequired,
+  pageId: PropTypes.number.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   currentCity: state.userState.city,
   offers: state.data.offers,
-  activeCard: state.userState.activeCard
+  activeCard: state.userState.activeCard,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  dispatchActiveCard: (offer) => {
+  changeActiveCard: (offer) => {
     dispatch(ActionCreator.changeActiveCard(offer));
   }
 });

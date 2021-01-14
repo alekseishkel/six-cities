@@ -44,7 +44,7 @@ class App extends Component {
           } />
           <Route exact path="/:city?" render={(history) => <MainPage func={fn} history={history}/>} />
           <Route exact path="/:city/:id" render={({match}) =>
-            <Property offer={offers.filter((offer) => offer.id.toString() === match.params.id)[0]} idd={match.params.id}/> }
+            <Property offer={offers.filter((offer) => offer.id === parseInt(match.params.id, 10))[0]} pageId={parseInt(match.params.id, 10)}/> }
           />
         </Switch>
       </Router>

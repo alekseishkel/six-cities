@@ -10,7 +10,7 @@ import SortOptions from '../sort-options/sort-options.jsx';
 import {getCurrentCityOffers, getNamesOfSixCities} from '../../utils/utils';
 
 const MainPage = (props) => {
-  const {func, currentCity, offers, sorting} = props;
+  const {currentCity, offers, sorting} = props;
 
   const currentCityOffers = getCurrentCityOffers(offers, currentCity);
   // const currentCity = history.location.pathname.slice(1);
@@ -45,7 +45,7 @@ const MainPage = (props) => {
               <h2 className="visually-hidden">Places</h2>
               <b className="places__found">{currentCityOffers.length} places to stay in {currentCity}</b>
               {<SortOptions />}
-              {<SuggestionsList func={func} offers={currentCityOffers} sorting={sorting} />}
+              {<SuggestionsList offers={currentCityOffers} sorting={sorting} />}
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">
