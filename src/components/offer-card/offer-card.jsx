@@ -6,7 +6,9 @@ import {Link, withRouter} from 'react-router-dom';
 import ActionCreator from '../../action-creator/action-creator';
 
 const OfferCard = (props) => {
-  const {func, cardInfo, currentActiveCard} = props;
+  const {func, cardInfo, currentActiveCard, match} = props;
+
+  console.log(match);
 
   const {title, preview_image: img, price, type, id,
     is_premium: isPremium, is_favourite: isFavourite, rating, city} = cardInfo;
@@ -40,6 +42,19 @@ const OfferCard = (props) => {
     );
   };
 
+  let offerCardClassName;
+  console.log(match);
+
+  if (match.url.startsWith === `/favorites`) {
+    offerCardClassName = `favorites`;
+  }
+
+  console.log(match.path);
+
+  if (match.path.startsWith(`/:city?`)) {
+    offerCardClassName = `cities`;
+  }
+
   return (
     <Link to={`/${city.name}/${id}`} onClick={() => {
       document.documentElement.scrollTop = 0;
@@ -49,10 +64,10 @@ const OfferCard = (props) => {
         onMouseEnter={() => currentActiveCard(cardInfo)}
         onMouseLeave={() => currentActiveCard(null)}>
         {isPremium ? premiumLayout() : null}
-        <div className="cities__image-wrapper place-card__image-wrapper">
+        <div className={`${offerCardClassName}__image-wrapper place-card__image-wrapper`}>
           <img className="place-card__image" src={img} width="260" height="200" alt="Place image" />
         </div>
-        <div className="place-card__info" onClick={func}>
+        <div className={`${offerCardClassName}__info`} onClick={func}>
           <div className="place-card__price-wrapper">
             <div className="place-card__price">
               <b className="place-card__price-value">€{price}</b>

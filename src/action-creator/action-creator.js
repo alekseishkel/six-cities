@@ -42,6 +42,11 @@ const ActionCreator = {
   updateReviews: (review) => ({
     type: `UPDATE_REVIEWS`,
     payload: review
+  }),
+
+  getFavoriteOffers: (favorites) => ({
+    type: `GET_FAVORITE_OFFERS`,
+    payload: favorites
   })
 };
 

@@ -2,7 +2,8 @@ const initialState = {
   data: {
     offers: null,
     user: null,
-    reviews: null
+    reviews: null,
+    favorites: null
   }
 };
 
@@ -32,6 +33,10 @@ const reducer = (state = initialState, action) => {
 
       return Object.assign({}, state.data, {
         reviews: updatedReviews
+      });
+    case `GET_FAVORITE_OFFERS`:
+      return Object.assign({}, state.data, {
+        favorites: action.payload
       });
     default:
       return state.data;

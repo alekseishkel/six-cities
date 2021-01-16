@@ -9,7 +9,12 @@ const getNamesOfSixCities = (offers) => {
   return Array.from(cities);
 };
 
+const getFavoriteOffers = (offers) => {
+  return offers.filter((el) => el.is_favorite);
+};
+
 export {
   getCurrentCityOffers,
-  getNamesOfSixCities
+  getNamesOfSixCities,
+  getFavoriteOffers
 };

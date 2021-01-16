@@ -1,17 +1,33 @@
 import ActionCreator from '../action-creator/action-creator';
 
+import {getNamesOfSixCities, getFavoriteOffers} from '../utils/utils';
+
 const Operations = {
   loadOffers: (history) => (dispatch, _, api) => {
-    let city = history.location.pathname.split(`/`)[1];
+    let pathname = history.location.pathname.split(`/`)[1];
 
     return api.get(`/hotels`)
     .then((response) => {
-      if (city === ``) {
-        city = response.data[0].city.name;
-        history.push(city);
+      const favoriteOffers = getFavoriteOffers(response.data);
+      const citiesNames = getNamesOfSixCities(response.data);
+
+      if (citiesNames.includes(pathname)) {
+        dispatch(ActionCreator.changeCity(pathname));
       }
-      dispatch(ActionCreator.changeCity(city));
+
+      if (!citiesNames.includes(pathname) && pathname !== ``) {
+        dispatch(ActionCreator.changeCity(citiesNames[0]));
+      }
+
+      if (pathname === ``) {
+        pathname = response.data[0].city.name;
+
+        history.push(response.data[0].city.name);
+        dispatch(ActionCreator.changeCity(pathname));
+      }
+
       dispatch(ActionCreator.loadOffers(response.data));
+      dispatch(ActionCreator.getFavoriteOffers(favoriteOffers));
     });
   },
 
@@ -38,7 +54,7 @@ const Operations = {
       .then(() => {
         dispatch(ActionCreator.updateReviews(review));
       });
-  }
+  },
 };
 
 export default Operations;
