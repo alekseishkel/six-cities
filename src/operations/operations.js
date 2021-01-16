@@ -1,6 +1,6 @@
 import ActionCreator from '../action-creator/action-creator';
 
-import {getNamesOfSixCities, getFavoriteOffers} from '../utils/utils';
+import {getUniqueCitiesNames, getFavoriteOffers} from '../utils/utils';
 
 const Operations = {
   loadOffers: (history) => (dispatch, _, api) => {
@@ -9,7 +9,7 @@ const Operations = {
     return api.get(`/hotels`)
     .then((response) => {
       const favoriteOffers = getFavoriteOffers(response.data);
-      const citiesNames = getNamesOfSixCities(response.data);
+      const citiesNames = getUniqueCitiesNames(response.data);
 
       if (citiesNames.includes(pathname)) {
         dispatch(ActionCreator.changeCity(pathname));
@@ -26,8 +26,8 @@ const Operations = {
         dispatch(ActionCreator.changeCity(pathname));
       }
 
-      dispatch(ActionCreator.loadOffers(response.data));
       dispatch(ActionCreator.getFavoriteOffers(favoriteOffers));
+      dispatch(ActionCreator.loadOffers(response.data));
     });
   },
 

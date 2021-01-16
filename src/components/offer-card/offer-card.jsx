@@ -3,12 +3,12 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {Link, withRouter} from 'react-router-dom';
 
+import FavoritesButton from '../favorites-button/favorites-button.jsx';
+
 import ActionCreator from '../../action-creator/action-creator';
 
 const OfferCard = (props) => {
   const {func, cardInfo, currentActiveCard, match} = props;
-
-  console.log(match);
 
   const {title, preview_image: img, price, type, id,
     is_premium: isPremium, is_favourite: isFavourite, rating, city} = cardInfo;
@@ -23,79 +23,65 @@ const OfferCard = (props) => {
     );
   };
 
-  const bookmarkLayout = () => {
-    let buttonClassName;
-
-    if (isFavourite === true) {
-      buttonClassName = `place-card__bookmark-button place-card__bookmark-button--active button`;
-    } else {
-      buttonClassName = `place-card__bookmark-button button`;
-    }
-
-    return (
-      <button className={buttonClassName} type="button">
-        <svg className="place-card__bookmark-icon" width="18" height="19">
-          <use xlinkHref="#icon-bookmark"></use>
-        </svg>
-        <span className="visually-hidden">To bookmarks</span>
-      </button>
-    );
+  let offerCardArticeClassName = `cities__place-card`;
+  let offerCardClassName = `cities`;
+  let offerImageParams = {
+    width: 260,
+    height: 200
   };
+  let favoritesInfoClassName = null;
 
-  let offerCardClassName;
-  console.log(match);
-
-  if (match.url.startsWith === `/favorites`) {
+  if (match.url === `/favorites`) {
+    offerCardArticeClassName = `favorites__card`;
     offerCardClassName = `favorites`;
-  }
-
-  console.log(match.path);
-
-  if (match.path.startsWith(`/:city?`)) {
-    offerCardClassName = `cities`;
+    offerImageParams.width = 150;
+    offerImageParams.height = 150;
+    favoritesInfoClassName = `favorites__card-info `;
   }
 
   return (
-    <Link to={`/${city.name}/${id}`} onClick={() => {
-      document.documentElement.scrollTop = 0;
-    }}>
-      <article
-        className="cities__place-card place-card"
-        onMouseEnter={() => currentActiveCard(cardInfo)}
-        onMouseLeave={() => currentActiveCard(null)}>
-        {isPremium ? premiumLayout() : null}
+
+    <article
+      className={`${offerCardArticeClassName} place-card`}
+      onMouseEnter={() => currentActiveCard(cardInfo)}
+      onMouseLeave={() => currentActiveCard(null)}>
+      {isPremium ? premiumLayout() : null}
+      <Link to={`/${city.name}/${id}`} onClick={() => {
+        document.documentElement.scrollTop = 0;
+      }}>
         <div className={`${offerCardClassName}__image-wrapper place-card__image-wrapper`}>
-          <img className="place-card__image" src={img} width="260" height="200" alt="Place image" />
+          <img className="place-card__image" src={img} width={offerImageParams.width} height={offerImageParams.height} alt="Place image" />
         </div>
-        <div className={`${offerCardClassName}__info`} onClick={func}>
-          <div className="place-card__price-wrapper">
-            <div className="place-card__price">
-              <b className="place-card__price-value">€{price}</b>
-              <span className="place-card__price-text">&#47;&nbsp;night</span>
-            </div>
-            {bookmarkLayout()}
+      </Link>
+
+      <div className={favoritesInfoClassName + `place-card__info`}>
+        <div className="place-card__price-wrapper">
+          <div className="place-card__price">
+            <b className="place-card__price-value">€{price}</b>
+            <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
-          <div className="place-card__rating rating">
-            <div className="place-card__stars rating__stars">
-              <span style={{width: ((rating / MAX_RATING) * 100) + `%`}}></span>
-              <span className="visually-hidden">Rating</span>
-            </div>
-          </div>
-          <h2 className="place-card__name">
-            {title}
-          </h2>
-          <p className="place-card__type">{type}</p>
+          <FavoritesButton cardInfo={cardInfo}/>
         </div>
-      </article>
-    </Link>
+        <div className="place-card__rating rating">
+          <div className="place-card__stars rating__stars">
+            <span style={{width: ((rating / MAX_RATING) * 100) + `%`}}></span>
+            <span className="visually-hidden">Rating</span>
+          </div>
+        </div>
+        <h2 className="place-card__name">
+          {title}
+        </h2>
+        <p className="place-card__type">{type}</p>
+      </div>
+    </article>
   );
 };
 
 OfferCard.propTypes = {
-  func: PropTypes.func,
   cardInfo: PropTypes.object.isRequired,
   currentActiveCard: PropTypes.func,
   history: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired
 };
 
 const mapDispatchToProps = (dispatch) => ({

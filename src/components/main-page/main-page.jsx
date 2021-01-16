@@ -7,7 +7,7 @@ import Map from '../map/map.jsx';
 import CitiesTabs from '../cities-tabs/cities-tabs.jsx';
 import SortOptions from '../sort-options/sort-options.jsx';
 
-import {getCurrentCityOffers, getNamesOfSixCities} from '../../utils/utils';
+import {getCurrentCityOffers, getUniqueCitiesNames} from '../../utils/utils';
 
 const MainPage = (props) => {
   const {currentCity, offers, sorting} = props;
@@ -20,7 +20,7 @@ const MainPage = (props) => {
   //   return offers.filter((el) => el.city.name === currentCity);
   // };
 
-  // const getNamesOfSixCities = () => {
+  // const getUniqueCitiesNames = () => {
   //   let cities = new Set();
   //   offers.forEach((el) => cities.add(el.city.name));
 
@@ -37,7 +37,7 @@ const MainPage = (props) => {
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
-          <CitiesTabs cities={getNamesOfSixCities(offers)} currentCity={currentCity} />
+          <CitiesTabs cities={getUniqueCitiesNames(offers)} currentCity={currentCity} />
         </div>
         <div className="cities">
           <div className="cities__places-container container">

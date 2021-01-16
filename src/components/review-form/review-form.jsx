@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Operations from '../../operations/operations';
-
+// починить включени и отключение кнопки при нажатии при вводе текста, а затем нажатия на звездочку
 class ReviewForm extends Component {
   constructor() {
     super();
@@ -41,7 +41,7 @@ class ReviewForm extends Component {
     };
 
     const submitReview = (evt) => {
-
+      console.log(evt);
       evt.preventDefault();
 
       const id = reviews.length + 1;
@@ -69,7 +69,7 @@ class ReviewForm extends Component {
       <React.Fragment>
 
         <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">1</span></h2>
-        <form className="reviews__form form" action="#" method="post" ref={this.form}>
+        <form className="reviews__form form" action="#" method="post" ref={this.form} onSubmit={submitReview}>
           <label className="reviews__label form__label" htmlFor="review">Your review</label>
           <div className="reviews__rating-form form__rating">
             <input className="form__rating-input visually-hidden" name="rating" value="5" id="5-stars" type="radio" onChange={getRating}/>
@@ -124,10 +124,9 @@ class ReviewForm extends Component {
             <button
               className="reviews__submit form__submit button"
               type="submit"
-              disabled=""
+              disabled={true}
               minLength="50"
-              ref={this.submitButton}
-              onClick={submitReview}>
+              ref={this.submitButton}>
               Submit
             </button>
           </div>

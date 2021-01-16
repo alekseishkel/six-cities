@@ -47,7 +47,17 @@ const ActionCreator = {
   getFavoriteOffers: (favorites) => ({
     type: `GET_FAVORITE_OFFERS`,
     payload: favorites
-  })
+  }),
+
+  addOfferToFavorites: (offer) => ({
+    type: `ADD_OFFER_TO_FAVORITES`,
+    payload: offer
+  }),
+
+  removeOfferFromFavorites: (offer) => ({
+    type: `REMOVE_OFFER_FROM_FAVORITES`,
+    payload: offer
+  }),
 };
 
 export default ActionCreator;

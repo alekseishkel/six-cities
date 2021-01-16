@@ -6,6 +6,7 @@ import ReviewsList from '../reviews-list/reviews-list.jsx';
 import ReviewForm from '../review-form/review-form.jsx';
 import SuggestionsList from '../suggestions-list/suggestions-list.jsx';
 import Map from '../map/map.jsx';
+import FavoritesButton from '../favorites-button/favorites-button.jsx';
 
 import ActionCreator from '../../action-creator/action-creator';
 
@@ -53,11 +54,13 @@ class Property extends Component {
             <div className="property__gallery-container container">
               <div className="property__gallery">
                 {images.map((img, i) => {
-                  return (
-                    <div key={id + i} className="property__image-wrapper">
-                      <img className="property__image" src={img} alt="Photo studio" />
-                    </div>
-                  );
+                  if (i < 6) {
+                    return (
+                      <div key={id + i} className="property__image-wrapper">
+                        <img className="property__image" src={img} alt="Photo studio" />
+                      </div>
+                    );
+                  }
                 })}
               </div>
             </div>
@@ -71,12 +74,13 @@ class Property extends Component {
                   <h1 className="property__name">
                     {title}
                   </h1>
-                  <button className="property__bookmark-button button" type="button">
+                  <button className="place-card__bookmark-button--active property__bookmark-button button" type="button">
                     <svg className="property__bookmark-icon" width="31" height="33">
                       <use xlinkHref="#icon-bookmark"></use>
                     </svg>
                     <span className="visually-hidden">To bookmarks</span>
                   </button>
+                  {<FavoritesButton cardInfo={offer} />}
                 </div>
                 <div className="property__rating rating">
                   <div className="property__stars rating__stars">
