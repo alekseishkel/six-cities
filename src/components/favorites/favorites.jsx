@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import OfferCard from '../offer-card/offer-card.jsx';
@@ -9,6 +9,10 @@ import {getUniqueCitiesNames} from '../../utils/utils';
 
 const Favorites = ({isAuthorizationRequired, currentCity, favorites}) => {
   const citiesNames = getUniqueCitiesNames(favorites);
+
+  if (favorites.length === 0) {
+    return <Redirect to='/favorites-empty' />;
+  }
 
   return (
     <div className="page__favorites-container container">

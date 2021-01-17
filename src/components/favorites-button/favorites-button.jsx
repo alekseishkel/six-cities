@@ -22,8 +22,7 @@ class FavoritesButton extends Component {
 
   render() {
     const {isActive} = this.state;
-    const {cardInfo, onFavoritesButtonAddClick, onFavoritesButtonRemoveClick, match} = this.props;
-
+    const {cardInfo, onFavoritesButtonAddClick, onFavoritesButtonRemoveClick, type, match} = this.props;
     let favoritesButtonClassName = `place-card__bookmark-button`;
     let buttonWidth = 18;
     let buttonHeight = 19;
@@ -33,7 +32,7 @@ class FavoritesButton extends Component {
       isActiveModifier = `--active`;
     }
 
-    if (match.path === `/:city/:id`) {
+    if (type === `property`) {
       favoritesButtonClassName = `property__bookmark-button`;
       buttonWidth = 31;
       buttonHeight = 33;
@@ -59,7 +58,6 @@ class FavoritesButton extends Component {
           if (isActive === true) {
             onFavoritesButtonRemoveClick(cardInfo.id);
           }
-          console.log(cardInfo);
         }}>
         <svg className="place-card__bookmark-icon" width={buttonWidth} height={buttonHeight}>
           <use xlinkHref="#icon-bookmark"></use>

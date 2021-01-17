@@ -74,13 +74,7 @@ class Property extends Component {
                   <h1 className="property__name">
                     {title}
                   </h1>
-                  {/* <button className="property__bookmark-button button" type="button">
-                    <svg className="property__bookmark-icon" width="31" height="33">
-                      <use xlinkHref="#icon-bookmark"></use>
-                    </svg>
-                    <span className="visually-hidden">To bookmarks</span>
-                  </button> */}
-                  {<FavoritesButton cardInfo={offer} />}
+                  {<FavoritesButton cardInfo={offer} type={`property`} pageId={pageId}/>}
                 </div>
                 <div className="property__rating rating">
                   <div className="property__stars rating__stars">
