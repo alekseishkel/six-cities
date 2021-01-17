@@ -20,6 +20,12 @@ class FavoritesButton extends Component {
     }
   }
 
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.pageId !== this.props.pageId) {
+  //     this.setState({isActive: false});
+  //   }
+  // }
+
   render() {
     const {isActive} = this.state;
     const {cardInfo, onFavoritesButtonAddClick, onFavoritesButtonRemoveClick, type, match} = this.props;
