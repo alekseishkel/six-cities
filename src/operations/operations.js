@@ -49,7 +49,6 @@ const Operations = {
   },
 
   sendReview: (review, id) => (dispatch, _, api) => {
-    console.log(id);
     return api.post(`/comments/${id}`, review)
       .then(() => {
         dispatch(ActionCreator.updateReviews(review));

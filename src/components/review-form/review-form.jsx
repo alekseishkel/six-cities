@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Operations from '../../operations/operations';
+// сделать логику по исАуторизейшн в перехватчике исходя из кода ответа сервера
+// загружать комменты для нужных отелей исходя из айди
 // починить включение и отключение кнопки при нажатии при вводе текста, а затем нажатия на звездочку
 // пустая страница избранного
 class ReviewForm extends Component {
@@ -24,11 +26,13 @@ class ReviewForm extends Component {
     const {comment, rating} = this.state;
 
     const checkValitidy = () => {
-      if (comment.length >= 50 && rating !== null) {
+      if (this.state.comment.length >= 50 && this.state.rating !== null) {
+        console.log(this.state);
         this.submitButton.current.disabled = false;
       }
 
-      if (comment.length < 50 || rating === null) {
+      if (this.state.comment.length < 50 || this.state.rating === null) {
+        console.log(this.state);
         this.submitButton.current.disabled = true;
       }
     };
@@ -42,7 +46,6 @@ class ReviewForm extends Component {
     };
 
     const submitReview = (evt) => {
-      console.log(evt);
       evt.preventDefault();
 
       const id = reviews.length + 1;
@@ -73,35 +76,35 @@ class ReviewForm extends Component {
         <form className="reviews__form form" action="#" method="post" ref={this.form} onSubmit={submitReview}>
           <label className="reviews__label form__label" htmlFor="review">Your review</label>
           <div className="reviews__rating-form form__rating">
-            <input className="form__rating-input visually-hidden" name="rating" value="5" id="5-stars" type="radio" onChange={getRating}/>
+            <input className="form__rating-input visually-hidden" name="rating" value="5" id="5-stars" type="radio" onClick={getRating}/>
             <label htmlFor="5-stars" className="reviews__rating-label form__rating-label" title="perfect">
               <svg className="form__star-image" width="37" height="33">
                 <use xlinkHref="#icon-star"></use>
               </svg>
             </label>
 
-            <input className="form__rating-input visually-hidden" name="rating" value="4" id="4-stars" type="radio" onChange={getRating}/>
+            <input className="form__rating-input visually-hidden" name="rating" value="4" id="4-stars" type="radio" onClick={getRating}/>
             <label htmlFor="4-stars" className="reviews__rating-label form__rating-label" title="good">
               <svg className="form__star-image" width="37" height="33">
                 <use xlinkHref="#icon-star"></use>
               </svg>
             </label>
 
-            <input className="form__rating-input visually-hidden" name="rating" value="3" id="3-stars" type="radio" onChange={getRating}/>
+            <input className="form__rating-input visually-hidden" name="rating" value="3" id="3-stars" type="radio" onClick={getRating}/>
             <label htmlFor="3-stars" className="reviews__rating-label form__rating-label" title="not bad">
               <svg className="form__star-image" width="37" height="33">
                 <use xlinkHref="#icon-star"></use>
               </svg>
             </label>
 
-            <input className="form__rating-input visually-hidden" name="rating" value="2" id="2-stars" type="radio" onChange={getRating}/>
+            <input className="form__rating-input visually-hidden" name="rating" value="2" id="2-stars" type="radio" onClick={getRating}/>
             <label htmlFor="2-stars" className="reviews__rating-label form__rating-label" title="badly">
               <svg className="form__star-image" width="37" height="33">
                 <use xlinkHref="#icon-star"></use>
               </svg>
             </label>
 
-            <input className="form__rating-input visually-hidden" name="rating" value="1" id="1-star" type="radio" onChange={getRating}/>
+            <input className="form__rating-input visually-hidden" name="rating" value="1" id="1-star" type="radio" onClick={getRating}/>
             <label htmlFor="1-star" className="reviews__rating-label form__rating-label" title="terribly">
               <svg className="form__star-image" width="37" height="33">
                 <use xlinkHref="#icon-star"></use>
