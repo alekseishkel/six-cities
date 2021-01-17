@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import {withRouter} from 'react-router-dom';
 
 import ActionCreator from '../../action-creator/action-creator';
 
@@ -21,17 +22,26 @@ class FavoritesButton extends Component {
 
   render() {
     const {isActive} = this.state;
-    const {cardInfo, onFavoritesButtonAddClick, onFavoritesButtonRemoveClick} = this.props;
+    const {cardInfo, onFavoritesButtonAddClick, onFavoritesButtonRemoveClick, match} = this.props;
 
+    let favoritesButtonClassName = `place-card__bookmark-button`;
+    let buttonWidth = 18;
+    let buttonHeight = 19;
     let isActiveModifier = null;
 
     if (isActive === true) {
       isActiveModifier = `--active`;
     }
 
+    if (match.path === `/:city/:id`) {
+      favoritesButtonClassName = `property__bookmark-button`;
+      buttonWidth = 31;
+      buttonHeight = 33;
+    }
+
     return (
       <button
-        className={`place-card__bookmark-button place-card__bookmark-button${isActiveModifier} button`}
+        className={`${favoritesButtonClassName} place-card__bookmark-button${isActiveModifier} button`}
         type="button"
         onClick={() => {
           cardInfo.is_favorite = !isActive;
@@ -51,7 +61,7 @@ class FavoritesButton extends Component {
           }
           console.log(cardInfo);
         }}>
-        <svg className="place-card__bookmark-icon" width="18" height="19">
+        <svg className="place-card__bookmark-icon" width={buttonWidth} height={buttonHeight}>
           <use xlinkHref="#icon-bookmark"></use>
         </svg>
         <span className="visually-hidden">In bookmarks</span>
@@ -76,4 +86,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 export {FavoritesButton};
 
-export default connect(null, mapDispatchToProps)(FavoritesButton);
+export default withRouter(connect(null, mapDispatchToProps)(FavoritesButton));

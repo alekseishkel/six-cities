@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 import Operations from '../../operations/operations';
 // починить включение и отключение кнопки при нажатии при вводе текста, а затем нажатия на звездочку
-// сделать логику кнопки избранного на пропертис
 // пустая страница избранного
 class ReviewForm extends Component {
   constructor() {
