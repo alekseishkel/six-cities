@@ -20,15 +20,10 @@ class FavoritesButton extends Component {
     }
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.pageId !== this.props.pageId) {
-  //     this.setState({isActive: false});
-  //   }
-  // }
-
   render() {
     const {isActive} = this.state;
     const {cardInfo, onFavoritesButtonAddClick, onFavoritesButtonRemoveClick, type, match} = this.props;
+
     let favoritesButtonClassName = `place-card__bookmark-button`;
     let buttonWidth = 18;
     let buttonHeight = 19;
@@ -51,19 +46,15 @@ class FavoritesButton extends Component {
         onClick={() => {
           cardInfo.is_favorite = !isActive;
 
-          this.setState((state) => {
-            return {
-              isActive: !state.isActive
-            };
+          this.setState(({isActive: !isActive}), () => {
+            if (isActive === false) {
+              onFavoritesButtonAddClick(cardInfo);
+            }
+
+            if (isActive === true) {
+              onFavoritesButtonRemoveClick(cardInfo.id);
+            }
           });
-
-          if (isActive === false) {
-            onFavoritesButtonAddClick(cardInfo);
-          }
-
-          if (isActive === true) {
-            onFavoritesButtonRemoveClick(cardInfo.id);
-          }
         }}>
         <svg className="place-card__bookmark-icon" width={buttonWidth} height={buttonHeight}>
           <use xlinkHref="#icon-bookmark"></use>

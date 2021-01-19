@@ -10,7 +10,7 @@ const getUniqueCitiesNames = (offers) => {
 };
 
 const getFavoriteOffers = (offers) => {
-  return offers.filter((el) => el.is_favorite);
+  return offers.filter((el) => el.is_favorite === true);
 };
 
 export {

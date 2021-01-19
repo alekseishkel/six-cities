@@ -5,9 +5,11 @@ import PropTypes from 'prop-types';
 
 import OfferCard from '../offer-card/offer-card.jsx';
 
+import ActionCreator from '../../action-creator/action-creator';
+
 import {getUniqueCitiesNames} from '../../utils/utils';
 
-const Favorites = ({isAuthorizationRequired, currentCity, favorites}) => {
+const Favorites = ({isAuthorizationRequired, currentCity, favorites, onCityClick}) => {
   const citiesNames = getUniqueCitiesNames(favorites);
 
   if (favorites.length === 0) {
@@ -24,20 +26,24 @@ const Favorites = ({isAuthorizationRequired, currentCity, favorites}) => {
               <li className="favorites__locations-items" key={city + i + `favorites`}>
                 <div className="favorites__locations locations locations--current">
                   <div className="locations__item">
-                    <a className="locations__item-link" href="#">
+                    <Link to={`/${city}`}
+                      className="locations__item-link"
+                      onClick={() => onCityClick(city)}>
                       <span>{city}</span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className="favorites__places">
-                  {favorites.map((el) => {
-                    return (
-                      <OfferCard
-                        key={el.title + el.id}
-                        cardInfo={el}
-                      />
-                    );
-                  })}
+                  {favorites
+                    .filter((el) => el.city.name === city)
+                    .map((el) => {
+                      return (
+                        <OfferCard
+                          key={el.title + el.id}
+                          cardInfo={el}
+                        />
+                      );
+                    })}
                 </div>
               </li>
             );
@@ -66,6 +72,13 @@ const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   favorites: state.data.favorites
 });
 
+const mapDispatchToProps = (dispatch) => ({
+  onCityClick: (city) => {
+    dispatch(ActionCreator.changeCity(city));
+    dispatch(ActionCreator.changeSorting(`Popular`));
+  },
+});
+
 export {Favorites};
 
-export default connect(mapStateToProps)(Favorites);
+export default connect(mapStateToProps, mapDispatchToProps)(Favorites);

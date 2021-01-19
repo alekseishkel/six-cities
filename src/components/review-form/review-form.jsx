@@ -5,10 +5,9 @@ import PropTypes from 'prop-types';
 
 import Operations from '../../operations/operations';
 
-// изменить работу кнопки избранного в проперти, при нахатии на избрнное в оффер кард
 // сделать логику по исАуторизейшн в перехватчике исходя из кода ответа сервера
 // загружать комменты для нужных отелей исходя из айди
-// пустая страница избранного
+
 class ReviewForm extends Component {
   constructor() {
     super();
