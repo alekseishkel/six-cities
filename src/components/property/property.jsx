@@ -8,6 +8,7 @@ import SuggestionsList from '../suggestions-list/suggestions-list.jsx';
 import Map from '../map/map.jsx';
 import FavoritesButton from '../favorites-button/favorites-button.jsx';
 
+import Operations from '../../operations/operations';
 import ActionCreator from '../../action-creator/action-creator';
 
 import {getCurrentCityOffers} from '../../utils/utils';
@@ -21,6 +22,8 @@ class Property extends Component {
     if (this.props.activeCard === null) {
       this.props.changeActiveCard(this.props.offer);
     }
+
+    this.props.loadReviews(this.props.pageId);
   }
 
   getNeighbourhoodOffers() {
@@ -165,11 +168,15 @@ const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   currentCity: state.userState.city,
   offers: state.data.offers,
   activeCard: state.userState.activeCard,
+  reviews: state.data.reviews
 });
 
 const mapDispatchToProps = (dispatch) => ({
   changeActiveCard: (offer) => {
     dispatch(ActionCreator.changeActiveCard(offer));
+  },
+  loadReviews: (id) => {
+    dispatch(Operations.loadReviews(id));
   }
 });
 

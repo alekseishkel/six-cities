@@ -42,7 +42,7 @@ const Operations = {
   },
 
   loadReviews: (id) => (dispatch, _, api) => {
-    return api.get(`/comments/1`)
+    return api.get(`/comments/${id}`)
       .then((response) => {
         dispatch(ActionCreator.loadReviews(response.data));
       });

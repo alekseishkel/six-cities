@@ -8,10 +8,10 @@ import FavoritesButton from '../favorites-button/favorites-button.jsx';
 import ActionCreator from '../../action-creator/action-creator';
 
 const OfferCard = (props) => {
-  const {func, cardInfo, currentActiveCard, match} = props;
+  const {cardInfo, changeActiveCard, match} = props;
 
   const {title, preview_image: img, price, type, id,
-    is_premium: isPremium, is_favourite: isFavourite, rating, city} = cardInfo;
+    is_premium: isPremium, rating, city} = cardInfo;
 
   const MAX_RATING = 5;
 
@@ -43,8 +43,8 @@ const OfferCard = (props) => {
 
     <article
       className={`${offerCardArticeClassName} place-card`}
-      onMouseEnter={() => currentActiveCard(cardInfo)}
-      onMouseLeave={() => currentActiveCard(null)}>
+      onMouseEnter={() => changeActiveCard(cardInfo)}
+      onMouseLeave={() => changeActiveCard(null)}>
       {isPremium ? premiumLayout() : null}
       <Link to={`/${city.name}/${id}`} onClick={() => {
         document.documentElement.scrollTop = 0;
@@ -81,13 +81,14 @@ OfferCard.propTypes = {
   cardInfo: PropTypes.object.isRequired,
   currentActiveCard: PropTypes.func,
   history: PropTypes.object.isRequired,
-  match: PropTypes.object.isRequired
+  match: PropTypes.object.isRequired,
+  changeActiveCard: PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  currentActiveCard: (cardInfo) => {
+  changeActiveCard: (cardInfo) => {
     dispatch(ActionCreator.changeActiveCard(cardInfo));
-  },
+  }
 });
 
 export {OfferCard};

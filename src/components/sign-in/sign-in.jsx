@@ -93,7 +93,7 @@ SignIn.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   onLogin: (email, password, status) => {
-    dispatch(Operations.signIn(email, password, false));
+    dispatch(Operations.signIn(email, password, status));
   }
 });
 

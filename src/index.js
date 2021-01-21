@@ -23,7 +23,6 @@ const store = createStore(
 );
 
 store.dispatch(Operations.loadOffers(history()));
-store.dispatch(Operations.loadReviews());
 
 ReactDOM.render(
     <Provider store={store}>
