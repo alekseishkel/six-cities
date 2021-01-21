@@ -5,9 +5,6 @@ import PropTypes from 'prop-types';
 
 import Operations from '../../operations/operations';
 
-// сделать логику по исАуторизейшн в перехватчике исходя из кода ответа сервера
-// загружать комменты для нужных отелей исходя из айди
-
 class ReviewForm extends Component {
   constructor() {
     super();

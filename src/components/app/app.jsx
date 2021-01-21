@@ -46,10 +46,11 @@ class App extends Component {
           } />
           <Route exact path="/favorites" component={Favorites}/>
           <Route exact path="/favorites-empty" component={FavoritesEmpty}/>
-          <Route exact path="/:city?" render={(history) => <MainPage func={fn} history={history}/>} />
+          <Route exact path="/:city?" render={(history) => <MainPage history={history}/>} />
           <Route exact path="/:city/:id" render={({match}) =>
             <Property offer={offers.filter((offer) => offer.id === parseInt(match.params.id, 10))[0]} pageId={parseInt(match.params.id, 10)}/> }
           />
+          {/* <Route render={() => <MainEmpty />} /> */}
         </Switch>
       </Router>
     );

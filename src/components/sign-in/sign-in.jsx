@@ -4,6 +4,7 @@ import {Link, Redirect} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Operations from '../../operations/operations';
+import {createBrowserHistory as history} from 'history';
 
 class SignIn extends Component {
   constructor() {
@@ -30,7 +31,8 @@ class SignIn extends Component {
       });
     };
 
-    const submitUserData = () => {
+    const submitUserData = (evt) => {
+      evt.preventDefault();
       const {email, password} = this.state;
 
       onLogin(email, password, false);
@@ -46,7 +48,7 @@ class SignIn extends Component {
           <div className="page__login-container container">
             <section className="login">
               <h1 className="login__title">Sign in</h1>
-              <form className="login__form form" action="#" method="post">
+              <form className="login__form form" action="#" method="post" onSubmit={submitUserData}>
                 <div className="login__input-wrapper form__input-wrapper">
                   <label className="visually-hidden">E-mail</label>
                   <input
@@ -69,7 +71,7 @@ class SignIn extends Component {
                     required=""
                     onChange={changeUserPassword}/>
                 </div>
-                <Link to="/" className="login__submit form__submit button" type="submit" onClick={submitUserData}>Sign in</Link>
+                <button className="login__submit form__submit button" type="submit" >Sign in</button>
               </form>
             </section>
             <section className="locations locations--login locations--current">

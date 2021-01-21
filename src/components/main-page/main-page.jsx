@@ -60,7 +60,6 @@ const MainPage = (props) => {
 };
 
 MainPage.propTypes = {
-  func: PropTypes.func.isRequired,
   currentCity: PropTypes.string,
   offers: PropTypes.array,
   sorting: PropTypes.string.isRequired,

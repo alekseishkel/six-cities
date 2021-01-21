@@ -36,8 +36,10 @@ const Operations = {
       email,
       password
     }).then((response) => {
-      dispatch(ActionCreator.signIn(response.data));
-      dispatch(ActionCreator.requireAuthorization(status));
+      if (response.status === 200) {
+        dispatch(ActionCreator.signIn(response.data));
+        dispatch(ActionCreator.requireAuthorization(status));
+      }
     });
   },
 

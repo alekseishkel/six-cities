@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {createBrowserHistory as history} from 'history';
 
 const createAPI = () => {
   const api = axios.create({
@@ -7,18 +8,15 @@ const createAPI = () => {
     withCredentials: true
   });
 
-  const onSuccess = (response) => response;
-
-  const onFail = (err) => {
-    if (err.response.starus === 403) {
-      console.log(err);
+  const onSuccess = (response) => {
+    if (response.status === 200 && response.config.url === `/login`) {
+      history().goBack();
     }
-    console.log(err);
 
-    return err;
+    return response;
   };
 
-  api.interceptors.response.use(onSuccess, onFail);
+  api.interceptors.response.use(onSuccess);
 
   return api;
 };

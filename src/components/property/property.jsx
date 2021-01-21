@@ -40,7 +40,6 @@ class Property extends Component {
     return currentCityOffers;
   }
 
-
   render() {
     const {offer, currentCity, pageId} = this.props;
     const {id, images, is_premium: isPremium, description, title, rating,
