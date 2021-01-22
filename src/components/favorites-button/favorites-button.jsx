@@ -22,7 +22,7 @@ class FavoritesButton extends Component {
 
   render() {
     const {isActive} = this.state;
-    const {cardInfo, onFavoritesButtonAddClick, onFavoritesButtonRemoveClick, type, isAuthorizationRequired, match, history} = this.props;
+    const {cardInfo, onFavoritesButtonAddClick, onFavoritesButtonRemoveClick, type, isAuthorizationRequired, history} = this.props;
 
     let favoritesButtonClassName = `place-card__bookmark-button`;
     let buttonWidth = 18;
@@ -71,7 +71,11 @@ class FavoritesButton extends Component {
 
 FavoritesButton.propTypes = {
   cardInfo: PropTypes.object.isRequired,
-  // onFavoritesButtonClick: PropTypes.func.isRequired,
+  onFavoritesButtonAddClick: PropTypes.func.isRequired,
+  onFavoritesButtonRemoveClick: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired,
+  isAuthorizationRequired: PropTypes.bool.isRequired,
+  history: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {

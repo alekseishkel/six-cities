@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Redirect} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import {createBrowserHistory as history} from 'history';
 
 import Operations from '../../operations/operations';
 
@@ -38,7 +38,7 @@ class SignIn extends Component {
     };
 
     if (status === false) {
-      return <Redirect to="/favorites" />;
+      history().goBack();
     }
 
     return (
@@ -92,6 +92,10 @@ SignIn.propTypes = {
   isAuthorizationRequired: PropTypes.bool.isRequired
 };
 
+const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  isAuthorizationRequired: state.userState.isAuthorizationRequired,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   onLogin: (email, password, status) => {
     dispatch(Operations.signIn(email, password, status));
@@ -100,4 +104,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 export {SignIn};
 
-export default connect(null, mapDispatchToProps)(SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

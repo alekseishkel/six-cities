@@ -9,7 +9,7 @@ import ActionCreator from '../../action-creator/action-creator';
 
 import {getUniqueCitiesNames} from '../../utils/utils';
 
-const Favorites = ({isAuthorizationRequired, currentCity, favorites, onCityClick}) => {
+const Favorites = ({currentCity, favorites, onCityClick}) => {
   const citiesNames = getUniqueCitiesNames(favorites);
 
   if (favorites.length === 0) {
@@ -62,14 +62,15 @@ const Favorites = ({isAuthorizationRequired, currentCity, favorites, onCityClick
 Favorites.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.object).isRequired,
   currentCity: PropTypes.string,
-  favorites: PropTypes.arrayOf(PropTypes.object).isRequired
+  favorites: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onCityClick: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   offers: state.data.offers,
   isAuthorizationRequired: state.userState.isAuthorizationRequired,
   currentCity: state.userState.city,
-  favorites: state.data.favorites
+  favorites: state.data.favorites,
 });
 
 const mapDispatchToProps = (dispatch) => ({

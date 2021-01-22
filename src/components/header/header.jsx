@@ -25,7 +25,7 @@ const Header = ({isAuthorizationRequired, user, currentCity}) => {
           <nav className="header__nav">
             <ul className="header__nav-list">
               <li className="header__nav-item user">
-                <Link to="/login" className="header__nav-link header__nav-link--profile" href="#">
+                <Link to={isAuthorizationRequired ? `/login` : `/favorites`} className="header__nav-link header__nav-link--profile" href="#">
                   <div style={{backgroundImage: `url(${avatarSrc})`}} className="header__avatar-wrapper user__avatar-wrapper">
                   </div>
                   <span className="header__user-name user__name">{userName}</span>
