@@ -12,9 +12,6 @@ import Loader from '../loader/loader.jsx';
 import Favorites from '../favorites/favorites.jsx';
 import FavoritesEmpty from '../favorites-empty/favorites-empty.jsx';
 
-const fn = () => {
-};
-
 class App extends Component {
   constructor() {
     super();

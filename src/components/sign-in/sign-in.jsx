@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Operations from '../../operations/operations';
-import {createBrowserHistory as history} from 'history';
 
 class SignIn extends Component {
   constructor() {

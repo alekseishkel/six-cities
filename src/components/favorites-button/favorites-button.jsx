@@ -22,7 +22,7 @@ class FavoritesButton extends Component {
 
   render() {
     const {isActive} = this.state;
-    const {cardInfo, onFavoritesButtonAddClick, onFavoritesButtonRemoveClick, type, match} = this.props;
+    const {cardInfo, onFavoritesButtonAddClick, onFavoritesButtonRemoveClick, type, isAuthorizationRequired, match, history} = this.props;
 
     let favoritesButtonClassName = `place-card__bookmark-button`;
     let buttonWidth = 18;
@@ -44,17 +44,21 @@ class FavoritesButton extends Component {
         className={`${favoritesButtonClassName} place-card__bookmark-button${isActiveModifier} button`}
         type="button"
         onClick={() => {
-          cardInfo.is_favorite = !isActive;
+          if (isAuthorizationRequired) {
+            history.push(`/login`);
+          } else {
+            cardInfo.is_favorite = !isActive;
 
-          this.setState(({isActive: !isActive}), () => {
-            if (isActive === false) {
-              onFavoritesButtonAddClick(cardInfo);
-            }
+            this.setState(({isActive: !isActive}), () => {
+              if (isActive === false) {
+                onFavoritesButtonAddClick(cardInfo);
+              }
 
-            if (isActive === true) {
-              onFavoritesButtonRemoveClick(cardInfo.id);
-            }
-          });
+              if (isActive === true) {
+                onFavoritesButtonRemoveClick(cardInfo.id);
+              }
+            });
+          }
         }}>
         <svg className="place-card__bookmark-icon" width={buttonWidth} height={buttonHeight}>
           <use xlinkHref="#icon-bookmark"></use>
@@ -70,6 +74,10 @@ FavoritesButton.propTypes = {
   // onFavoritesButtonClick: PropTypes.func.isRequired,
 };
 
+const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  isAuthorizationRequired: state.userState.isAuthorizationRequired,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   onFavoritesButtonAddClick: (offer) => {
     dispatch(ActionCreator.addOfferToFavorites(offer));
@@ -81,4 +89,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 export {FavoritesButton};
 
-export default withRouter(connect(null, mapDispatchToProps)(FavoritesButton));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FavoritesButton));
