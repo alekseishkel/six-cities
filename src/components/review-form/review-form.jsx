@@ -24,12 +24,10 @@ class ReviewForm extends Component {
 
     const checkValitidy = () => {
       if (this.state.comment.length >= 50 && this.state.rating !== null) {
-        console.log(this.state);
         this.submitButton.current.disabled = false;
       }
 
       if (this.state.comment.length < 50 || this.state.rating === null) {
-        console.log(this.state);
         this.submitButton.current.disabled = true;
       }
     };
@@ -40,6 +38,12 @@ class ReviewForm extends Component {
 
     const changeComment = (evt) => {
       this.setState({comment: evt.target.value}, checkValitidy);
+    };
+
+    const resetForm = () => {
+      this.setState({comment: ``, rating: null});
+      this.form.current.reset();
+      this.submitButton.current.disabled = true;
     };
 
     const submitReview = (evt) => {
@@ -58,8 +62,7 @@ class ReviewForm extends Component {
 
       onSubmit(review, id);
 
-      this.setState({comment: ``, rating: null});
-      this.form.current.reset();
+      resetForm();
     };
 
     if (user === null) {

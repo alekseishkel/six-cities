@@ -83,7 +83,8 @@ class Map extends Component {
       })
       .addTo(this.map);
 
-    offers.forEach((offer) => {
+    offers.forEach((offer, i) => {
+
       leaflet
         .marker([offer.location.latitude, offer.location.longitude], {icon, alt: `Marker with coodrs ${offer.location.latitude}, ${offer.location.longitude}`})
         .addTo(this.map);

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import PropTypes from 'prop-types';
 import {createBrowserHistory as history} from 'history';
+import PropTypes from 'prop-types';
 
 import Operations from '../../operations/operations';
 
@@ -75,9 +75,7 @@ class SignIn extends Component {
             </section>
             <section className="locations locations--login locations--current">
               <div className="locations__item">
-                <a className="locations__item-link" href="#">
-                  <span>Amsterdam</span>
-                </a>
+                <span className="locations__item-link">Amsterdam</span>
               </div>
             </section>
           </div>

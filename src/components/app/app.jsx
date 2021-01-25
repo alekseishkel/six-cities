@@ -13,6 +13,7 @@ import Loader from '../loader/loader.jsx';
 import Favorites from '../favorites/favorites.jsx';
 import FavoritesEmpty from '../favorites-empty/favorites-empty.jsx';
 
+import {getCurrentCityOffers} from '../../utils/utils';
 
 class App extends Component {
   constructor() {
@@ -35,6 +36,8 @@ class App extends Component {
       return <MainEmpty />;
     }
 
+    const currentCityOffers = getCurrentCityOffers(offers, currentCity);
+
     return (
       <Router>
         <Header isAuthorizationRequired={isAuthorizationRequired} currentCity={currentCity}/>
@@ -42,9 +45,13 @@ class App extends Component {
           <Route exact path="/login" component={SignIn}/>
           <Route exact path="/favorites" component={Favorites}/>
           <Route exact path="/favorites-empty" component={FavoritesEmpty}/>
-          <Route exact path="/:city?" render={(history) => <MainPage history={history}/>} />
+          <Route exact path="/:city?" render={(history) => <MainPage history={history} currentCityOffers={currentCityOffers} />} />
           <Route exact path="/:city/:id" render={({match}) =>
-            <Property offer={offers.filter((offer) => offer.id === parseInt(match.params.id, 10))[0]} pageId={parseInt(match.params.id, 10)}/> }
+            <Property
+              offer={offers.filter((offer) => offer.id === parseInt(match.params.id, 10))[0]}
+              pageId={parseInt(match.params.id, 10)}
+              currentCityOffers={currentCityOffers}
+            /> }
           />
           <Route render={() => <MainEmpty />} />
         </Switch>

@@ -22,7 +22,7 @@ class FavoritesButton extends Component {
 
   render() {
     const {isActive} = this.state;
-    const {cardInfo, onFavoritesButtonAddClick, onFavoritesButtonRemoveClick, type, isAuthorizationRequired, history} = this.props;
+    const {cardInfo, onFavoritesButtonAddClick, onFavoritesButtonRemoveClick, type, offers, isAuthorizationRequired, history} = this.props;
 
     let favoritesButtonClassName = `place-card__bookmark-button`;
     let buttonWidth = 18;
@@ -47,7 +47,13 @@ class FavoritesButton extends Component {
           if (isAuthorizationRequired) {
             history.push(`/login`);
           } else {
-            cardInfo.is_favorite = !isActive;
+
+            offers.forEach((el) => {
+              if (el.id === cardInfo.id) {
+                el.is_favorite = !isActive;
+                cardInfo.is_favorite = !isActive;
+              }
+            });
 
             this.setState(({isActive: !isActive}), () => {
               if (isActive === false) {
@@ -80,6 +86,7 @@ FavoritesButton.propTypes = {
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   isAuthorizationRequired: state.userState.isAuthorizationRequired,
+  offers: state.data.offers
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -22,8 +22,14 @@ class Property extends Component {
     if (this.props.activeCard === null) {
       this.props.changeActiveCard(this.props.offer);
     }
-
+    console.log(1);
     this.props.loadReviews(this.props.pageId);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.pageId !== this.props.pageId) {
+      this.props.loadReviews(this.props.pageId);
+    }
   }
 
   getNeighbourhoodOffers() {
@@ -76,7 +82,7 @@ class Property extends Component {
                   <h1 className="property__name">
                     {title}
                   </h1>
-                  {<FavoritesButton cardInfo={offer} type={`property`} pageId={pageId} key={offer.id}/>}
+                  {<FavoritesButton key={offer.id} cardInfo={offer} type={`property`} pageId={pageId} />}
                 </div>
                 <div className="property__rating rating">
                   <div className="property__stars rating__stars">

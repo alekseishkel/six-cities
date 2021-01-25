@@ -10,9 +10,8 @@ import SortOptions from '../sort-options/sort-options.jsx';
 import {getCurrentCityOffers, getUniqueCitiesNames} from '../../utils/utils';
 
 const MainPage = (props) => {
-  const {currentCity, offers, sorting} = props;
+  const {currentCity, offers, sorting, currentCityOffers} = props;
 
-  const currentCityOffers = getCurrentCityOffers(offers, currentCity);
 
   return (
     <div className="page page--gray page--main">
