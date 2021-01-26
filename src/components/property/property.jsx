@@ -7,6 +7,7 @@ import ReviewForm from '../review-form/review-form.jsx';
 import SuggestionsList from '../suggestions-list/suggestions-list.jsx';
 import Map from '../map/map.jsx';
 import FavoritesButton from '../favorites-button/favorites-button.jsx';
+import MainEmpty from '../main-empty/main-empty.jsx';
 
 import Operations from '../../operations/operations';
 import ActionCreator from '../../action-creator/action-creator';
@@ -19,10 +20,9 @@ class Property extends Component {
   }
 
   componentDidMount() {
-    if (this.props.activeCard === null) {
+    if (this.props.activeCard === null && this.props.offer !== undefined) {
       this.props.changeActiveCard(this.props.offer);
     }
-    console.log(1);
     this.props.loadReviews(this.props.pageId);
   }
 
@@ -48,6 +48,13 @@ class Property extends Component {
 
   render() {
     const {offer, currentCity, pageId} = this.props;
+
+    if (offer === undefined) {
+      return (
+        <MainEmpty />
+      );
+    }
+
     const {id, images, is_premium: isPremium, description, title, rating,
       bedrooms, max_adults: maxAdults, type, price, goods, host} = offer;
 

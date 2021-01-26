@@ -24,6 +24,10 @@ class App extends Component {
     };
   }
 
+  componentDidCatch() {
+    this.setState({hasError: true});
+  }
+
   render() {
     const {hasError} = this.state;
     const {offers, isAuthorizationRequired, currentCity} = this.props;
@@ -33,29 +37,35 @@ class App extends Component {
     }
 
     if (hasError) {
-      return <MainEmpty />;
+      return (
+        <React.Fragment>
+          <Header isAuthorizationRequired={isAuthorizationRequired} currentCity={currentCity}/>
+          <MainEmpty />;
+        </React.Fragment>
+      );
     }
 
     const currentCityOffers = getCurrentCityOffers(offers, currentCity);
 
     return (
-      <Router>
+      <React.Fragment>
         <Header isAuthorizationRequired={isAuthorizationRequired} currentCity={currentCity}/>
         <Switch>
           <Route exact path="/login" component={SignIn}/>
           <Route exact path="/favorites" component={Favorites}/>
           <Route exact path="/favorites-empty" component={FavoritesEmpty}/>
-          <Route exact path="/:city?" render={(history) => <MainPage history={history} currentCityOffers={currentCityOffers} />} />
-          <Route exact path="/:city/:id" render={({match}) =>
+          <Route exact path="/:city(Amsterdam|Brussels|Cologne|Dusseldorf|Hamburg|Paris)"
+            render={(history) => <MainPage history={history} currentCityOffers={currentCityOffers} />} />
+          <Route exact path="/:city/:id(\d+)" render={({match}) =>
             <Property
-              offer={offers.filter((offer) => offer.id === parseInt(match.params.id, 10))[0]}
+              offer={currentCityOffers.filter((offer) => offer.id === parseInt(match.params.id, 10))[0]}
               pageId={parseInt(match.params.id, 10)}
               currentCityOffers={currentCityOffers}
             /> }
           />
           <Route render={() => <MainEmpty />} />
         </Switch>
-      </Router>
+      </React.Fragment>
     );
   }
 }

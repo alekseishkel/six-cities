@@ -71,7 +71,6 @@ class ReviewForm extends Component {
 
     return (
       <React.Fragment>
-
         <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">1</span></h2>
         <form className="reviews__form form" action="#" method="post" ref={this.form} onSubmit={submitReview}>
           <label className="reviews__label form__label" htmlFor="review">Your review</label>

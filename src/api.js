@@ -10,7 +10,6 @@ const createAPI = () => {
   const onSuccess = (response) => response;
 
   const onError = (error) => {
-    console.log(error.response);
     console.error(`Error ${error.response.status}. ${error.response.data.error}`);
     return error.response;
   };
