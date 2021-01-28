@@ -3,20 +3,19 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import OfferCard from '../offer-card/offer-card.jsx';
+
 import {changeSortingSelector} from "../../selectors/sorting-selector";
 
-const SuggestionsList = ({func, offers, state}) => {
+const SuggestionsList = ({offers, state}) => {
   let divClassName = `cities__places-list places__list tabs__content`;
-
   const places = changeSortingSelector(state, offers);
 
   return (
     <div className={divClassName}>
-      {places.map((el, i) =>
+      {places.map((offer) =>
         <OfferCard
-          key={el.title + el.id + i}
-          func={func}
-          cardInfo={el}
+          key={offer.title + offer.id}
+          cardInfo={offer}
         />
       )}
     </div>
@@ -24,12 +23,13 @@ const SuggestionsList = ({func, offers, state}) => {
 };
 
 SuggestionsList.propTypes = {
-  func: PropTypes.func,
-  state: PropTypes.object,
-  offers: PropTypes.arrayOf(PropTypes.object)
+  offers: PropTypes.arrayOf(PropTypes.object),
+  sorting: PropTypes.string.isRequired,
+  state: PropTypes.object
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  sorting: state.userState.sorting,
   state
 });
 

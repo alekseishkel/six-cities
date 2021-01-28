@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
 import PropTypes from 'prop-types';
 
 import ReviewsItem from '../reviews-item/reviews-item.jsx';

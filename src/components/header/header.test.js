@@ -13,7 +13,7 @@ it(`Header correctly renders after relaunch`, () => {
   const tree = renderer.create(
       <Provider store={store} >
         <Header
-          isAuthorizationRequired={false}
+          isAuthorized={false}
           user={{
             avatarUrl: `/static/avatar/7.jpg`,
             email: `fdsf@gmail.com`,

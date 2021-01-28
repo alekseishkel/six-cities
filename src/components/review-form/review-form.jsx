@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-
 import PropTypes from 'prop-types';
 
 import Operations from '../../operations/operations';
@@ -19,8 +18,12 @@ class ReviewForm extends Component {
   }
 
   render() {
-    const {reviews, user, onSubmit} = this.props;
+    const {onSubmit, reviews, user} = this.props;
     const {comment, rating} = this.state;
+
+    const changeComment = (evt) => {
+      this.setState({comment: evt.target.value}, checkValitidy);
+    };
 
     const checkValitidy = () => {
       if (this.state.comment.length >= 50 && this.state.rating !== null) {
@@ -36,10 +39,6 @@ class ReviewForm extends Component {
       this.setState({rating: evt.target.value}, checkValitidy);
     };
 
-    const changeComment = (evt) => {
-      this.setState({comment: evt.target.value}, checkValitidy);
-    };
-
     const resetForm = () => {
       this.setState({comment: ``, rating: null});
       this.form.current.reset();
@@ -53,11 +52,11 @@ class ReviewForm extends Component {
       const date = new Date().toISOString();
 
       const review = {
-        id,
-        user,
-        rating: Number(rating),
         comment,
-        date
+        date,
+        id,
+        rating: Number(rating),
+        user
       };
 
       onSubmit(review, id);
@@ -140,14 +139,14 @@ class ReviewForm extends Component {
 }
 
 ReviewForm.propTypes = {
-  reviews: PropTypes.arrayOf(PropTypes.object),
-  user: PropTypes.object,
   onSubmit: PropTypes.func.isRequired,
+  reviews: PropTypes.arrayOf(PropTypes.object),
+  user: PropTypes.object
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   reviews: state.data.reviews,
-  user: state.data.user,
+  user: state.data.user
 });
 
 const mapDispatchToProps = (dispatch) => ({

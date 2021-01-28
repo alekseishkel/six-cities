@@ -28,7 +28,7 @@ it(`A click event is correctly simulated on cards info on the main page`, () => 
           func={clickHandler}
           offers={offers}
           sorting={`Popular`}
-          isAuthorizationRequired={false}
+          isAuthorized={false}
         />
       </Provider>
   );

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {createBrowserHistory as history} from 'history';
+import {Redirect} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Operations from '../../operations/operations';
@@ -16,7 +16,11 @@ class SignIn extends Component {
   }
 
   render() {
-    const {isAuthorizationRequired: status, onLogin} = this.props;
+    const {currentCity, isAuthorized: status, onLogin} = this.props;
+
+    if (status === false) {
+      return <Redirect to={`/${currentCity}`} />;
+    }
 
     const changeUserEmail = (evt) => {
       this.setState({
@@ -36,10 +40,6 @@ class SignIn extends Component {
 
       onLogin(email, password, false);
     };
-
-    if (status === false) {
-      history().goBack();
-    }
 
     return (
       <div className="page page--gray page--login">
@@ -86,12 +86,14 @@ class SignIn extends Component {
 }
 
 SignIn.propTypes = {
-  onLogin: PropTypes.func.isRequired,
-  isAuthorizationRequired: PropTypes.bool.isRequired
+  currentCity: PropTypes.string.isRequired,
+  isAuthorized: PropTypes.bool.isRequired,
+  onLogin: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  isAuthorizationRequired: state.userState.isAuthorizationRequired,
+  currentCity: state.userState.city,
+  isAuthorized: state.userState.isAuthorized
 });
 
 const mapDispatchToProps = (dispatch) => ({

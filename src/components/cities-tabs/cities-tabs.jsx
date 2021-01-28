@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 
 import ActionCreator from '../../action-creator/action-creator';
 
+import {getUniqueCitiesNames} from '../../utils/utils';
+
 class CitiesTabs extends Component {
   componentDidMount() {
     window.onpopstate = () => {
@@ -13,34 +15,36 @@ class CitiesTabs extends Component {
   }
 
   render() {
-    const {cities, currentCity, onCityClick, history} = this.props;
+    const {currentCity, history, onCityClick, offers} = this.props;
 
     const updateHistory = (evt, city) => {
       evt.preventDefault();
       history.push(city);
     };
 
+    const cities = getUniqueCitiesNames(offers);
+
     return (
       <section className="locations container">
         <ul className="locations__list tabs__list">
-          {cities.map((el, i) => {
+          {cities.map((city, i) => {
             let isActiveClassName;
 
-            if (el === currentCity) {
+            if (city === currentCity) {
               isActiveClassName = `tabs__item--active`;
             }
 
             return (
-              <li className="locations__item" key={el + i}>
+              <li className="locations__item" key={city + i}>
                 <a
                   className={`locations__item-link tabs__item ` + isActiveClassName}
                   href="#"
                   onClick={(evt) => {
-                    updateHistory(evt, el);
-                    onCityClick(el);
+                    updateHistory(evt, city);
+                    onCityClick(city);
                   }
                   }>
-                  <span>{el}</span>
+                  <span>{city}</span>
                 </a>
               </li>
             );
@@ -52,12 +56,17 @@ class CitiesTabs extends Component {
 }
 
 CitiesTabs.propTypes = {
-  cities: PropTypes.array,
   currentCity: PropTypes.string,
-  onCityClick: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
+  onCityClick: PropTypes.func.isRequired,
+  offers: PropTypes.array
 };
+
+const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  currentCity: state.userState.city,
+  offers: state.data.offers
+});
 
 const mapDispatchToProps = (dispatch) => ({
   onCityClick: (city) => {
@@ -68,4 +77,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 export {CitiesTabs};
 
-export default withRouter(connect(null, mapDispatchToProps)(CitiesTabs));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CitiesTabs));

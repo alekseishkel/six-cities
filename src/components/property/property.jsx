@@ -1,27 +1,30 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import ReviewsList from '../reviews-list/reviews-list.jsx';
-import ReviewForm from '../review-form/review-form.jsx';
-import SuggestionsList from '../suggestions-list/suggestions-list.jsx';
-import Map from '../map/map.jsx';
 import FavoritesButton from '../favorites-button/favorites-button.jsx';
 import MainEmpty from '../main-empty/main-empty.jsx';
+import Map from '../map/map.jsx';
+import ReviewForm from '../review-form/review-form.jsx';
+import ReviewsList from '../reviews-list/reviews-list.jsx';
+import SuggestionsList from '../suggestions-list/suggestions-list.jsx';
 
-import Operations from '../../operations/operations';
 import ActionCreator from '../../action-creator/action-creator';
+import Operations from '../../operations/operations';
 
 import {getCurrentCityOffers} from '../../utils/utils';
 
 class Property extends Component {
   constructor() {
     super();
+
+    this.currentOffer = null;
   }
 
   componentDidMount() {
-    if (this.props.activeCard === null && this.props.offer !== undefined) {
-      this.props.changeActiveCard(this.props.offer);
+    if (this.props.activeCard === null && this.currentOffer !== undefined) {
+      this.props.changeActiveCard(this.currentOffer);
     }
     this.props.loadReviews(this.props.pageId);
   }
@@ -33,31 +36,36 @@ class Property extends Component {
   }
 
   getNeighbourhoodOffers() {
-    const currentCityOffers = JSON.parse(JSON.stringify(getCurrentCityOffers(this.props.offers, this.props.currentCity)));
+    const currentCityOffers = getCurrentCityOffers(this.props.offers, this.props.currentCity);
 
-    currentCityOffers.forEach((el) => {
-      const coordsDiff = Math.sqrt(Math.pow((el.location.latitude - this.props.offer.location.latitude), 2) +
-        Math.pow((el.location.longitude - this.props.offer.location.longitude), 2));
-      el.coordsDiff = coordsDiff;
+    currentCityOffers.forEach((offer) => {
+      const coordsDiff = Math.sqrt(Math.pow((offer.location.latitude - this.currentOffer.location.latitude), 2) +
+      Math.pow((offer.location.longitude - this.currentOffer.location.longitude), 2));
+      offer.coordsDiff = coordsDiff;
     });
 
-    currentCityOffers.sort((a, b) => a.coordsDiff - b.coordsDiff).splice(4);
+    const NEIGHBOURHOOD_OFFERS = 4;
+
+    currentCityOffers.sort((a, b) => a.coordsDiff - b.coordsDiff).splice(NEIGHBOURHOOD_OFFERS);
 
     return currentCityOffers;
   }
 
   render() {
-    const {offer, currentCity, pageId} = this.props;
+    const {currentCityOffers, match, pageId} = this.props;
 
-    if (offer === undefined) {
+    this.currentOffer = currentCityOffers.filter((offer) => offer.id === parseInt(match.params.id, 10))[0];
+
+    if (this.currentOffer === undefined) {
       return (
         <MainEmpty />
       );
     }
 
-    const {id, images, is_premium: isPremium, description, title, rating,
-      bedrooms, max_adults: maxAdults, type, price, goods, host} = offer;
+    const {bedrooms, description, goods, host, id, images, is_premium: isPremium,
+      max_adults: maxAdults, price, rating, title, type} = this.currentOffer;
 
+    const IMAGES_ON_PAGE = 6;
     const MAX_RATING = 5;
 
     const neighbourhoodOffers = this.getNeighbourhoodOffers();
@@ -68,14 +76,12 @@ class Property extends Component {
           <section className="property">
             <div className="property__gallery-container container">
               <div className="property__gallery">
-                {images.map((img, i) => {
-                  if (i < 6) {
-                    return (
-                      <div key={id + i} className="property__image-wrapper">
-                        <img className="property__image" src={img} alt="Photo studio" />
-                      </div>
-                    );
-                  }
+                {images.slice(0, IMAGES_ON_PAGE).map((img, i) => {
+                  return (
+                    <div key={id + i} className="property__image-wrapper">
+                      <img className="property__image" src={img} alt="Photo studio" />
+                    </div>
+                  );
                 })}
               </div>
             </div>
@@ -89,7 +95,7 @@ class Property extends Component {
                   <h1 className="property__name">
                     {title}
                   </h1>
-                  {<FavoritesButton key={offer.id} cardInfo={offer} type={`property`} pageId={pageId} />}
+                  {<FavoritesButton cardInfo={this.currentOffer} key={this.currentOffer.id} type={`property`} />}
                 </div>
                 <div className="property__rating rating">
                   <div className="property__stars rating__stars">
@@ -118,7 +124,7 @@ class Property extends Component {
                   <ul className="property__inside-list">
                     {goods.map((good, i) => {
                       return (
-                        <li className="property__inside-item" key={goods + i}>
+                        <li className="property__inside-item" key={good + i}>
                           {good}
                         </li>
                       );
@@ -152,7 +158,7 @@ class Property extends Component {
               </div>
             </div>
             <section className="property__map map">
-              {<Map offers={neighbourhoodOffers} currentCity={currentCity} pageId={pageId}/>}
+              {<Map offers={neighbourhoodOffers} pageId={pageId}/>}
             </section>
           </section>
           <div className="container">
@@ -168,18 +174,20 @@ class Property extends Component {
 }
 
 Property.propTypes = {
-  offer: PropTypes.object.isRequired,
-  offers: PropTypes.arrayOf(PropTypes.object).isRequired,
   activeCard: PropTypes.object,
   changeActiveCard: PropTypes.func.isRequired,
   currentCity: PropTypes.string.isRequired,
+  currentCityOffers: PropTypes.arrayOf(PropTypes.object).isRequired,
+  loadReviews: PropTypes.func.isRequired,
+  match: PropTypes.object.isRequired,
+  offers: PropTypes.arrayOf(PropTypes.object).isRequired,
   pageId: PropTypes.number.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  activeCard: state.userState.activeCard,
   currentCity: state.userState.city,
   offers: state.data.offers,
-  activeCard: state.userState.activeCard,
   reviews: state.data.reviews
 });
 
@@ -194,4 +202,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 export {Property};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Property);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Property));

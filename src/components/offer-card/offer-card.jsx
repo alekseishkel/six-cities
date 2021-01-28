@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import PropTypes from 'prop-types';
 import {Link, withRouter} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import FavoritesButton from '../favorites-button/favorites-button.jsx';
 
@@ -12,8 +12,6 @@ const OfferCard = (props) => {
 
   const {title, preview_image: img, price, type, id,
     is_premium: isPremium, rating, city} = cardInfo;
-
-  const MAX_RATING = 5;
 
   const premiumLayout = () => {
     return (
@@ -39,8 +37,9 @@ const OfferCard = (props) => {
     favoritesInfoClassName = `favorites__card-info `;
   }
 
-  return (
+  const MAX_RATING = 5;
 
+  return (
     <article
       className={`${offerCardArticeClassName} place-card`}
       onMouseEnter={() => changeActiveCard(cardInfo)}
@@ -53,7 +52,6 @@ const OfferCard = (props) => {
           <img className="place-card__image" src={img} width={offerImageParams.width} height={offerImageParams.height} alt="Place image" />
         </div>
       </Link>
-
       <div className={favoritesInfoClassName + `place-card__info`}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
@@ -79,10 +77,8 @@ const OfferCard = (props) => {
 
 OfferCard.propTypes = {
   cardInfo: PropTypes.object.isRequired,
-  currentActiveCard: PropTypes.func,
-  history: PropTypes.object.isRequired,
+  changeActiveCard: PropTypes.func.isRequired,
   match: PropTypes.object.isRequired,
-  changeActiveCard: PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = (dispatch) => ({

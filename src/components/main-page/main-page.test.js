@@ -22,7 +22,7 @@ it(`MainPage correctly renders after relaunch`, () => {
           func={jest.fn()}
           offers={offers}
           sorting={`Popular`}
-          isAuthorizationRequired={false}
+          isAuthorized={false}
         />
       </Provider>
   ).toJSON();

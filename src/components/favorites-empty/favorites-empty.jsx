@@ -1,10 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
-
+import {Link, Redirect} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const FavoritesEmpty = ({currentCity}) => {
+const FavoritesEmpty = ({currentCity, isAuthorized}) => {
+  if (isAuthorized === true) {
+    return <Redirect to="/login" />;
+  }
+
   return (
     <div className="page page--favorites-empty">
       <main className="page__main page__main--favorites page__main--favorites-empty">
@@ -29,10 +32,12 @@ const FavoritesEmpty = ({currentCity}) => {
 
 FavoritesEmpty.propTypes = {
   currentCity: PropTypes.string,
+  isAuthorized: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   currentCity: state.userState.city,
+  isAuthorized: state.userState.isAuthorized
 });
 
 export {FavoritesEmpty};

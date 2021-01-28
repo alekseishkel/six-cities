@@ -50,7 +50,9 @@ const reducer = (state = initialState, action) => {
     case `REMOVE_OFFER_FROM_FAVORITES`:
       const offerIndex = state.data.favorites.findIndex((offer) => offer.id === action.payload);
 
-      const updatedFavorites = [...state.data.favorites.slice(0, offerIndex), ...state.data.favorites.slice(offerIndex + 1)];
+      const updatedFavorites =
+      [...state.data.favorites.slice(0, offerIndex),
+        ...state.data.favorites.slice(offerIndex + 1)];
 
       return Object.assign({}, state.data, {
         favorites: updatedFavorites

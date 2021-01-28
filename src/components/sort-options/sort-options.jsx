@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import ActionCreator from '../../action-creator/action-creator';
 import PropTypes from 'prop-types';
+
+import ActionCreator from '../../action-creator/action-creator';
 
 class SortOptions extends Component {
   constructor() {
@@ -20,13 +21,13 @@ class SortOptions extends Component {
 
   render() {
     const {sortingOpened} = this.state;
-    const {sorting, changeSorting} = this.props;
-
     let sortingClassName = `places__options places__options--custom`;
 
     if (sortingOpened) {
       sortingClassName += ` places__options--opened`;
     }
+
+    const {changeSorting, sorting} = this.props;
 
     return (
       <form className="places__sorting" action="#" method="get">
@@ -73,8 +74,8 @@ class SortOptions extends Component {
 }
 
 SortOptions.propTypes = {
-  sorting: PropTypes.string.isRequired,
-  changeSorting: PropTypes.func.isRequired
+  changeSorting: PropTypes.func.isRequired,
+  sorting: PropTypes.string.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {

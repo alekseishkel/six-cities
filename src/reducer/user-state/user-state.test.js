@@ -6,7 +6,7 @@ describe(`Reducer works correctly`, () => {
       city: null,
       sorting: `Popular`,
       activeCard: null,
-      isAuthorizationRequired: false
+      isAuthorized: false
     });
   });
 
@@ -17,7 +17,7 @@ describe(`Reducer works correctly`, () => {
           city: null,
           sorting: `Popular`,
           activeCard: null,
-          isAuthorizationRequired: false
+          isAuthorized: false
         }}, {
       type: `CHANGE_CITY`,
       payload: `Amsterdam`
@@ -25,7 +25,7 @@ describe(`Reducer works correctly`, () => {
       city: `Amsterdam`,
       sorting: `Popular`,
       activeCard: null,
-      isAuthorizationRequired: false
+      isAuthorized: false
     });
   });
 
@@ -36,7 +36,7 @@ describe(`Reducer works correctly`, () => {
           city: null,
           sorting: `Popular`,
           activeCard: null,
-          isAuthorizationRequired: false
+          isAuthorized: false
         }}, {
       type: `CHANGE_SORTING`,
       payload: `Price: low to high`
@@ -44,7 +44,7 @@ describe(`Reducer works correctly`, () => {
       city: null,
       sorting: `Price: low to high`,
       activeCard: null,
-      isAuthorizationRequired: false
+      isAuthorized: false
     });
   });
 
@@ -55,7 +55,7 @@ describe(`Reducer works correctly`, () => {
           city: null,
           sorting: `Popular`,
           activeCard: null,
-          isAuthorizationRequired: false
+          isAuthorized: false
         }}, {
       type: `CHANGE_ACTIVE_CARD`,
       payload: {
@@ -167,7 +167,7 @@ describe(`Reducer works correctly`, () => {
         },
         "id": 1
       },
-      isAuthorizationRequired: false
+      isAuthorized: false
     });
   });
 
@@ -178,7 +178,7 @@ describe(`Reducer works correctly`, () => {
           city: null,
           sorting: `Popular`,
           activeCard: null,
-          isAuthorizationRequired: false
+          isAuthorized: false
         }}, {
       type: `REQUIRE_AUTHORIZATION`,
       payload: true
@@ -186,7 +186,7 @@ describe(`Reducer works correctly`, () => {
       city: null,
       sorting: `Popular`,
       activeCard: null,
-      isAuthorizationRequired: true
+      isAuthorized: true
     });
   });
 });

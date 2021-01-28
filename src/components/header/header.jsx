@@ -1,14 +1,13 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Header = ({isAuthorizationRequired, user, currentCity}) => {
-  let userName = `Sing In`;
+const Header = ({currentCity, isAuthorized, user}) => {
   let avatarSrc = `/img/avatar.svg`;
+  let userName = `Sing In`;
 
-  if (user && isAuthorizationRequired === false) {
+  if (isAuthorized === false && user) {
     userName = user.email;
     avatarSrc = `https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/2.jpg`;
   }
@@ -25,7 +24,7 @@ const Header = ({isAuthorizationRequired, user, currentCity}) => {
           <nav className="header__nav">
             <ul className="header__nav-list">
               <li className="header__nav-item user">
-                <Link to={isAuthorizationRequired ? `/login` : `/favorites`} className="header__nav-link header__nav-link--profile" href="#">
+                <Link to={isAuthorized ? `/login` : `/favorites`} className="header__nav-link header__nav-link--profile" href="#">
                   <div style={{backgroundImage: `url(${avatarSrc})`}} className="header__avatar-wrapper user__avatar-wrapper">
                   </div>
                   <span className="header__user-name user__name">{userName}</span>
@@ -40,12 +39,14 @@ const Header = ({isAuthorizationRequired, user, currentCity}) => {
 };
 
 Header.propTypes = {
-  isAuthorizationRequired: PropTypes.bool.isRequired,
   currentCity: PropTypes.string.isRequired,
+  isAuthorized: PropTypes.bool.isRequired,
   user: PropTypes.object,
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  currentCity: state.userState.city,
+  isAuthorized: state.userState.isAuthorized,
   user: state.data.user,
 });
 

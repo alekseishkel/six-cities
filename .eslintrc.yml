@@ -20,3 +20,4 @@ settings:
 
 rules:
   no-console: 'off'
+  camelcase: ['error', {properties: 'never'}]

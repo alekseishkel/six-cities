@@ -12,27 +12,6 @@ class Map extends Component {
     this.map = null;
   }
 
-  changeMarkerToActive() {
-    this.map.eachLayer((layer) => {
-      if (layer._latlng &&
-        layer._latlng.lat === this.props.activeCard.location.latitude &&
-        layer._latlng.lng === this.props.activeCard.location.longitude) {
-        layer._icon.src = `img/pin-active.svg`;
-      }
-    });
-  }
-
-  changeMarkerToPassive(prevProps) {
-    this.map.eachLayer((layer) => {
-      if (
-        layer._latlng &&
-          layer._latlng.lat === prevProps.activeCard.location.latitude &&
-          layer._latlng.lng === prevProps.activeCard.location.longitude) {
-        layer._icon.src = `img/pin.svg`;
-      }
-    });
-  }
-
   componentDidMount() {
     this.renderMap();
 
@@ -62,13 +41,29 @@ class Map extends Component {
     }
   }
 
+  changeMarkerToActive() {
+    this.map.eachLayer((layer) => {
+      if (layer._latlng &&
+        layer._latlng.lat === this.props.activeCard.location.latitude &&
+        layer._latlng.lng === this.props.activeCard.location.longitude) {
+        layer._icon.src = `img/pin-active.svg`;
+      }
+    });
+  }
+
+  changeMarkerToPassive(prevProps) {
+    this.map.eachLayer((layer) => {
+      if (
+        layer._latlng &&
+        layer._latlng.lat === prevProps.activeCard.location.latitude &&
+        layer._latlng.lng === prevProps.activeCard.location.longitude) {
+        layer._icon.src = `img/pin.svg`;
+      }
+    });
+  }
+
   renderMap() {
     const {offers} = this.props;
-
-    const icon = leaflet.icon({
-      iconUrl: `img/pin.svg`,
-      iconSize: [30, 30]
-    });
 
     this.map = leaflet.map(`map`, {
       center: [offers[0].city.location.latitude, offers[0].city.location.longitude],
@@ -78,18 +73,21 @@ class Map extends Component {
     });
 
     leaflet
-      .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
-        attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
-      })
-      .addTo(this.map);
+    .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
+      attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
+    })
+    .addTo(this.map);
 
-    offers.forEach((offer, i) => {
+    const icon = leaflet.icon({
+      iconUrl: `img/pin.svg`,
+      iconSize: [30, 30]
+    });
 
+    offers.forEach((offer) => {
       leaflet
         .marker([offer.location.latitude, offer.location.longitude], {icon, alt: `Marker with coodrs ${offer.location.latitude}, ${offer.location.longitude}`})
         .addTo(this.map);
     });
-
   }
 
   render() {
@@ -98,14 +96,15 @@ class Map extends Component {
 }
 
 Map.propTypes = {
+  activeCard: PropTypes.object,
   currentCity: PropTypes.string.isRequired,
   offers: PropTypes.arrayOf(PropTypes.object).isRequired,
-  activeCard: PropTypes.object,
   pageId: PropTypes.number
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  activeCard: state.userState.activeCard
+  activeCard: state.userState.activeCard,
+  currentCity: state.userState.city
 });
 
 export {Map};

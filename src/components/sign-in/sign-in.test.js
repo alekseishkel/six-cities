@@ -13,7 +13,7 @@ it(`SignIn correctly renders after relaunch`, () => {
   const tree = renderer.create(
       <Provider store={store}>
         <SignIn
-          isAuthorizationRequired={true}
+          isAuthorized={true}
           onLogin={jest.fn()}
         />
       </Provider>

@@ -7,11 +7,6 @@ const ReviewsItem = ({review}) => {
   }
 
   let avatarUrl = review.user.avatar_url;
-  const MAX_RATING = 5;
-  const reviewDate = new Date(review.date).toLocaleDateString(`ru-RU`, {
-    month: `long`,
-    year: `numeric`,
-  });
 
   const getAvatarUrl = (url) => {
     if (!avatarUrl.startsWith(`https://htmlacademy-react-2.appspot.com/six-cities/`)) {
@@ -20,6 +15,12 @@ const ReviewsItem = ({review}) => {
 
     return url;
   };
+
+  const MAX_RATING = 5;
+  const reviewDate = new Date(review.date).toLocaleDateString(`ru-RU`, {
+    month: `long`,
+    year: `numeric`,
+  });
 
   return (
     <li className="reviews__item">

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import PropTypes from 'prop-types';
 import {withRouter} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import ActionCreator from '../../action-creator/action-creator';
 
@@ -21,17 +21,19 @@ class FavoritesButton extends Component {
   }
 
   render() {
-    const {isActive} = this.state;
-    const {cardInfo, onFavoritesButtonAddClick, onFavoritesButtonRemoveClick, type, offers, isAuthorizationRequired, history} = this.props;
+    const {cardInfo, history, isAuthorized, offers,
+      onFavoritesButtonAddClick, onFavoritesButtonRemoveClick, type} = this.props;
 
-    let favoritesButtonClassName = `place-card__bookmark-button`;
-    let buttonWidth = 18;
-    let buttonHeight = 19;
+    const {isActive} = this.state;
     let isActiveModifier = null;
 
     if (isActive === true) {
       isActiveModifier = `--active`;
     }
+
+    let favoritesButtonClassName = `place-card__bookmark-button`;
+    let buttonWidth = 18;
+    let buttonHeight = 19;
 
     if (type === `property`) {
       favoritesButtonClassName = `property__bookmark-button`;
@@ -44,13 +46,12 @@ class FavoritesButton extends Component {
         className={`${favoritesButtonClassName} place-card__bookmark-button${isActiveModifier} button`}
         type="button"
         onClick={() => {
-          if (isAuthorizationRequired) {
+          if (isAuthorized) {
             history.push(`/login`);
           } else {
-
-            offers.forEach((el) => {
-              if (el.id === cardInfo.id) {
-                el.is_favorite = !isActive;
+            offers.forEach((offer) => {
+              if (offer.id === cardInfo.id) {
+                offer.is_favorite = !isActive;
                 cardInfo.is_favorite = !isActive;
               }
             });
@@ -77,15 +78,16 @@ class FavoritesButton extends Component {
 
 FavoritesButton.propTypes = {
   cardInfo: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  isAuthorized: PropTypes.bool.isRequired,
+  offers: PropTypes.arrayOf(PropTypes.object).isRequired,
   onFavoritesButtonAddClick: PropTypes.func.isRequired,
   onFavoritesButtonRemoveClick: PropTypes.func.isRequired,
-  type: PropTypes.string.isRequired,
-  isAuthorizationRequired: PropTypes.bool.isRequired,
-  history: PropTypes.object.isRequired
+  type: PropTypes.string.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  isAuthorizationRequired: state.userState.isAuthorizationRequired,
+  isAuthorized: state.userState.isAuthorized,
   offers: state.data.offers
 });
 

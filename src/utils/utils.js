@@ -1,16 +1,16 @@
 const getCurrentCityOffers = (offers, currentCity) => {
-  return offers.filter((el) => el.city.name === currentCity);
+  return offers.filter((offer) => offer.city.name === currentCity);
 };
 
 const getUniqueCitiesNames = (offers) => {
   let cities = new Set();
-  offers.forEach((el) => cities.add(el.city.name));
+  offers.forEach((offer) => cities.add(offer.city.name));
 
   return Array.from(cities);
 };
 
 const getFavoriteOffers = (offers) => {
-  return offers.filter((el) => el.is_favorite === true);
+  return offers.filter((offer) => offer.is_favorite === true);
 };
 
 export {

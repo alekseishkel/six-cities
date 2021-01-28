@@ -35,7 +35,7 @@ const Favorites = ({currentCity, favorites, onCityClick}) => {
                 </div>
                 <div className="favorites__places">
                   {favorites
-                    .filter((el) => el.city.name === city)
+                    .filter((favoriteCity) => favoriteCity.city.name === city)
                     .map((el) => {
                       return (
                         <OfferCard
@@ -60,17 +60,16 @@ const Favorites = ({currentCity, favorites, onCityClick}) => {
 };
 
 Favorites.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.object).isRequired,
   currentCity: PropTypes.string,
   favorites: PropTypes.arrayOf(PropTypes.object).isRequired,
+  offers: PropTypes.arrayOf(PropTypes.object).isRequired,
   onCityClick: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  offers: state.data.offers,
-  isAuthorizationRequired: state.userState.isAuthorizationRequired,
   currentCity: state.userState.city,
   favorites: state.data.favorites,
+  offers: state.data.offers,
 });
 
 const mapDispatchToProps = (dispatch) => ({

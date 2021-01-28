@@ -20,7 +20,7 @@ it(`SuggestionsList correctly renders after relaunch`, () => {
             city: null,
             sorting: `Popular`,
             activeCard: null,
-            isAuthorizationRequired: false,
+            isAuthorized: false,
             offers,
             user: null
           }} />
