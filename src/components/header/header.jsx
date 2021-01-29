@@ -39,7 +39,7 @@ const Header = ({currentCity, isAuthorized, user}) => {
 };
 
 Header.propTypes = {
-  currentCity: PropTypes.string.isRequired,
+  currentCity: PropTypes.string,
   isAuthorized: PropTypes.bool.isRequired,
   user: PropTypes.object,
 };

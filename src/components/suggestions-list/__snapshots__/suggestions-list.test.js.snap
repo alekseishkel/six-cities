@@ -10,6 +10,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseLeave={[Function]}
   >
     <a
+      className="place-card__link"
       href="/Hamburg/1"
       onClick={[Function]}
     >
@@ -105,6 +106,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseLeave={[Function]}
   >
     <a
+      className="place-card__link"
       href="/Paris/2"
       onClick={[Function]}
     >
@@ -200,6 +202,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseLeave={[Function]}
   >
     <a
+      className="place-card__link"
       href="/Hamburg/3"
       onClick={[Function]}
     >
@@ -295,6 +298,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseLeave={[Function]}
   >
     <a
+      className="place-card__link"
       href="/Cologne/4"
       onClick={[Function]}
     >
@@ -397,6 +401,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
       </span>
     </div>
     <a
+      className="place-card__link"
       href="/Cologne/5"
       onClick={[Function]}
     >
@@ -492,6 +497,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseLeave={[Function]}
   >
     <a
+      className="place-card__link"
       href="/Cologne/6"
       onClick={[Function]}
     >
@@ -587,6 +593,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseLeave={[Function]}
   >
     <a
+      className="place-card__link"
       href="/Amsterdam/7"
       onClick={[Function]}
     >
@@ -682,6 +689,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseLeave={[Function]}
   >
     <a
+      className="place-card__link"
       href="/Cologne/8"
       onClick={[Function]}
     >
@@ -777,6 +785,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseLeave={[Function]}
   >
     <a
+      className="place-card__link"
       href="/Dusseldorf/9"
       onClick={[Function]}
     >
@@ -872,6 +881,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseLeave={[Function]}
   >
     <a
+      className="place-card__link"
       href="/Brussels/10"
       onClick={[Function]}
     >
@@ -967,6 +977,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseLeave={[Function]}
   >
     <a
+      className="place-card__link"
       href="/Paris/11"
       onClick={[Function]}
     >
@@ -1062,6 +1073,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseLeave={[Function]}
   >
     <a
+      className="place-card__link"
       href="/Hamburg/12"
       onClick={[Function]}
     >
@@ -1157,6 +1169,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseLeave={[Function]}
   >
     <a
+      className="place-card__link"
       href="/Cologne/13"
       onClick={[Function]}
     >
@@ -1259,6 +1272,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
       </span>
     </div>
     <a
+      className="place-card__link"
       href="/Paris/14"
       onClick={[Function]}
     >
@@ -1354,6 +1368,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseLeave={[Function]}
   >
     <a
+      className="place-card__link"
       href="/Hamburg/15"
       onClick={[Function]}
     >
@@ -1449,6 +1464,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseLeave={[Function]}
   >
     <a
+      className="place-card__link"
       href="/Brussels/16"
       onClick={[Function]}
     >
@@ -1544,6 +1560,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseLeave={[Function]}
   >
     <a
+      className="place-card__link"
       href="/Cologne/17"
       onClick={[Function]}
     >
@@ -1639,6 +1656,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseLeave={[Function]}
   >
     <a
+      className="place-card__link"
       href="/Amsterdam/18"
       onClick={[Function]}
     >
@@ -1734,6 +1752,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseLeave={[Function]}
   >
     <a
+      className="place-card__link"
       href="/Dusseldorf/19"
       onClick={[Function]}
     >

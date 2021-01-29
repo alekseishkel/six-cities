@@ -80,7 +80,7 @@ FavoritesButton.propTypes = {
   cardInfo: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   isAuthorized: PropTypes.bool.isRequired,
-  offers: PropTypes.arrayOf(PropTypes.object).isRequired,
+  offers: PropTypes.arrayOf(PropTypes.object),
   onFavoritesButtonAddClick: PropTypes.func.isRequired,
   onFavoritesButtonRemoveClick: PropTypes.func.isRequired,
   type: PropTypes.string.isRequired

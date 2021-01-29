@@ -7,6 +7,7 @@ exports[`OfferCard correctly renders after relaunch 1`] = `
   onMouseLeave={[Function]}
 >
   <a
+    className="place-card__link"
     href="/Hamburg/1"
     onClick={[Function]}
   >

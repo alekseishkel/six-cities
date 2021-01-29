@@ -32,11 +32,12 @@ it(`A click event is correctly simulated on cards info on the main page`, () => 
         </Router>
       </Provider>
   );
+    // дофиксить тесты
+  const links = mainPage.find(`.place-card__link`);
 
-  const headers = mainPage.find(`.place-card__info`);
-
-  headers.forEach((header) => {
-    header.simulate(`click`, {preventDefault() { }});
+  console.log(links);
+  links.forEach((link) => {
+    link.simulate(`click`);
   });
 
   expect(clickHandler).toHaveBeenCalledTimes(3);

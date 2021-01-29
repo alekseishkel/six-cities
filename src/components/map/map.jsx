@@ -97,7 +97,7 @@ class Map extends Component {
 
 Map.propTypes = {
   activeCard: PropTypes.object,
-  currentCity: PropTypes.string.isRequired,
+  currentCity: PropTypes.string,
   offers: PropTypes.arrayOf(PropTypes.object).isRequired,
   pageId: PropTypes.number
 };

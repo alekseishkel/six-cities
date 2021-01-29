@@ -44,6 +44,7 @@ exports[`Favorites correctly renders after relaunch 1`] = `
             onMouseLeave={[Function]}
           >
             <a
+              className="place-card__link"
               href="/Hamburg/1"
               onClick={[Function]}
             >
@@ -139,6 +140,7 @@ exports[`Favorites correctly renders after relaunch 1`] = `
             onMouseLeave={[Function]}
           >
             <a
+              className="place-card__link"
               href="/Hamburg/3"
               onClick={[Function]}
             >
@@ -266,6 +268,7 @@ exports[`Favorites correctly renders after relaunch 1`] = `
               </span>
             </div>
             <a
+              className="place-card__link"
               href="/Cologne/5"
               onClick={[Function]}
             >

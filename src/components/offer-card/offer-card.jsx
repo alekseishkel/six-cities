@@ -45,7 +45,7 @@ const OfferCard = (props) => {
       onMouseEnter={() => changeActiveCard(cardInfo)}
       onMouseLeave={() => changeActiveCard(null)}>
       {isPremium ? premiumLayout() : null}
-      <Link to={`/${city.name}/${id}`} onClick={() => {
+      <Link to={`/${city.name}/${id}`} className="place-card__link" onClick={() => {
         document.documentElement.scrollTop = 0;
       }}>
         <div className={`${offerCardClassName}__image-wrapper place-card__image-wrapper`}>
