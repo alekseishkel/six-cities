@@ -62,14 +62,12 @@ const Favorites = ({currentCity, favorites, onCityClick}) => {
 Favorites.propTypes = {
   currentCity: PropTypes.string,
   favorites: PropTypes.arrayOf(PropTypes.object).isRequired,
-  offers: PropTypes.arrayOf(PropTypes.object).isRequired,
   onCityClick: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   currentCity: state.userState.city,
-  favorites: state.data.favorites,
-  offers: state.data.offers,
+  favorites: state.data.favorites
 });
 
 const mapDispatchToProps = (dispatch) => ({

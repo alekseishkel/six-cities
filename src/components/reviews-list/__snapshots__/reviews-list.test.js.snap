@@ -1,3 +1,126 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ReviewsList correctly renders after relaunch 1`] = `null`;
+exports[`ReviewsList correctly renders after relaunch 1`] = `
+<ul
+  className="reviews__list"
+>
+  <li
+    className="reviews__item"
+  >
+    <div
+      className="reviews__user user"
+    >
+      <div
+        className="reviews__avatar-wrapper user__avatar-wrapper"
+      >
+        <img
+          alt="Reviews avatar"
+          className="reviews__avatar user__avatar"
+          height="54"
+          src="https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/2.jpg"
+          width="54"
+        />
+      </div>
+      <span
+        className="reviews__user-name"
+      >
+        Jack
+      </span>
+    </div>
+    <div
+      className="reviews__info"
+    >
+      <div
+        className="reviews__rating rating"
+      >
+        <div
+          className="reviews__stars rating__stars"
+        >
+          <span
+            style={
+              Object {
+                "width": "40%",
+              }
+            }
+          />
+          <span
+            className="visually-hidden"
+          >
+            Rating
+          </span>
+        </div>
+      </div>
+      <p
+        className="reviews__text"
+      >
+        Bathed in the nature. Completely unplugged. Unforgettable.
+      </p>
+      <time
+        className="reviews__time"
+        dateTime="2021-01-13T06:16:14.873Z"
+      >
+        2021 M01
+      </time>
+    </div>
+  </li>
+  <li
+    className="reviews__item"
+  >
+    <div
+      className="reviews__user user"
+    >
+      <div
+        className="reviews__avatar-wrapper user__avatar-wrapper"
+      >
+        <img
+          alt="Reviews avatar"
+          className="reviews__avatar user__avatar"
+          height="54"
+          src="https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/3.jpg"
+          width="54"
+        />
+      </div>
+      <span
+        className="reviews__user-name"
+      >
+        Isaac
+      </span>
+    </div>
+    <div
+      className="reviews__info"
+    >
+      <div
+        className="reviews__rating rating"
+      >
+        <div
+          className="reviews__stars rating__stars"
+        >
+          <span
+            style={
+              Object {
+                "width": "60%",
+              }
+            }
+          />
+          <span
+            className="visually-hidden"
+          >
+            Rating
+          </span>
+        </div>
+      </div>
+      <p
+        className="reviews__text"
+      >
+        The house is very good, very happy, hygienic and simple living conditions around it are also very good. I hope to have the opportunity to come back. Thank you.
+      </p>
+      <time
+        className="reviews__time"
+        dateTime="2021-01-13T06:16:14.873Z"
+      >
+        2021 M01
+      </time>
+    </div>
+  </li>
+</ul>
+`;

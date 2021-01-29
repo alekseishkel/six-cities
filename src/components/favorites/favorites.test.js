@@ -6,24 +6,20 @@ import {Provider} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
 import reducer from '../../reducer/reducer';
 
-import {Header} from './header.jsx';
+import {Favorites} from './favorites.jsx';
 
-it(`Header correctly renders after relaunch`, () => {
+import offers from '../../mocks/offers';
+
+it(`Favorites correctly renders after relaunch`, () => {
   const store = createStore(reducer);
 
   const tree = renderer.create(
       <Provider store={store} >
         <Router>
-          <Header
+          <Favorites
             currentCity={`Cologne`}
-            isAuthorized={false}
-            user={{
-              avatarUrl: `/static/avatar/7.jpg`,
-              email: `alex@gmail.com`,
-              id: 1,
-              isPro: false,
-              name: `Alex`
-            }}
+            favorites={[offers[0], offers[2], offers[4]]}
+            onCityClick={jest.fn()}
           />
         </Router>
       </Provider>

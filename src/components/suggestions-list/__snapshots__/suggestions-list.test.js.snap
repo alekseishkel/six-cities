@@ -9,24 +9,24 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="cities__image-wrapper place-card__image-wrapper"
+    <a
+      href="/Hamburg/1"
+      onClick={[Function]}
     >
-      <a
-        href="#"
+      <div
+        className="cities__image-wrapper place-card__image-wrapper"
       >
         <img
           alt="Place image"
           className="place-card__image"
-          height="200"
+          height={200}
           src="https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/7.jpg"
-          width="260"
+          width={260}
         />
-      </a>
-    </div>
+      </div>
+    </a>
     <div
-      className="place-card__info"
-      onClick={[MockFunction]}
+      className="nullplace-card__info"
     >
       <div
         className="place-card__price-wrapper"
@@ -47,13 +47,14 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button"
+          className="place-card__bookmark-button place-card__bookmark-buttonnull button"
+          onClick={[Function]}
           type="button"
         >
           <svg
             className="place-card__bookmark-icon"
-            height="19"
-            width="18"
+            height={19}
+            width={18}
           >
             <use
               xlinkHref="#icon-bookmark"
@@ -62,7 +63,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           <span
             className="visually-hidden"
           >
-            To bookmarks
+            In bookmarks
           </span>
         </button>
       </div>
@@ -89,11 +90,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
       <h2
         className="place-card__name"
       >
-        <a
-          href="#"
-        >
-          The Pondhouse - A Magical Place
-        </a>
+        The Pondhouse - A Magical Place
       </h2>
       <p
         className="place-card__type"
@@ -107,24 +104,24 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="cities__image-wrapper place-card__image-wrapper"
+    <a
+      href="/Paris/2"
+      onClick={[Function]}
     >
-      <a
-        href="#"
+      <div
+        className="cities__image-wrapper place-card__image-wrapper"
       >
         <img
           alt="Place image"
           className="place-card__image"
-          height="200"
+          height={200}
           src="https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/16.jpg"
-          width="260"
+          width={260}
         />
-      </a>
-    </div>
+      </div>
+    </a>
     <div
-      className="place-card__info"
-      onClick={[MockFunction]}
+      className="nullplace-card__info"
     >
       <div
         className="place-card__price-wrapper"
@@ -145,13 +142,14 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button"
+          className="place-card__bookmark-button place-card__bookmark-buttonnull button"
+          onClick={[Function]}
           type="button"
         >
           <svg
             className="place-card__bookmark-icon"
-            height="19"
-            width="18"
+            height={19}
+            width={18}
           >
             <use
               xlinkHref="#icon-bookmark"
@@ -160,7 +158,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           <span
             className="visually-hidden"
           >
-            To bookmarks
+            In bookmarks
           </span>
         </button>
       </div>
@@ -187,11 +185,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
       <h2
         className="place-card__name"
       >
-        <a
-          href="#"
-        >
-          Penthouse, 4-5 rooms + 5 balconies
-        </a>
+        Penthouse, 4-5 rooms + 5 balconies
       </h2>
       <p
         className="place-card__type"
@@ -205,24 +199,24 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="cities__image-wrapper place-card__image-wrapper"
+    <a
+      href="/Hamburg/3"
+      onClick={[Function]}
     >
-      <a
-        href="#"
+      <div
+        className="cities__image-wrapper place-card__image-wrapper"
       >
         <img
           alt="Place image"
           className="place-card__image"
-          height="200"
+          height={200}
           src="https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/11.jpg"
-          width="260"
+          width={260}
         />
-      </a>
-    </div>
+      </div>
+    </a>
     <div
-      className="place-card__info"
-      onClick={[MockFunction]}
+      className="nullplace-card__info"
     >
       <div
         className="place-card__price-wrapper"
@@ -243,13 +237,14 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button"
+          className="place-card__bookmark-button place-card__bookmark-buttonnull button"
+          onClick={[Function]}
           type="button"
         >
           <svg
             className="place-card__bookmark-icon"
-            height="19"
-            width="18"
+            height={19}
+            width={18}
           >
             <use
               xlinkHref="#icon-bookmark"
@@ -258,7 +253,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           <span
             className="visually-hidden"
           >
-            To bookmarks
+            In bookmarks
           </span>
         </button>
       </div>
@@ -285,11 +280,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
       <h2
         className="place-card__name"
       >
-        <a
-          href="#"
-        >
-          Amazing and Extremely Central Flat
-        </a>
+        Amazing and Extremely Central Flat
       </h2>
       <p
         className="place-card__type"
@@ -303,24 +294,24 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="cities__image-wrapper place-card__image-wrapper"
+    <a
+      href="/Cologne/4"
+      onClick={[Function]}
     >
-      <a
-        href="#"
+      <div
+        className="cities__image-wrapper place-card__image-wrapper"
       >
         <img
           alt="Place image"
           className="place-card__image"
-          height="200"
+          height={200}
           src="https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/1.jpg"
-          width="260"
+          width={260}
         />
-      </a>
-    </div>
+      </div>
+    </a>
     <div
-      className="place-card__info"
-      onClick={[MockFunction]}
+      className="nullplace-card__info"
     >
       <div
         className="place-card__price-wrapper"
@@ -341,13 +332,14 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button"
+          className="place-card__bookmark-button place-card__bookmark-buttonnull button"
+          onClick={[Function]}
           type="button"
         >
           <svg
             className="place-card__bookmark-icon"
-            height="19"
-            width="18"
+            height={19}
+            width={18}
           >
             <use
               xlinkHref="#icon-bookmark"
@@ -356,7 +348,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           <span
             className="visually-hidden"
           >
-            To bookmarks
+            In bookmarks
           </span>
         </button>
       </div>
@@ -383,11 +375,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
       <h2
         className="place-card__name"
       >
-        <a
-          href="#"
-        >
-          Penthouse, 4-5 rooms + 5 balconies
-        </a>
+        Penthouse, 4-5 rooms + 5 balconies
       </h2>
       <p
         className="place-card__type"
@@ -408,24 +396,24 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
         Premium
       </span>
     </div>
-    <div
-      className="cities__image-wrapper place-card__image-wrapper"
+    <a
+      href="/Cologne/5"
+      onClick={[Function]}
     >
-      <a
-        href="#"
+      <div
+        className="cities__image-wrapper place-card__image-wrapper"
       >
         <img
           alt="Place image"
           className="place-card__image"
-          height="200"
+          height={200}
           src="https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/14.jpg"
-          width="260"
+          width={260}
         />
-      </a>
-    </div>
+      </div>
+    </a>
     <div
-      className="place-card__info"
-      onClick={[MockFunction]}
+      className="nullplace-card__info"
     >
       <div
         className="place-card__price-wrapper"
@@ -446,13 +434,14 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button"
+          className="place-card__bookmark-button place-card__bookmark-buttonnull button"
+          onClick={[Function]}
           type="button"
         >
           <svg
             className="place-card__bookmark-icon"
-            height="19"
-            width="18"
+            height={19}
+            width={18}
           >
             <use
               xlinkHref="#icon-bookmark"
@@ -461,7 +450,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           <span
             className="visually-hidden"
           >
-            To bookmarks
+            In bookmarks
           </span>
         </button>
       </div>
@@ -488,11 +477,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
       <h2
         className="place-card__name"
       >
-        <a
-          href="#"
-        >
-          Wood and stone place
-        </a>
+        Wood and stone place
       </h2>
       <p
         className="place-card__type"
@@ -506,24 +491,24 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="cities__image-wrapper place-card__image-wrapper"
+    <a
+      href="/Cologne/6"
+      onClick={[Function]}
     >
-      <a
-        href="#"
+      <div
+        className="cities__image-wrapper place-card__image-wrapper"
       >
         <img
           alt="Place image"
           className="place-card__image"
-          height="200"
+          height={200}
           src="https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/3.jpg"
-          width="260"
+          width={260}
         />
-      </a>
-    </div>
+      </div>
+    </a>
     <div
-      className="place-card__info"
-      onClick={[MockFunction]}
+      className="nullplace-card__info"
     >
       <div
         className="place-card__price-wrapper"
@@ -544,13 +529,14 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button"
+          className="place-card__bookmark-button place-card__bookmark-buttonnull button"
+          onClick={[Function]}
           type="button"
         >
           <svg
             className="place-card__bookmark-icon"
-            height="19"
-            width="18"
+            height={19}
+            width={18}
           >
             <use
               xlinkHref="#icon-bookmark"
@@ -559,7 +545,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           <span
             className="visually-hidden"
           >
-            To bookmarks
+            In bookmarks
           </span>
         </button>
       </div>
@@ -586,11 +572,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
       <h2
         className="place-card__name"
       >
-        <a
-          href="#"
-        >
-          Penthouse, 4-5 rooms + 5 balconies
-        </a>
+        Penthouse, 4-5 rooms + 5 balconies
       </h2>
       <p
         className="place-card__type"
@@ -604,24 +586,24 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="cities__image-wrapper place-card__image-wrapper"
+    <a
+      href="/Amsterdam/7"
+      onClick={[Function]}
     >
-      <a
-        href="#"
+      <div
+        className="cities__image-wrapper place-card__image-wrapper"
       >
         <img
           alt="Place image"
           className="place-card__image"
-          height="200"
+          height={200}
           src="https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/7.jpg"
-          width="260"
+          width={260}
         />
-      </a>
-    </div>
+      </div>
+    </a>
     <div
-      className="place-card__info"
-      onClick={[MockFunction]}
+      className="nullplace-card__info"
     >
       <div
         className="place-card__price-wrapper"
@@ -642,13 +624,14 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button"
+          className="place-card__bookmark-button place-card__bookmark-buttonnull button"
+          onClick={[Function]}
           type="button"
         >
           <svg
             className="place-card__bookmark-icon"
-            height="19"
-            width="18"
+            height={19}
+            width={18}
           >
             <use
               xlinkHref="#icon-bookmark"
@@ -657,7 +640,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           <span
             className="visually-hidden"
           >
-            To bookmarks
+            In bookmarks
           </span>
         </button>
       </div>
@@ -684,11 +667,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
       <h2
         className="place-card__name"
       >
-        <a
-          href="#"
-        >
-          The house among olive 
-        </a>
+        The house among olive 
       </h2>
       <p
         className="place-card__type"
@@ -702,24 +681,24 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="cities__image-wrapper place-card__image-wrapper"
+    <a
+      href="/Cologne/8"
+      onClick={[Function]}
     >
-      <a
-        href="#"
+      <div
+        className="cities__image-wrapper place-card__image-wrapper"
       >
         <img
           alt="Place image"
           className="place-card__image"
-          height="200"
+          height={200}
           src="https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/5.jpg"
-          width="260"
+          width={260}
         />
-      </a>
-    </div>
+      </div>
+    </a>
     <div
-      className="place-card__info"
-      onClick={[MockFunction]}
+      className="nullplace-card__info"
     >
       <div
         className="place-card__price-wrapper"
@@ -740,13 +719,14 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button"
+          className="place-card__bookmark-button place-card__bookmark-buttonnull button"
+          onClick={[Function]}
           type="button"
         >
           <svg
             className="place-card__bookmark-icon"
-            height="19"
-            width="18"
+            height={19}
+            width={18}
           >
             <use
               xlinkHref="#icon-bookmark"
@@ -755,7 +735,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           <span
             className="visually-hidden"
           >
-            To bookmarks
+            In bookmarks
           </span>
         </button>
       </div>
@@ -782,11 +762,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
       <h2
         className="place-card__name"
       >
-        <a
-          href="#"
-        >
-          Perfectly located Castro
-        </a>
+        Perfectly located Castro
       </h2>
       <p
         className="place-card__type"
@@ -800,24 +776,24 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="cities__image-wrapper place-card__image-wrapper"
+    <a
+      href="/Dusseldorf/9"
+      onClick={[Function]}
     >
-      <a
-        href="#"
+      <div
+        className="cities__image-wrapper place-card__image-wrapper"
       >
         <img
           alt="Place image"
           className="place-card__image"
-          height="200"
+          height={200}
           src="https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/7.jpg"
-          width="260"
+          width={260}
         />
-      </a>
-    </div>
+      </div>
+    </a>
     <div
-      className="place-card__info"
-      onClick={[MockFunction]}
+      className="nullplace-card__info"
     >
       <div
         className="place-card__price-wrapper"
@@ -838,13 +814,14 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button"
+          className="place-card__bookmark-button place-card__bookmark-buttonnull button"
+          onClick={[Function]}
           type="button"
         >
           <svg
             className="place-card__bookmark-icon"
-            height="19"
-            width="18"
+            height={19}
+            width={18}
           >
             <use
               xlinkHref="#icon-bookmark"
@@ -853,7 +830,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           <span
             className="visually-hidden"
           >
-            To bookmarks
+            In bookmarks
           </span>
         </button>
       </div>
@@ -880,11 +857,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
       <h2
         className="place-card__name"
       >
-        <a
-          href="#"
-        >
-          The Joshua Tree House
-        </a>
+        The Joshua Tree House
       </h2>
       <p
         className="place-card__type"
@@ -898,24 +871,24 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="cities__image-wrapper place-card__image-wrapper"
+    <a
+      href="/Brussels/10"
+      onClick={[Function]}
     >
-      <a
-        href="#"
+      <div
+        className="cities__image-wrapper place-card__image-wrapper"
       >
         <img
           alt="Place image"
           className="place-card__image"
-          height="200"
+          height={200}
           src="https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/3.jpg"
-          width="260"
+          width={260}
         />
-      </a>
-    </div>
+      </div>
+    </a>
     <div
-      className="place-card__info"
-      onClick={[MockFunction]}
+      className="nullplace-card__info"
     >
       <div
         className="place-card__price-wrapper"
@@ -936,13 +909,14 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button"
+          className="place-card__bookmark-button place-card__bookmark-buttonnull button"
+          onClick={[Function]}
           type="button"
         >
           <svg
             className="place-card__bookmark-icon"
-            height="19"
-            width="18"
+            height={19}
+            width={18}
           >
             <use
               xlinkHref="#icon-bookmark"
@@ -951,7 +925,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           <span
             className="visually-hidden"
           >
-            To bookmarks
+            In bookmarks
           </span>
         </button>
       </div>
@@ -978,11 +952,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
       <h2
         className="place-card__name"
       >
-        <a
-          href="#"
-        >
-          Waterfront with extraordinary view
-        </a>
+        Waterfront with extraordinary view
       </h2>
       <p
         className="place-card__type"
@@ -996,24 +966,24 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="cities__image-wrapper place-card__image-wrapper"
+    <a
+      href="/Paris/11"
+      onClick={[Function]}
     >
-      <a
-        href="#"
+      <div
+        className="cities__image-wrapper place-card__image-wrapper"
       >
         <img
           alt="Place image"
           className="place-card__image"
-          height="200"
+          height={200}
           src="https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/7.jpg"
-          width="260"
+          width={260}
         />
-      </a>
-    </div>
+      </div>
+    </a>
     <div
-      className="place-card__info"
-      onClick={[MockFunction]}
+      className="nullplace-card__info"
     >
       <div
         className="place-card__price-wrapper"
@@ -1034,13 +1004,14 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button"
+          className="place-card__bookmark-button place-card__bookmark-buttonnull button"
+          onClick={[Function]}
           type="button"
         >
           <svg
             className="place-card__bookmark-icon"
-            height="19"
-            width="18"
+            height={19}
+            width={18}
           >
             <use
               xlinkHref="#icon-bookmark"
@@ -1049,7 +1020,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           <span
             className="visually-hidden"
           >
-            To bookmarks
+            In bookmarks
           </span>
         </button>
       </div>
@@ -1076,11 +1047,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
       <h2
         className="place-card__name"
       >
-        <a
-          href="#"
-        >
-          Loft Studio in the Central Area
-        </a>
+        Loft Studio in the Central Area
       </h2>
       <p
         className="place-card__type"
@@ -1094,24 +1061,24 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="cities__image-wrapper place-card__image-wrapper"
+    <a
+      href="/Hamburg/12"
+      onClick={[Function]}
     >
-      <a
-        href="#"
+      <div
+        className="cities__image-wrapper place-card__image-wrapper"
       >
         <img
           alt="Place image"
           className="place-card__image"
-          height="200"
+          height={200}
           src="https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/14.jpg"
-          width="260"
+          width={260}
         />
-      </a>
-    </div>
+      </div>
+    </a>
     <div
-      className="place-card__info"
-      onClick={[MockFunction]}
+      className="nullplace-card__info"
     >
       <div
         className="place-card__price-wrapper"
@@ -1132,13 +1099,14 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button"
+          className="place-card__bookmark-button place-card__bookmark-buttonnull button"
+          onClick={[Function]}
           type="button"
         >
           <svg
             className="place-card__bookmark-icon"
-            height="19"
-            width="18"
+            height={19}
+            width={18}
           >
             <use
               xlinkHref="#icon-bookmark"
@@ -1147,7 +1115,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           <span
             className="visually-hidden"
           >
-            To bookmarks
+            In bookmarks
           </span>
         </button>
       </div>
@@ -1174,11 +1142,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
       <h2
         className="place-card__name"
       >
-        <a
-          href="#"
-        >
-          House in countryside
-        </a>
+        House in countryside
       </h2>
       <p
         className="place-card__type"
@@ -1192,24 +1156,24 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="cities__image-wrapper place-card__image-wrapper"
+    <a
+      href="/Cologne/13"
+      onClick={[Function]}
     >
-      <a
-        href="#"
+      <div
+        className="cities__image-wrapper place-card__image-wrapper"
       >
         <img
           alt="Place image"
           className="place-card__image"
-          height="200"
+          height={200}
           src="https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/2.jpg"
-          width="260"
+          width={260}
         />
-      </a>
-    </div>
+      </div>
+    </a>
     <div
-      className="place-card__info"
-      onClick={[MockFunction]}
+      className="nullplace-card__info"
     >
       <div
         className="place-card__price-wrapper"
@@ -1230,13 +1194,14 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button"
+          className="place-card__bookmark-button place-card__bookmark-buttonnull button"
+          onClick={[Function]}
           type="button"
         >
           <svg
             className="place-card__bookmark-icon"
-            height="19"
-            width="18"
+            height={19}
+            width={18}
           >
             <use
               xlinkHref="#icon-bookmark"
@@ -1245,7 +1210,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           <span
             className="visually-hidden"
           >
-            To bookmarks
+            In bookmarks
           </span>
         </button>
       </div>
@@ -1272,11 +1237,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
       <h2
         className="place-card__name"
       >
-        <a
-          href="#"
-        >
-          Loft Studio in the Central Area
-        </a>
+        Loft Studio in the Central Area
       </h2>
       <p
         className="place-card__type"
@@ -1297,24 +1258,24 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
         Premium
       </span>
     </div>
-    <div
-      className="cities__image-wrapper place-card__image-wrapper"
+    <a
+      href="/Paris/14"
+      onClick={[Function]}
     >
-      <a
-        href="#"
+      <div
+        className="cities__image-wrapper place-card__image-wrapper"
       >
         <img
           alt="Place image"
           className="place-card__image"
-          height="200"
+          height={200}
           src="https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/12.jpg"
-          width="260"
+          width={260}
         />
-      </a>
-    </div>
+      </div>
+    </a>
     <div
-      className="place-card__info"
-      onClick={[MockFunction]}
+      className="nullplace-card__info"
     >
       <div
         className="place-card__price-wrapper"
@@ -1335,13 +1296,14 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button"
+          className="place-card__bookmark-button place-card__bookmark-buttonnull button"
+          onClick={[Function]}
           type="button"
         >
           <svg
             className="place-card__bookmark-icon"
-            height="19"
-            width="18"
+            height={19}
+            width={18}
           >
             <use
               xlinkHref="#icon-bookmark"
@@ -1350,7 +1312,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           <span
             className="visually-hidden"
           >
-            To bookmarks
+            In bookmarks
           </span>
         </button>
       </div>
@@ -1377,11 +1339,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
       <h2
         className="place-card__name"
       >
-        <a
-          href="#"
-        >
-          Perfectly located Castro
-        </a>
+        Perfectly located Castro
       </h2>
       <p
         className="place-card__type"
@@ -1395,24 +1353,24 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="cities__image-wrapper place-card__image-wrapper"
+    <a
+      href="/Hamburg/15"
+      onClick={[Function]}
     >
-      <a
-        href="#"
+      <div
+        className="cities__image-wrapper place-card__image-wrapper"
       >
         <img
           alt="Place image"
           className="place-card__image"
-          height="200"
+          height={200}
           src="https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/19.jpg"
-          width="260"
+          width={260}
         />
-      </a>
-    </div>
+      </div>
+    </a>
     <div
-      className="place-card__info"
-      onClick={[MockFunction]}
+      className="nullplace-card__info"
     >
       <div
         className="place-card__price-wrapper"
@@ -1433,13 +1391,14 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button"
+          className="place-card__bookmark-button place-card__bookmark-buttonnull button"
+          onClick={[Function]}
           type="button"
         >
           <svg
             className="place-card__bookmark-icon"
-            height="19"
-            width="18"
+            height={19}
+            width={18}
           >
             <use
               xlinkHref="#icon-bookmark"
@@ -1448,7 +1407,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           <span
             className="visually-hidden"
           >
-            To bookmarks
+            In bookmarks
           </span>
         </button>
       </div>
@@ -1475,11 +1434,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
       <h2
         className="place-card__name"
       >
-        <a
-          href="#"
-        >
-          The house among olive 
-        </a>
+        The house among olive 
       </h2>
       <p
         className="place-card__type"
@@ -1493,24 +1448,24 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="cities__image-wrapper place-card__image-wrapper"
+    <a
+      href="/Brussels/16"
+      onClick={[Function]}
     >
-      <a
-        href="#"
+      <div
+        className="cities__image-wrapper place-card__image-wrapper"
       >
         <img
           alt="Place image"
           className="place-card__image"
-          height="200"
+          height={200}
           src="https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/19.jpg"
-          width="260"
+          width={260}
         />
-      </a>
-    </div>
+      </div>
+    </a>
     <div
-      className="place-card__info"
-      onClick={[MockFunction]}
+      className="nullplace-card__info"
     >
       <div
         className="place-card__price-wrapper"
@@ -1531,13 +1486,14 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button"
+          className="place-card__bookmark-button place-card__bookmark-buttonnull button"
+          onClick={[Function]}
           type="button"
         >
           <svg
             className="place-card__bookmark-icon"
-            height="19"
-            width="18"
+            height={19}
+            width={18}
           >
             <use
               xlinkHref="#icon-bookmark"
@@ -1546,7 +1502,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           <span
             className="visually-hidden"
           >
-            To bookmarks
+            In bookmarks
           </span>
         </button>
       </div>
@@ -1573,11 +1529,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
       <h2
         className="place-card__name"
       >
-        <a
-          href="#"
-        >
-          Nice, cozy, warm big bed apartment
-        </a>
+        Nice, cozy, warm big bed apartment
       </h2>
       <p
         className="place-card__type"
@@ -1591,24 +1543,24 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="cities__image-wrapper place-card__image-wrapper"
+    <a
+      href="/Cologne/17"
+      onClick={[Function]}
     >
-      <a
-        href="#"
+      <div
+        className="cities__image-wrapper place-card__image-wrapper"
       >
         <img
           alt="Place image"
           className="place-card__image"
-          height="200"
+          height={200}
           src="https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/20.jpg"
-          width="260"
+          width={260}
         />
-      </a>
-    </div>
+      </div>
+    </a>
     <div
-      className="place-card__info"
-      onClick={[MockFunction]}
+      className="nullplace-card__info"
     >
       <div
         className="place-card__price-wrapper"
@@ -1629,13 +1581,14 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button"
+          className="place-card__bookmark-button place-card__bookmark-buttonnull button"
+          onClick={[Function]}
           type="button"
         >
           <svg
             className="place-card__bookmark-icon"
-            height="19"
-            width="18"
+            height={19}
+            width={18}
           >
             <use
               xlinkHref="#icon-bookmark"
@@ -1644,7 +1597,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           <span
             className="visually-hidden"
           >
-            To bookmarks
+            In bookmarks
           </span>
         </button>
       </div>
@@ -1671,11 +1624,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
       <h2
         className="place-card__name"
       >
-        <a
-          href="#"
-        >
-          Penthouse, 4-5 rooms + 5 balconies
-        </a>
+        Penthouse, 4-5 rooms + 5 balconies
       </h2>
       <p
         className="place-card__type"
@@ -1689,24 +1638,24 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="cities__image-wrapper place-card__image-wrapper"
+    <a
+      href="/Amsterdam/18"
+      onClick={[Function]}
     >
-      <a
-        href="#"
+      <div
+        className="cities__image-wrapper place-card__image-wrapper"
       >
         <img
           alt="Place image"
           className="place-card__image"
-          height="200"
+          height={200}
           src="https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/5.jpg"
-          width="260"
+          width={260}
         />
-      </a>
-    </div>
+      </div>
+    </a>
     <div
-      className="place-card__info"
-      onClick={[MockFunction]}
+      className="nullplace-card__info"
     >
       <div
         className="place-card__price-wrapper"
@@ -1727,13 +1676,14 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button"
+          className="place-card__bookmark-button place-card__bookmark-buttonnull button"
+          onClick={[Function]}
           type="button"
         >
           <svg
             className="place-card__bookmark-icon"
-            height="19"
-            width="18"
+            height={19}
+            width={18}
           >
             <use
               xlinkHref="#icon-bookmark"
@@ -1742,7 +1692,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           <span
             className="visually-hidden"
           >
-            To bookmarks
+            In bookmarks
           </span>
         </button>
       </div>
@@ -1769,11 +1719,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
       <h2
         className="place-card__name"
       >
-        <a
-          href="#"
-        >
-          Canal View Prinsengracht
-        </a>
+        Canal View Prinsengracht
       </h2>
       <p
         className="place-card__type"
@@ -1787,24 +1733,24 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
   >
-    <div
-      className="cities__image-wrapper place-card__image-wrapper"
+    <a
+      href="/Dusseldorf/19"
+      onClick={[Function]}
     >
-      <a
-        href="#"
+      <div
+        className="cities__image-wrapper place-card__image-wrapper"
       >
         <img
           alt="Place image"
           className="place-card__image"
-          height="200"
+          height={200}
           src="https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/9.jpg"
-          width="260"
+          width={260}
         />
-      </a>
-    </div>
+      </div>
+    </a>
     <div
-      className="place-card__info"
-      onClick={[MockFunction]}
+      className="nullplace-card__info"
     >
       <div
         className="place-card__price-wrapper"
@@ -1825,13 +1771,14 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           </span>
         </div>
         <button
-          className="place-card__bookmark-button button"
+          className="place-card__bookmark-button place-card__bookmark-buttonnull button"
+          onClick={[Function]}
           type="button"
         >
           <svg
             className="place-card__bookmark-icon"
-            height="19"
-            width="18"
+            height={19}
+            width={18}
           >
             <use
               xlinkHref="#icon-bookmark"
@@ -1840,7 +1787,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
           <span
             className="visually-hidden"
           >
-            To bookmarks
+            In bookmarks
           </span>
         </button>
       </div>
@@ -1867,11 +1814,7 @@ exports[`SuggestionsList correctly renders after relaunch 1`] = `
       <h2
         className="place-card__name"
       >
-        <a
-          href="#"
-        >
-          Waterfront with extraordinary view
-        </a>
+        Waterfront with extraordinary view
       </h2>
       <p
         className="place-card__type"

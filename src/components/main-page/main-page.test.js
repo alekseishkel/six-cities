@@ -12,16 +12,19 @@ import offers from '../../mocks/offers';
 
 it(`MainPage correctly renders after relaunch`, () => {
   const store = createStore(reducer);
+
   const mapContainer = document.createElement(`mapContainer`);
   mapContainer.setAttribute(`id`, `map`);
   document.body.appendChild(mapContainer);
+
+  const currentCityOffers = [offers[3], offers[4], offers[5]];
 
   const tree = renderer.create(
       <Provider store={store}>
         <Router>
           <MainPage
             currentCity={`Cologne`}
-            currentCityOffers={[offers[3], offers[4], offers[5]]}
+            currentCityOffers={currentCityOffers}
           />
         </Router>
       </Provider>

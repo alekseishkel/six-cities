@@ -15,7 +15,7 @@ exports[`Header correctly renders after relaunch 1`] = `
       >
         <a
           className="header__logo-link header__logo-link--active"
-          href="/null"
+          href="/Cologne"
           onClick={[Function]}
         >
           <img

@@ -8,7 +8,7 @@ import reducer from '../../reducer/reducer';
 
 import {createBrowserHistory as history} from 'history';
 
-import CitiesTabs from './cities-tabs.jsx';
+import {CitiesTabs} from './cities-tabs.jsx';
 
 import offers from '../../mocks/offers';
 

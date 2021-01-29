@@ -164,7 +164,7 @@ class Property extends Component {
           <div className="container">
             <section className="near-places places">
               <h2 className="near-places__title">Other places in the neighbourhood</h2>
-              {<SuggestionsList offers={neighbourhoodOffers.slice(1)} sorting={`Popular`} />}
+              {<SuggestionsList offers={neighbourhoodOffers.slice(1)} />}
             </section >
           </div >
         </main >

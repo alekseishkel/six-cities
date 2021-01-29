@@ -5,7 +5,7 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import reducer from '../../reducer/reducer';
 
-import SignIn from './sign-in.jsx';
+import {SignIn} from './sign-in.jsx';
 
 it(`SignIn correctly renders after relaunch`, () => {
   const store = createStore(reducer);
