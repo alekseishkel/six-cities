@@ -7,7 +7,7 @@ const Header = ({currentCity, isAuthorized, user}) => {
   let avatarSrc = `/img/avatar.svg`;
   let userName = `Sing In`;
 
-  if (isAuthorized === false && user) {
+  if (isAuthorized === true && user) {
     userName = user.email;
     avatarSrc = `https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/2.jpg`;
   }
@@ -24,7 +24,7 @@ const Header = ({currentCity, isAuthorized, user}) => {
           <nav className="header__nav">
             <ul className="header__nav-list">
               <li className="header__nav-item user">
-                <Link to={isAuthorized ? `/login` : `/favorites`} className="header__nav-link header__nav-link--profile" href="#">
+                <Link to={!isAuthorized ? `/login` : `/favorites`} className="header__nav-link header__nav-link--profile" href="#">
                   <div style={{backgroundImage: `url(${avatarSrc})`}} className="header__avatar-wrapper user__avatar-wrapper">
                   </div>
                   <span className="header__user-name user__name">{userName}</span>

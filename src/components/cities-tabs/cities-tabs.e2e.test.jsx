@@ -6,7 +6,11 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import reducer from '../../reducer/reducer';
 
+import {createBrowserHistory as history} from 'history';
+
 import CitiesTabs from './cities-tabs.jsx';
+
+import offers from '../../mocks/offers';
 
 Enzyme.configure({adapter: new Adapter()});
 
@@ -17,8 +21,15 @@ it(`Cities correctly change on click event`, () => {
   const citiesTabs = shallow(
       <Provider store={store}>
         <CitiesTabs
-          city={`Paris`}
-          onCityClick={clickHandler}
+          currentCity={`Hamburg`}
+          history={history()}
+          match={{
+            params: {
+              city: `Cologne`
+            }
+          }}
+          onCityClick={jest.fn()}
+          offers={offers}
         />
       </Provider>
   );

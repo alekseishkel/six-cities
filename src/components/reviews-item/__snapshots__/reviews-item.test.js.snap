@@ -14,14 +14,14 @@ exports[`ReviewsItem correctly renders after relaunch 1`] = `
         alt="Reviews avatar"
         className="reviews__avatar user__avatar"
         height="54"
-        src="img/avatar-max.jpg"
+        src="https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/2.jpg"
         width="54"
       />
     </div>
     <span
       className="reviews__user-name"
     >
-      Max
+      Jack
     </span>
   </div>
   <div
@@ -36,7 +36,7 @@ exports[`ReviewsItem correctly renders after relaunch 1`] = `
         <span
           style={
             Object {
-              "width": "94%",
+              "width": "40%",
             }
           }
         />
@@ -50,13 +50,13 @@ exports[`ReviewsItem correctly renders after relaunch 1`] = `
     <p
       className="reviews__text"
     >
-      A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
+      Bathed in the nature. Completely unplugged. Unforgettable.
     </p>
     <time
       className="reviews__time"
-      dateTime="2019-04-24"
+      dateTime="2021-01-13T06:16:14.873Z"
     >
-      April 2019
+      2021 M01
     </time>
   </div>
 </li>

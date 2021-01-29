@@ -24,12 +24,10 @@ const SuggestionsList = ({offers, state}) => {
 
 SuggestionsList.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.object),
-  sorting: PropTypes.string.isRequired,
   state: PropTypes.object
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  sorting: state.userState.sorting,
   state
 });
 

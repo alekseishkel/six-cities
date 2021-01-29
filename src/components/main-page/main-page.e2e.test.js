@@ -4,6 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
+import {BrowserRouter as Router} from 'react-router-dom';
 import reducer from '../../reducer/reducer';
 
 import {MainPage} from './main-page.jsx';
@@ -23,13 +24,12 @@ it(`A click event is correctly simulated on cards info on the main page`, () => 
 
   const mainPage = mount(
       <Provider store={store}>
-        <MainPage
-          currentCity={`Paris`}
-          func={clickHandler}
-          offers={offers}
-          sorting={`Popular`}
-          isAuthorized={false}
-        />
+        <Router>
+          <MainPage
+            currentCity={`Cologne`}
+            currentCityOffers={[offers[3], offers[4], offers[5]]}
+          />
+        </Router>
       </Provider>
   );
 

@@ -11,9 +11,10 @@ it(`Map correctly renders after relaunch`, () => {
 
   const map = renderer.create(
       <Map
+        activeCard={offers[1]}
         currentCity={`Paris`}
         offers={offers}
-        activeCard={null}
+        pageId={1}
       />
   ).toJSON();
 

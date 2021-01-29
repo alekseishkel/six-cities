@@ -3,6 +3,7 @@ import renderer from 'react-test-renderer';
 
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
+import {BrowserRouter as Router} from 'react-router-dom';
 import reducer from '../../reducer/reducer';
 
 import Header from './header.jsx';
@@ -12,17 +13,19 @@ it(`Header correctly renders after relaunch`, () => {
 
   const tree = renderer.create(
       <Provider store={store} >
-        <Header
-          isAuthorized={false}
-          user={{
-            avatarUrl: `/static/avatar/7.jpg`,
-            email: `fdsf@gmail.com`,
-            id: 1,
-            isPro: false,
-            name: `fdsf`
-          }}
-          signIn={jest.fn()}
-        />
+        <Router>
+          <Header
+            currentCity={`Cologne`}
+            isAuthorized={false}
+            user={{
+              avatarUrl: `/static/avatar/7.jpg`,
+              email: `alex@gmail.com`,
+              id: 1,
+              isPro: false,
+              name: `Alex`
+            }}
+          />
+        </Router>
       </Provider>
   ).toJSON();
 

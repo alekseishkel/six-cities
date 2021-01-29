@@ -3,10 +3,10 @@ import reducer from './user-state';
 describe(`Reducer works correctly`, () => {
   it(`Reducer without additional paramerters should return initial state`, () => {
     expect(reducer(undefined, {})).toEqual({
-      city: null,
-      sorting: `Popular`,
       activeCard: null,
-      isAuthorized: false
+      city: null,
+      isAuthorized: false,
+      sorting: `Popular`
     });
   });
 
@@ -14,18 +14,18 @@ describe(`Reducer works correctly`, () => {
     expect(reducer({
       userState:
         {
-          city: null,
-          sorting: `Popular`,
           activeCard: null,
-          isAuthorized: false
+          city: null,
+          isAuthorized: false,
+          sorting: `Popular`
         }}, {
       type: `CHANGE_CITY`,
       payload: `Amsterdam`
     })).toEqual({
-      city: `Amsterdam`,
-      sorting: `Popular`,
       activeCard: null,
-      isAuthorized: false
+      isAuthorized: false,
+      city: `Amsterdam`,
+      sorting: `Popular`
     });
   });
 
@@ -33,18 +33,18 @@ describe(`Reducer works correctly`, () => {
     expect(reducer({
       userState:
         {
-          city: null,
-          sorting: `Popular`,
           activeCard: null,
-          isAuthorized: false
+          city: null,
+          isAuthorized: false,
+          sorting: `Popular`
         }}, {
       type: `CHANGE_SORTING`,
       payload: `Price: low to high`
     })).toEqual({
-      city: null,
-      sorting: `Price: low to high`,
       activeCard: null,
-      isAuthorized: false
+      city: null,
+      isAuthorized: false,
+      sorting: `Price: low to high`
     });
   });
 
@@ -52,10 +52,10 @@ describe(`Reducer works correctly`, () => {
     expect(reducer({
       userState:
         {
-          city: null,
-          sorting: `Popular`,
           activeCard: null,
-          isAuthorized: false
+          city: null,
+          isAuthorized: false,
+          sorting: `Popular`
         }}, {
       type: `CHANGE_ACTIVE_CARD`,
       payload: {
@@ -112,8 +112,6 @@ describe(`Reducer works correctly`, () => {
         "id": 1
       },
     })).toEqual({
-      city: null,
-      sorting: `Popular`,
       activeCard: {
         "city":
         {
@@ -167,7 +165,9 @@ describe(`Reducer works correctly`, () => {
         },
         "id": 1
       },
-      isAuthorized: false
+      city: null,
+      isAuthorized: false,
+      sorting: `Popular`
     });
   });
 
@@ -175,18 +175,18 @@ describe(`Reducer works correctly`, () => {
     expect(reducer({
       userState:
         {
-          city: null,
-          sorting: `Popular`,
           activeCard: null,
-          isAuthorized: false
+          isAuthorized: false,
+          city: null,
+          sorting: `Popular`
         }}, {
       type: `REQUIRE_AUTHORIZATION`,
       payload: true
     })).toEqual({
-      city: null,
-      sorting: `Popular`,
       activeCard: null,
-      isAuthorized: true
+      city: null,
+      isAuthorized: true,
+      sorting: `Popular`
     });
   });
 });

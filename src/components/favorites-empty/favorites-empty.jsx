@@ -4,7 +4,7 @@ import {Link, Redirect} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const FavoritesEmpty = ({currentCity, isAuthorized}) => {
-  if (isAuthorized === true) {
+  if (isAuthorized === false) {
     return <Redirect to="/login" />;
   }
 

@@ -22,6 +22,7 @@ exports[`SignIn correctly renders after relaunch 1`] = `
           action="#"
           className="login__form form"
           method="post"
+          onSubmit={[Function]}
         >
           <div
             className="login__input-wrapper form__input-wrapper"
@@ -61,7 +62,6 @@ exports[`SignIn correctly renders after relaunch 1`] = `
           </div>
           <button
             className="login__submit form__submit button"
-            onClick={[Function]}
             type="submit"
           >
             Sign in
@@ -74,14 +74,11 @@ exports[`SignIn correctly renders after relaunch 1`] = `
         <div
           className="locations__item"
         >
-          <a
+          <span
             className="locations__item-link"
-            href="#"
           >
-            <span>
-              Amsterdam
-            </span>
-          </a>
+            Amsterdam
+          </span>
         </div>
       </section>
     </div>

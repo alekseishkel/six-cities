@@ -7,15 +7,21 @@ import reducer from '../../reducer/reducer';
 
 import App from './app';
 
+import offers from '../../mocks/offers';
+
 it(`App correctly renders after relaunch`, () => {
   const store = createStore(reducer);
+
   const mapContainer = document.createElement(`mapContainer`);
   mapContainer.setAttribute(`id`, `map`);
   document.body.appendChild(mapContainer);
 
   const tree = renderer.create(
       <Provider store={store}>
-        <App />
+        <App
+          currentCity={`Cologne`}
+          offers={offers}
+        />
       </Provider>
   ).toJSON();
 

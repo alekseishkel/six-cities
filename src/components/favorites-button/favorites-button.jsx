@@ -46,7 +46,7 @@ class FavoritesButton extends Component {
         className={`${favoritesButtonClassName} place-card__bookmark-button${isActiveModifier} button`}
         type="button"
         onClick={() => {
-          if (isAuthorized) {
+          if (!isAuthorized) {
             history.push(`/login`);
           } else {
             offers.forEach((offer) => {

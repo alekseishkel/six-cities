@@ -3,6 +3,7 @@ import renderer from 'react-test-renderer';
 
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
+import {BrowserRouter as Router} from 'react-router-dom';
 import reducer from '../../reducer/reducer';
 
 import {MainPage} from './main-page.jsx';
@@ -17,13 +18,12 @@ it(`MainPage correctly renders after relaunch`, () => {
 
   const tree = renderer.create(
       <Provider store={store}>
-        <MainPage
-          currentCity={`Paris`}
-          func={jest.fn()}
-          offers={offers}
-          sorting={`Popular`}
-          isAuthorized={false}
-        />
+        <Router>
+          <MainPage
+            currentCity={`Cologne`}
+            currentCityOffers={[offers[3], offers[4], offers[5]]}
+          />
+        </Router>
       </Provider>
   ).toJSON();
 

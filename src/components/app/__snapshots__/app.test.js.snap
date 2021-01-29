@@ -1,70 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App correctly renders after relaunch 1`] = `
-<div>
-  <header
-    className="header"
-  >
-    <div
-      className="container"
-    >
-      <div
-        className="header__wrapper"
-      >
-        <div
-          className="header__left"
-        >
-          <a
-            className="header__logo-link header__logo-link--active"
-          >
-            <img
-              alt="6 cities logo"
-              className="header__logo"
-              height="41"
-              src="img/logo.svg"
-              width="81"
-            />
-          </a>
-        </div>
-        <nav
-          className="header__nav"
-        >
-          <ul
-            className="header__nav-list"
-          >
-            <li
-              className="header__nav-item user"
-              onClick={[Function]}
-            >
-              <a
-                className="header__nav-link header__nav-link--profile"
-                href="#"
-              >
-                <div
-                  className="header__avatar-wrapper user__avatar-wrapper"
-                  style={
-                    Object {
-                      "backgroundImage": "url(/img/avatar.svg)",
-                    }
-                  }
-                />
-                <span
-                  className="header__user-name user__name"
-                >
-                  Sing In
-                </span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
-  <div
-    className="lds-ripple"
-  >
-    <div />
-    <div />
-  </div>
+<div
+  className="lds-ripple"
+>
+  <div />
+  <div />
 </div>
 `;

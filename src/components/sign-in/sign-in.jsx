@@ -18,7 +18,7 @@ class SignIn extends Component {
   render() {
     const {currentCity, isAuthorized: status, onLogin} = this.props;
 
-    if (status === false) {
+    if (status === true) {
       return <Redirect to={`/${currentCity}`} />;
     }
 
@@ -38,7 +38,7 @@ class SignIn extends Component {
       evt.preventDefault();
       const {email, password} = this.state;
 
-      onLogin(email, password, false);
+      onLogin(email, password, true);
     };
 
     return (

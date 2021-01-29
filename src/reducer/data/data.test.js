@@ -3,7 +3,9 @@ import reducer from './data';
 describe(`Reducer works correctly`, () => {
   it(`Reducer without additional paramerters should return initial state`, () => {
     expect(reducer(undefined, {})).toEqual({
+      favorites: null,
       offers: null,
+      reviews: null,
       user: null
     });
   });
@@ -11,7 +13,9 @@ describe(`Reducer works correctly`, () => {
   it(`Reducer should correctly change offers after loading`, () => {
     expect(reducer({
       data: {
+        favorites: null,
         offers: null,
+        reviews: null,
         user: null
       }
     }, {
@@ -1011,6 +1015,7 @@ describe(`Reducer works correctly`, () => {
         }
       ]
     })).toEqual({
+      favorites: null,
       offers: [
         {
           "city":
@@ -2005,6 +2010,7 @@ describe(`Reducer works correctly`, () => {
           "id": 19
         }
       ],
+      reviews: null,
       user: null
     });
   });
@@ -2012,7 +2018,9 @@ describe(`Reducer works correctly`, () => {
   it(`Reducer should correctly change offers after loading`, () => {
     expect(reducer({
       data: {
+        favorites: null,
         offers: null,
+        reviews: null,
         user: null
       }
     }, {
@@ -2025,7 +2033,9 @@ describe(`Reducer works correctly`, () => {
         name: `fdsf`,
       }
     })).toEqual({
+      favorites: null,
       offers: null,
+      reviews: null,
       user: {
         avatarUrl: `/static/avatar/7.jpg`,
         email: `fdsf@gmail.com`,
