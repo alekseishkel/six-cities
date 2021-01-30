@@ -56,11 +56,11 @@ class CitiesTabs extends Component {
 }
 
 CitiesTabs.propTypes = {
-  currentCity: PropTypes.string.isRequired,
+  currentCity: PropTypes.string,
   history: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
   onCityClick: PropTypes.func.isRequired,
-  offers: PropTypes.array.isRequired
+  offers: PropTypes.array
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {

@@ -17,7 +17,7 @@ it(`OfferCard gets correct data when omMouseEnter on card`, () => {
   const mouseEnterHandler = jest.fn((id) => id);
 
   const offerCard = mount(
-      <Provider store={store} >
+      <Provider store={store}>
         <Router>
           <OfferCard
             cardInfo={offers[0]}

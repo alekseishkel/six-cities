@@ -18,7 +18,6 @@ it(`MainPage correctly renders after relaunch`, () => {
   document.body.appendChild(mapContainer);
 
   const currentCityOffers = [offers[3], offers[4], offers[5]];
-
   const tree = renderer.create(
       <Provider store={store}>
         <Router>

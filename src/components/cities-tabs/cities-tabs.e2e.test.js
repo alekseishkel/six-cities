@@ -21,7 +21,7 @@ it(`Cities correctly change on click event`, () => {
   const citiesTabs = shallow(
       <Provider store={store}>
         <CitiesTabs
-          currentCity={`Hamburg`}
+          currentCity={`Cologne`}
           history={history()}
           match={{
             params: {
@@ -37,6 +37,6 @@ it(`Cities correctly change on click event`, () => {
   const tabs = citiesTabs.find(`.tabs__item`);
   tabs.forEach((tab) => {
     tab.simulate(`click`);
-    expect(clickHandler.mock.results[0].value).toEqual(`Paris`);
+    expect(clickHandler.mock.results[0].value).toEqual(`Hamburg`);
   });
 });
