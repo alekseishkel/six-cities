@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import leaflet from 'leaflet';
-
 import PropTypes from 'prop-types';
+
+import leaflet from 'leaflet';
 
 import './map.css';
 
@@ -83,9 +83,22 @@ class Map extends Component {
       iconSize: [30, 30]
     });
 
+    const aaa = (offer) => {
+      return (
+        `<div style="font-size: 13px">
+          <h3 style="text-align: center; margin: 0 5px">${offer.title}</h3>
+          <img src="${offer.preview_image}" width="150px">
+          <div>Price: €${offer.price}/night</div>
+          <div>Type: ${offer.type}</div>
+          <a style="font-size: 14px; text-decoration: underline" href="${`/${offer.city.name}/${offer.id}`}" />See more</a>
+        <div>`
+      );
+    };
+
     offers.forEach((offer) => {
       leaflet
         .marker([offer.location.latitude, offer.location.longitude], {icon, alt: `Marker with coodrs ${offer.location.latitude}, ${offer.location.longitude}`})
+        .bindPopup(aaa(offer))
         .addTo(this.map);
     });
   }
