@@ -1,5 +1,7 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import Enzyme, {shallow} from 'enzyme';
+import {shallowToJson} from 'enzyme-to-json';
+import Adapter from 'enzyme-adapter-react-16';
 
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
@@ -10,6 +12,8 @@ import {MainPage} from './main-page.jsx';
 
 import offers from '../../mocks/offers';
 
+Enzyme.configure({adapter: new Adapter()});
+
 it(`MainPage correctly renders after relaunch`, () => {
   const store = createStore(reducer);
 
@@ -17,17 +21,16 @@ it(`MainPage correctly renders after relaunch`, () => {
   mapContainer.setAttribute(`id`, `map`);
   document.body.appendChild(mapContainer);
 
-  const currentCityOffers = [offers[3], offers[4], offers[5]];
-  const tree = renderer.create(
+  const tree = shallow(
       <Provider store={store}>
         <Router>
           <MainPage
             currentCity={`Cologne`}
-            currentCityOffers={currentCityOffers}
+            currentCityOffers={[offers[3], offers[4], offers[5]]}
           />
         </Router>
       </Provider>
-  ).toJSON();
+  );
 
-  expect(tree).toMatchSnapshot();
+  expect(shallowToJson(tree)).toMatchSnapshot();
 });

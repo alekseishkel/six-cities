@@ -1,9 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import {FavoritesButton} from './favorites-button.jsx';
-
 import {createBrowserHistory as history} from 'history';
+
+import {FavoritesButton} from './favorites-button.jsx';
 
 import offers from '../../mocks/offers';
 

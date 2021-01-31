@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme, {shallow} from 'enzyme';
+import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import {createStore} from 'redux';
@@ -18,7 +18,7 @@ it(`Cities correctly change on click event`, () => {
   const store = createStore(reducer);
   const clickHandler = jest.fn((city) => (city));
 
-  const citiesTabs = shallow(
+  const citiesTabs = mount(
       <Provider store={store}>
         <CitiesTabs
           currentCity={`Cologne`}
@@ -28,7 +28,7 @@ it(`Cities correctly change on click event`, () => {
               city: `Cologne`
             }
           }}
-          onCityClick={jest.fn()}
+          onCityClick={clickHandler}
           offers={offers}
         />
       </Provider>

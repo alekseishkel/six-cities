@@ -16,7 +16,7 @@ it(`A click event is correctly changing state in SortOptions`, () => {
       />);
 
   const sortingType = wrapper.find(`.places__sorting-type`);
-  sortingType.simulate(`click`, {preventDefault() { }});
+  sortingType.simulate(`click`);
 
   const sortingOpenedState = {
     sortingOpened: true

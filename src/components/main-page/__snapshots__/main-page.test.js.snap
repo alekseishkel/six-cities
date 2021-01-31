@@ -1,0 +1,218 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainPage correctly renders after relaunch 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      },
+      "subscription": Subscription {
+        "handleChangeWrapper": [Function],
+        "listeners": Object {
+          "notify": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "dispatch": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+          Symbol(observable): [Function],
+        },
+        "unsubscribe": null,
+      },
+    }
+  }
+>
+  <BrowserRouter>
+    <MainPage
+      currentCity="Cologne"
+      currentCityOffers={
+        Array [
+          Object {
+            "bedrooms": 3,
+            "city": Object {
+              "location": Object {
+                "latitude": 50.938361,
+                "longitude": 6.959974,
+                "zoom": 13,
+              },
+              "name": "Cologne",
+            },
+            "description": "This is a place for dreamers to reset, reflect, and create. Designed with a 'slow' pace in mind, our hope is that you enjoy every part of your stay; from making local coffee by drip in the morning, choosing the perfect record to put on as the sun sets.",
+            "goods": Array [
+              "Towels",
+              "Laptop friendly workspace",
+              "Washer",
+              "Air conditioning",
+              "Breakfast",
+              "Baby seat",
+            ],
+            "host": Object {
+              "avatar_url": "img/avatar-angelina.jpg",
+              "id": 25,
+              "is_pro": true,
+              "name": "Angelina",
+            },
+            "id": 4,
+            "images": Array [
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/11.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/7.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/12.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/3.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/17.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/5.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/8.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/6.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/20.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/18.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/16.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/4.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/15.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/10.jpg",
+            ],
+            "is_favorite": false,
+            "is_premium": false,
+            "location": Object {
+              "latitude": 50.954361,
+              "longitude": 6.982974,
+              "zoom": 16,
+            },
+            "max_adults": 6,
+            "preview_image": "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/1.jpg",
+            "price": 380,
+            "rating": 3.7,
+            "title": "Penthouse, 4-5 rooms + 5 balconies",
+            "type": "apartment",
+          },
+          Object {
+            "bedrooms": 4,
+            "city": Object {
+              "location": Object {
+                "latitude": 50.938361,
+                "longitude": 6.959974,
+                "zoom": 13,
+              },
+              "name": "Cologne",
+            },
+            "description": "Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.",
+            "goods": Array [
+              "Dishwasher",
+              "Laptop friendly workspace",
+              "Baby seat",
+              "Fridge",
+              "Washing machine",
+              "Air conditioning",
+              "Breakfast",
+              "Towels",
+              "Coffee machine",
+              "Washer",
+            ],
+            "host": Object {
+              "avatar_url": "img/avatar-angelina.jpg",
+              "id": 25,
+              "is_pro": true,
+              "name": "Angelina",
+            },
+            "id": 5,
+            "images": Array [
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/6.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/8.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/18.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/7.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/14.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/11.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/4.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/13.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/1.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/10.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/12.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/15.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/17.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/19.jpg",
+            ],
+            "is_favorite": false,
+            "is_premium": true,
+            "location": Object {
+              "latitude": 50.959361,
+              "longitude": 6.978974,
+              "zoom": 16,
+            },
+            "max_adults": 9,
+            "preview_image": "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/14.jpg",
+            "price": 232,
+            "rating": 3.4,
+            "title": "Wood and stone place",
+            "type": "apartment",
+          },
+          Object {
+            "bedrooms": 3,
+            "city": Object {
+              "location": Object {
+                "latitude": 50.938361,
+                "longitude": 6.959974,
+                "zoom": 13,
+              },
+              "name": "Cologne",
+            },
+            "description": "Peaceful studio in the most wanted area in town. Quiet house Near of everything. Completely renovated. Lovely neighbourhood, lot of trendy shops, restaurants and bars in a walking distance.",
+            "goods": Array [
+              "Coffee machine",
+              "Breakfast",
+              "Laptop friendly workspace",
+              "Towels",
+              "Washer",
+              "Dishwasher",
+              "Air conditioning",
+              "Fridge",
+              "Baby seat",
+            ],
+            "host": Object {
+              "avatar_url": "img/avatar-angelina.jpg",
+              "id": 25,
+              "is_pro": true,
+              "name": "Angelina",
+            },
+            "id": 6,
+            "images": Array [
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/7.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/15.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/6.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/5.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/1.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/10.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/18.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/13.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/4.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/17.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/11.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/16.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/12.jpg",
+              "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/2.jpg",
+            ],
+            "is_favorite": false,
+            "is_premium": false,
+            "location": Object {
+              "latitude": 50.932361,
+              "longitude": 6.937974,
+              "zoom": 16,
+            },
+            "max_adults": 9,
+            "preview_image": "https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/3.jpg",
+            "price": 226,
+            "rating": 3.7,
+            "title": "Penthouse, 4-5 rooms + 5 balconies",
+            "type": "house",
+          },
+        ]
+      }
+    />
+  </BrowserRouter>
+</ContextProvider>
+`;
