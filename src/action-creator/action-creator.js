@@ -1,4 +1,14 @@
 const ActionCreator = {
+  addOfferToFavorites: (offer) => ({
+    type: `ADD_OFFER_TO_FAVORITES`,
+    payload: offer
+  }),
+
+  changeActiveCard: (card) => ({
+    type: `CHANGE_ACTIVE_CARD`,
+    payload: card
+  }),
+
   changeCity: (city) => ({
     type: `CHANGE_CITY`,
     payload: city
@@ -9,14 +19,24 @@ const ActionCreator = {
     payload: sorting
   }),
 
-  changeActiveCard: (card) => ({
-    type: `CHANGE_ACTIVE_CARD`,
-    payload: card
+  getFavoriteOffers: (favorites) => ({
+    type: `GET_FAVORITE_OFFERS`,
+    payload: favorites
   }),
 
   loadOffers: (offers) => ({
     type: `LOAD_DATA`,
     payload: offers
+  }),
+
+  loadReviews: (reviews) => ({
+    type: `LOAD_REVIEWS`,
+    payload: reviews
+  }),
+
+  removeOfferFromFavorites: (offer) => ({
+    type: `REMOVE_OFFER_FROM_FAVORITES`,
+    payload: offer
   }),
 
   requireAuthorization: (status) => ({
@@ -29,29 +49,9 @@ const ActionCreator = {
     payload: user
   }),
 
-  loadReviews: (reviews) => ({
-    type: `LOAD_REVIEWS`,
-    payload: reviews
-  }),
-
   updateReviews: (review) => ({
     type: `UPDATE_REVIEWS`,
     payload: review
-  }),
-
-  getFavoriteOffers: (favorites) => ({
-    type: `GET_FAVORITE_OFFERS`,
-    payload: favorites
-  }),
-
-  addOfferToFavorites: (offer) => ({
-    type: `ADD_OFFER_TO_FAVORITES`,
-    payload: offer
-  }),
-
-  removeOfferFromFavorites: (offer) => ({
-    type: `REMOVE_OFFER_FROM_FAVORITES`,
-    payload: offer
   }),
 };
 
