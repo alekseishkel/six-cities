@@ -10,53 +10,14 @@ describe(`Reducer works correctly`, () => {
     });
   });
 
-  it(`Reducer should correctly change city`, () => {
-    expect(reducer({
-      userState:
-        {
-          activeCard: null,
-          city: null,
-          isAuthorized: false,
-          sorting: `Popular`
-        }}, {
-      type: `CHANGE_CITY`,
-      payload: `Amsterdam`
-    })).toEqual({
-      activeCard: null,
-      isAuthorized: false,
-      city: `Amsterdam`,
-      sorting: `Popular`
-    });
-  });
-
-  it(`Reducer should correctly change sorting`, () => {
-    expect(reducer({
-      userState:
-        {
-          activeCard: null,
-          city: null,
-          isAuthorized: false,
-          sorting: `Popular`
-        }}, {
-      type: `CHANGE_SORTING`,
-      payload: `Price: low to high`
-    })).toEqual({
-      activeCard: null,
-      city: null,
-      isAuthorized: false,
-      sorting: `Price: low to high`
-    });
-  });
-
   it(`Reducer should correctly change active card`, () => {
     expect(reducer({
-      userState:
-        {
-          activeCard: null,
-          city: null,
-          isAuthorized: false,
-          sorting: `Popular`
-        }}, {
+      userState: {
+        activeCard: null,
+        city: null,
+        isAuthorized: false,
+        sorting: `Popular`
+      }}, {
       type: `CHANGE_ACTIVE_CARD`,
       payload: {
         "city":
@@ -171,15 +132,50 @@ describe(`Reducer works correctly`, () => {
     });
   });
 
+  it(`Reducer should correctly change city`, () => {
+    expect(reducer({
+      userState: {
+        activeCard: null,
+        city: null,
+        isAuthorized: false,
+        sorting: `Popular`
+      }}, {
+      type: `CHANGE_CITY`,
+      payload: `Amsterdam`
+    })).toEqual({
+      activeCard: null,
+      isAuthorized: false,
+      city: `Amsterdam`,
+      sorting: `Popular`
+    });
+  });
+
+  it(`Reducer should correctly change sorting`, () => {
+    expect(reducer({
+      userState: {
+        activeCard: null,
+        city: null,
+        isAuthorized: false,
+        sorting: `Popular`
+      }}, {
+      type: `CHANGE_SORTING`,
+      payload: `Price: low to high`
+    })).toEqual({
+      activeCard: null,
+      city: null,
+      isAuthorized: false,
+      sorting: `Price: low to high`
+    });
+  });
+
   it(`Reducer should correctly change required authorization`, () => {
     expect(reducer({
-      userState:
-        {
-          activeCard: null,
-          isAuthorized: false,
-          city: null,
-          sorting: `Popular`
-        }}, {
+      userState: {
+        activeCard: null,
+        isAuthorized: false,
+        city: null,
+        sorting: `Popular`
+      }}, {
       type: `REQUIRE_AUTHORIZATION`,
       payload: true
     })).toEqual({

@@ -10,7 +10,253 @@ describe(`Reducer works correctly`, () => {
     });
   });
 
-  it(`Reducer should correctly change offers after loading`, () => {
+  it(`Reducer should correctly add offer card to favorites`, () => {
+    expect(reducer({
+      data: {
+        favorites: [],
+        offers: null,
+        reviews: null,
+        user: null
+      }
+    }, {
+      type: `ADD_OFFER_TO_FAVORITES`,
+      payload: {
+        "city":
+        {
+          "name": `Hamburg`,
+          "location":
+          {
+            "latitude": 53.550341,
+            "longitude": 10.000654,
+            "zoom": 13
+          }
+        },
+        "preview_image": `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/7.jpg`,
+        "images": [`https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/1.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/19.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/6.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/14.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/7.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/17.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/9.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/18.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/2.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/11.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/10.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/20.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/12.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/13.jpg`],
+        "title": `The Pondhouse - A Magical Place`,
+        "is_favorite": false,
+        "is_premium": false,
+        "rating": 2.8,
+        "type": `hotel`,
+        "bedrooms": 3,
+        "max_adults": 9,
+        "price": 482,
+        "goods": [`Washer`,
+          `Air conditioning`,
+          `Baby seat`,
+          `Breakfast`,
+          `Laptop friendly workspace`],
+        "host": {
+          "id": 25,
+          "name": `Angelina`,
+          "is_pro": true,
+          "avatar_url": `img/avatar-angelina.jpg`
+        },
+        "description": `Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.`,
+        "location": {
+          "latitude": 53.558341000000006,
+          "longitude": 10.001654,
+          "zoom": 16
+        },
+        "id": 1
+      }
+    })).toEqual({
+      favorites: [{
+        "city":
+        {
+          "name": `Hamburg`,
+          "location":
+          {
+            "latitude": 53.550341,
+            "longitude": 10.000654,
+            "zoom": 13
+          }
+        },
+        "preview_image": `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/7.jpg`,
+        "images": [`https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/1.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/19.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/6.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/14.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/7.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/17.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/9.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/18.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/2.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/11.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/10.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/20.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/12.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/13.jpg`],
+        "title": `The Pondhouse - A Magical Place`,
+        "is_favorite": false,
+        "is_premium": false,
+        "rating": 2.8,
+        "type": `hotel`,
+        "bedrooms": 3,
+        "max_adults": 9,
+        "price": 482,
+        "goods": [`Washer`,
+          `Air conditioning`,
+          `Baby seat`,
+          `Breakfast`,
+          `Laptop friendly workspace`],
+        "host": {
+          "id": 25,
+          "name": `Angelina`,
+          "is_pro": true,
+          "avatar_url": `img/avatar-angelina.jpg`
+        },
+        "description": `Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.`,
+        "location": {
+          "latitude": 53.558341000000006,
+          "longitude": 10.001654,
+          "zoom": 16
+        },
+        "id": 1
+      }],
+      offers: null,
+      reviews: null,
+      user: null
+    });
+  });
+
+  it(`Reducer should correctly get favorite offers`, () => {
+    expect(reducer({
+      data: {
+        favorites: null,
+        offers: null,
+        reviews: null,
+        user: null
+      }
+    }, {
+      type: `GET_FAVORITE_OFFERS`,
+      payload: {
+        "city":
+        {
+          "name": `Hamburg`,
+          "location":
+          {
+            "latitude": 53.550341,
+            "longitude": 10.000654,
+            "zoom": 13
+          }
+        },
+        "preview_image": `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/7.jpg`,
+        "images": [`https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/1.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/19.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/6.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/14.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/7.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/17.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/9.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/18.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/2.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/11.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/10.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/20.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/12.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/13.jpg`],
+        "title": `The Pondhouse - A Magical Place`,
+        "is_favorite": false,
+        "is_premium": false,
+        "rating": 2.8,
+        "type": `hotel`,
+        "bedrooms": 3,
+        "max_adults": 9,
+        "price": 482,
+        "goods": [`Washer`,
+          `Air conditioning`,
+          `Baby seat`,
+          `Breakfast`,
+          `Laptop friendly workspace`],
+        "host": {
+          "id": 25,
+          "name": `Angelina`,
+          "is_pro": true,
+          "avatar_url": `img/avatar-angelina.jpg`
+        },
+        "description": `Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.`,
+        "location": {
+          "latitude": 53.558341000000006,
+          "longitude": 10.001654,
+          "zoom": 16
+        },
+        "id": 1
+      }
+    })).toEqual({
+      favorites: {
+        "city":
+        {
+          "name": `Hamburg`,
+          "location":
+          {
+            "latitude": 53.550341,
+            "longitude": 10.000654,
+            "zoom": 13
+          }
+        },
+        "preview_image": `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/7.jpg`,
+        "images": [`https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/1.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/19.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/6.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/14.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/7.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/17.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/9.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/18.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/2.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/11.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/10.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/20.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/12.jpg`,
+          `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/13.jpg`],
+        "title": `The Pondhouse - A Magical Place`,
+        "is_favorite": false,
+        "is_premium": false,
+        "rating": 2.8,
+        "type": `hotel`,
+        "bedrooms": 3,
+        "max_adults": 9,
+        "price": 482,
+        "goods": [`Washer`,
+          `Air conditioning`,
+          `Baby seat`,
+          `Breakfast`,
+          `Laptop friendly workspace`],
+        "host": {
+          "id": 25,
+          "name": `Angelina`,
+          "is_pro": true,
+          "avatar_url": `img/avatar-angelina.jpg`
+        },
+        "description": `Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.`,
+        "location": {
+          "latitude": 53.558341000000006,
+          "longitude": 10.001654,
+          "zoom": 16
+        },
+        "id": 1
+      },
+      offers: null,
+      reviews: null,
+      user: null
+    });
+  });
+
+  it(`Reducer should correctly load offers`, () => {
     expect(reducer({
       data: {
         favorites: null,
@@ -2015,7 +2261,130 @@ describe(`Reducer works correctly`, () => {
     });
   });
 
-  it(`Reducer should correctly change offers after loading`, () => {
+  it(`Reducer should correctly load reviews`, () => {
+    expect(reducer({
+      data: {
+        favorites: null,
+        offers: null,
+        reviews: null,
+        user: null
+      }
+    }, {
+      type: `LOAD_REVIEWS`,
+      payload: [
+        {
+          comment: `Bathed in the nature. Completely unplugged. Unforgettable.`,
+          date: `2021-01-13T06:16:14.873Z`,
+          id: 1,
+          rating: 2,
+          user: {id: 11, is_pro: false, name: `Jack`, avatar_url: `https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/2.jpg`}
+
+        },
+        {
+          comment: `The house is very good, very happy, hygienic and simple living conditions around it are also very good. I hope to have the opportunity to come back. Thank you.`,
+          date: `2021-01-13T06:16:14.873Z`,
+          id: 2,
+          rating: 3,
+          user: {id: 12, is_pro: true, name: `Isaac`, avatar_url: `https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/3.jpg`}
+        }
+      ]
+    })).toEqual({
+      favorites: null,
+      offers: null,
+      reviews: [
+        {
+          comment: `Bathed in the nature. Completely unplugged. Unforgettable.`,
+          date: `2021-01-13T06:16:14.873Z`,
+          id: 1,
+          rating: 2,
+          user: {id: 11, is_pro: false, name: `Jack`, avatar_url: `https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/2.jpg`}
+
+        },
+        {
+          comment: `The house is very good, very happy, hygienic and simple living conditions around it are also very good. I hope to have the opportunity to come back. Thank you.`,
+          date: `2021-01-13T06:16:14.873Z`,
+          id: 2,
+          rating: 3,
+          user: {id: 12, is_pro: true, name: `Isaac`, avatar_url: `https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/3.jpg`}
+        }
+      ],
+      user: null
+    });
+  });
+
+
+  it(`Reducer should correctly remove offer card from favorites`, () => {
+    expect(reducer({
+      data: {
+        favorites: [{
+          "city":
+          {
+            "name": `Hamburg`,
+            "location":
+            {
+              "latitude": 53.550341,
+              "longitude": 10.000654,
+              "zoom": 13
+            }
+          },
+          "preview_image": `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/7.jpg`,
+          "images": [`https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/1.jpg`,
+            `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/19.jpg`,
+            `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/6.jpg`,
+            `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/14.jpg`,
+            `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/7.jpg`,
+            `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/17.jpg`,
+            `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/9.jpg`,
+            `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/18.jpg`,
+            `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/2.jpg`,
+            `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/11.jpg`,
+            `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/10.jpg`,
+            `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/20.jpg`,
+            `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/12.jpg`,
+            `https://htmlacademy-react-2.appspot.com/six-cities/static/hotel/13.jpg`],
+          "title": `The Pondhouse - A Magical Place`,
+          "is_favorite": false,
+          "is_premium": false,
+          "rating": 2.8,
+          "type": `hotel`,
+          "bedrooms": 3,
+          "max_adults": 9,
+          "price": 482,
+          "goods": [`Washer`,
+            `Air conditioning`,
+            `Baby seat`,
+            `Breakfast`,
+            `Laptop friendly workspace`],
+          "host": {
+            "id": 25,
+            "name": `Angelina`,
+            "is_pro": true,
+            "avatar_url": `img/avatar-angelina.jpg`
+          },
+          "description": `Relax, rejuvenate and unplug in this ultimate rustic getaway experience in the country. In our beautiful screened Pondhouse, you can gaze at the stars and listen to the sounds of nature from your cozy warm bed.`,
+          "location": {
+            "latitude": 53.558341000000006,
+            "longitude": 10.001654,
+            "zoom": 16
+          },
+          "id": 1
+        }],
+        offers: null,
+        reviews: null,
+        user: null
+      }
+    }, {
+      type: `REMOVE_OFFER_FROM_FAVORITES`,
+      payload: 1
+    })).toEqual({
+      favorites: [],
+      offers: null,
+      reviews: null,
+      user: null
+    });
+  });
+
+  it(`Reducer should correctly authorize the user`, () => {
     expect(reducer({
       data: {
         favorites: null,
@@ -2043,6 +2412,57 @@ describe(`Reducer works correctly`, () => {
         isPro: false,
         name: `fdsf`,
       }
+    });
+  });
+
+  it(`Reducer should correctly update reviews`, () => {
+    expect(reducer({
+      data: {
+        favorites: null,
+        offers: null,
+        reviews: [
+          {
+            comment: `Bathed in the nature. Completely unplugged. Unforgettable.`,
+            date: `2021-01-13T06:16:14.873Z`,
+            id: 1,
+            rating: 2,
+            user: {id: 11, is_pro: false, name: `Jack`, avatar_url: `https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/2.jpg`}
+
+          }
+        ],
+        user: null
+      }
+    }, {
+      type: `UPDATE_REVIEWS`,
+      payload:
+        {
+          comment: `The house is very good, very happy, hygienic and simple living conditions around it are also very good. I hope to have the opportunity to come back. Thank you.`,
+          date: `2021-01-13T06:16:14.873Z`,
+          id: 2,
+          rating: 3,
+          user: {id: 12, is_pro: true, name: `Isaac`, avatar_url: `https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/3.jpg`}
+        }
+    })).toEqual({
+      favorites: null,
+      offers: null,
+      reviews: [
+        {
+          comment: `Bathed in the nature. Completely unplugged. Unforgettable.`,
+          date: `2021-01-13T06:16:14.873Z`,
+          id: 1,
+          rating: 2,
+          user: {id: 11, is_pro: false, name: `Jack`, avatar_url: `https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/2.jpg`}
+
+        },
+        {
+          comment: `The house is very good, very happy, hygienic and simple living conditions around it are also very good. I hope to have the opportunity to come back. Thank you.`,
+          date: `2021-01-13T06:16:14.873Z`,
+          id: 2,
+          rating: 3,
+          user: {id: 12, is_pro: true, name: `Isaac`, avatar_url: `https://htmlacademy-react-2.appspot.com/six-cities/static/avatar/3.jpg`}
+        }
+      ],
+      user: null
     });
   });
 });

@@ -44,10 +44,6 @@ const reducer = (state = initialState, action) => {
       return Object.assign({}, state.data, {
         user: action.payload
       });
-    case `SEND_REVIEW`:
-      return Object.assign({}, state.data, {
-        reviews: action.payload
-      });
     case `UPDATE_REVIEWS`:
       const updatedReviews = [
         ...state.data.reviews,

@@ -34,11 +34,6 @@ const ActionCreator = {
     payload: reviews
   }),
 
-  sendReview: (review) => ({
-    type: `SEND_REVIEW`,
-    payload: review
-  }),
-
   updateReviews: (review) => ({
     type: `UPDATE_REVIEWS`,
     payload: review
