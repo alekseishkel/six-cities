@@ -56,7 +56,7 @@ exports[`ReviewsItem correctly renders after relaunch 1`] = `
       className="reviews__time"
       dateTime="2021-01-13T06:16:14.873Z"
     >
-      январь 2021 г.
+      2021 M01
     </time>
   </div>
 </li>

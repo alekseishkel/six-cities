@@ -12,6 +12,7 @@ it(`Map correctly renders after relaunch`, () => {
   const map = renderer.create(
       <Map
         activeCard={offers[1]}
+        changeActiveCard={jest.fn()}
         currentCity={`Cologne`}
         offers={offers}
         pageId={1}

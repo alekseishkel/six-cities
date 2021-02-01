@@ -21,8 +21,9 @@ it(`Sign-in component pass correct data on submit`, () => {
     email: `alex@mail.ru`,
     password: 123
   });
+
   const signInForm = signIn.find(`.login__form`);
   signInForm.at(0).simulate(`submit`);
-  console.log(onSubmitHandler.mock.calls);
+
   expect(onSubmitHandler.mock.results[0].value).toEqual(`alex@mail.ru`);
 });
